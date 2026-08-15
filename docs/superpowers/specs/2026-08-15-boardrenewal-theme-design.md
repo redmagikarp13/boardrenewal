@@ -114,6 +114,12 @@ empilhados, formulários em coluna única, touch targets ≥44px.
 Ferramentas reestilizadas com os mesmos tokens: modais, tooltips, dropdowns,
 formulários, tabelas, alertas, badges, avatares.
 
+**Telas de autenticação e públicas:** login, "esqueci a senha" e reset de senha
+passam pelo mesmo `layout.php` e recebem o tema — o formulário de login vira um
+card centralizado moderno com logo da instância, funcionando nos 4 modos
+(claro/escuro/auto/HC). Páginas públicas somente leitura (board público, via flag
+`not_editable`) também são cobertas pelo override de layout.
+
 ## 6. Personalização por projeto
 
 Aba **"Aparência"** nas settings do projeto (gerentes de projeto + admins):
