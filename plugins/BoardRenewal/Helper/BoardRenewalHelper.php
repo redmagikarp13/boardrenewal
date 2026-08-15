@@ -28,7 +28,7 @@ class BoardRenewalHelper extends Base
             return array();
         }
 
-        $ids = $this->projectPermission->getActiveProjectIds($this->userSession->getId());
+        $ids = $this->projectPermissionModel->getActiveProjectIds($this->userSession->getId());
 
         return $this->projectModel->getAllByIds($ids);
     }
