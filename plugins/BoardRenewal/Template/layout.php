@@ -71,6 +71,7 @@
                 )) ?>
             <?php endif ?>
             <div class="br-main">
+                <button type="button" class="br-menu-button" id="br-menu-button" aria-label="Menu">☰</button>
                 <?= $this->render('header', array(
                     'title' => $title,
                     'description' => isset($description) ? $description : '',

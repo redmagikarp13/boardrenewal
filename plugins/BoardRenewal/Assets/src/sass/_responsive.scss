@@ -1,0 +1,132 @@
+// BoardRenewal — responsividade
+
+// Tablet: sidebar vira barra de ícones
+@media (max-width: 1023px) {
+  .br-sidebar {
+    width: 56px;
+    padding: 10px 6px;
+
+    .br-sidebar__name, .br-sidebar__section-title,
+    .br-nav-item span:not(.br-nav-item__icon),
+    .br-sidebar__search span, .br-sidebar__search kbd {
+      display: none;
+    }
+
+    .br-sidebar__search {
+      justify-content: center;
+    }
+
+    .br-nav-item {
+      justify-content: center;
+      padding: 9px 6px;
+    }
+  }
+}
+
+// Mobile: sidebar vira drawer, board rola com snap
+@media (max-width: 767px) {
+  .br-menu-button {
+    display: block;
+  }
+
+  .br-app {
+    display: block;
+  }
+
+  .br-sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 270px;
+    transform: translateX(-100%);
+    transition: transform 0.2s ease;
+    z-index: 1000;
+
+    .br-sidebar__name, .br-sidebar__section-title,
+    .br-nav-item span:not(.br-nav-item__icon),
+    .br-sidebar__search span, .br-sidebar__search kbd {
+      display: inline;
+    }
+
+    .br-nav-item {
+      justify-content: flex-start;
+    }
+
+    &--open {
+      transform: translateX(0);
+      box-shadow: var(--br-shadow-md);
+    }
+  }
+
+  body.br-drawer-open::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    z-index: 999;
+  }
+
+  .br-main > header {
+    padding: 8px 12px;
+
+    h1 {
+      font-size: 15px;
+    }
+
+    .board-selector-container {
+      display: none;
+    }
+  }
+
+  section.page {
+    padding: 12px;
+  }
+
+  // Board mobile: scroll horizontal com snap por coluna
+  #board-container {
+    table {
+      border-spacing: 8px 0;
+    }
+
+    td {
+      min-width: 80vw;
+      scroll-snap-align: start;
+    }
+  }
+
+  // Tabelas de listagem viram cards empilhados
+  table:not([id^="board-"], .board-project-1) {
+    thead {
+      display: none;
+    }
+
+    tr {
+      display: block;
+      background: var(--br-surface);
+      border: 1px solid var(--br-border);
+      border-radius: var(--br-radius);
+      margin-bottom: 10px;
+      padding: 6px 0;
+    }
+
+    td {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      border: 0;
+      padding: 6px 12px;
+    }
+  }
+
+  // Formulários em coluna única, targets grandes
+  .form-actions, .form-help {
+    width: 100%;
+  }
+
+  input[type="text"], input[type="password"], input[type="email"],
+  input[type="number"], input[type="search"], select, textarea,
+  .btn {
+    min-height: 44px;
+  }
+}
