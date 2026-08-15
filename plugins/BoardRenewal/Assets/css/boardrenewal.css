@@ -293,3 +293,291 @@ section.page {
   cursor: pointer;
   padding: 8px;
 }
+
+#board-container {
+  background: var(--br-bg);
+  border-radius: var(--br-radius-lg);
+  overflow-x: auto;
+}
+#board-container table {
+  border-collapse: separate;
+  border-spacing: 10px 0;
+  width: 100%;
+}
+#board-container td {
+  background: var(--br-surface-2);
+  border-radius: var(--br-radius);
+  vertical-align: top;
+  border: 1px solid var(--br-border);
+  min-width: 230px;
+  padding: 8px;
+}
+
+.board-column-header {
+  padding: 4px 4px 8px;
+}
+.board-column-header .board-column-title, .board-column-header strong, .board-column-header a {
+  color: var(--br-text);
+  font-size: 13px;
+}
+
+.board-swimlane {
+  color: var(--br-text-secondary);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 10px 4px 2px;
+}
+
+.board-item, .task-board {
+  background: var(--br-surface);
+  border: 1px solid var(--br-border) !important;
+  border-radius: var(--br-radius);
+  box-shadow: var(--br-shadow-sm);
+  padding: 10px;
+  margin: 6px 0;
+  font-size: 13px;
+  color: #1f2430;
+  transition: box-shadow 0.12s ease, transform 0.12s ease;
+}
+.board-item:hover, .task-board:hover {
+  box-shadow: var(--br-shadow-md);
+}
+.board-item a, .task-board a {
+  color: #1f2430;
+}
+.board-item .task-board-icons, .board-item .task-footer, .task-board .task-board-icons, .task-board .task-footer {
+  color: rgba(31, 36, 48, 0.65);
+}
+.board-item .task-board-icons a, .board-item .task-footer a, .task-board .task-board-icons a, .task-board .task-footer a {
+  color: rgba(31, 36, 48, 0.65);
+}
+.board-item[style*=background], .task-board[style*=background] {
+  border-left-width: 3px !important;
+}
+
+.task-board-title {
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.task-board-icons, .task-footer {
+  font-size: 11px;
+  margin-top: 6px;
+}
+
+.task-board-category, .badge {
+  display: inline-block;
+  background: var(--br-accent-soft);
+  color: var(--br-accent);
+  border: 0 !important;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 500;
+  padding: 1px 9px;
+  margin: 0 4px 4px 0;
+}
+
+.task-board-sortable, .draggable-item {
+  cursor: grab;
+}
+
+.dropdown {
+  display: inline;
+  position: relative;
+}
+.dropdown ul {
+  display: none;
+  position: absolute;
+  right: 0;
+  z-index: 1000;
+  min-width: 240px;
+  list-style: none;
+  margin: 4px 0 0;
+  padding: 6px;
+  background: var(--br-surface);
+  border: 1px solid var(--br-border);
+  border-radius: var(--br-radius);
+  box-shadow: var(--br-shadow-md);
+}
+.dropdown ul li a {
+  display: block;
+  padding: 7px 10px;
+  border-radius: var(--br-radius-sm);
+  color: var(--br-text);
+  font-size: 13px;
+}
+.dropdown ul li a:hover {
+  background: var(--br-surface-2);
+  text-decoration: none;
+}
+.dropdown ul li.no-hover a:hover {
+  background: none;
+}
+.dropdown.dropdown-open ul {
+  display: block;
+}
+
+ul.dropdown-submenu-open {
+  display: block !important;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--br-surface);
+  color: var(--br-text);
+  border: 1px solid var(--br-border-strong);
+  border-radius: var(--br-radius-sm);
+  font-size: 13px;
+  font-weight: 500;
+  padding: 7px 14px;
+  cursor: pointer;
+  text-decoration: none !important;
+  transition: background 0.1s ease, border-color 0.1s ease;
+}
+.btn:hover {
+  background: var(--br-surface-2);
+  color: var(--br-text);
+}
+
+.btn-blue, .btn-primary {
+  background: var(--br-accent);
+  border-color: var(--br-accent);
+  color: var(--br-accent-contrast);
+}
+.btn-blue:hover, .btn-primary:hover {
+  background: var(--br-accent-hover);
+  color: var(--br-accent-contrast);
+}
+
+.btn-red {
+  background: var(--br-danger);
+  border-color: var(--br-danger);
+  color: #fff;
+}
+
+.btn-green {
+  background: var(--br-success);
+  border-color: var(--br-success);
+  color: #fff;
+}
+
+input[type=text], input[type=password], input[type=email],
+input[type=number], input[type=search], select, textarea {
+  background: var(--br-surface);
+  color: var(--br-text);
+  border: 1px solid var(--br-border-strong);
+  border-radius: var(--br-radius-sm);
+  padding: 8px 10px;
+  font-size: 14px;
+  font-family: var(--br-font);
+  max-width: 100%;
+}
+input[type=text]:focus, input[type=password]:focus, input[type=email]:focus,
+input[type=number]:focus, input[type=search]:focus, select:focus, textarea:focus {
+  outline: none;
+  border-color: var(--br-accent);
+  box-shadow: 0 0 0 3px var(--br-accent-soft);
+}
+
+label {
+  color: var(--br-text-secondary);
+  font-weight: 500;
+  font-size: 13px;
+}
+
+.form-help {
+  color: var(--br-text-muted);
+  font-size: 12px;
+}
+
+.form-required {
+  color: var(--br-danger);
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+table th, table td {
+  text-align: left;
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--br-border);
+  color: var(--br-text);
+}
+table th {
+  background: var(--br-surface-2);
+  color: var(--br-text-secondary);
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+table tr:hover td {
+  background: var(--br-surface-2);
+}
+
+.alert {
+  border-radius: var(--br-radius);
+  padding: 10px 14px;
+  font-size: 13px;
+  border: 1px solid var(--br-border);
+  background: var(--br-surface-2);
+  color: var(--br-text);
+}
+
+.alert-success {
+  border-color: var(--br-success);
+}
+
+.alert-error {
+  border-color: var(--br-danger);
+}
+
+#modal-box, .ui-widget, .select2-dropdown, .tooltip-container .tooltip {
+  background: var(--br-surface);
+  color: var(--br-text);
+  border: 1px solid var(--br-border);
+  border-radius: var(--br-radius);
+  box-shadow: var(--br-shadow-md);
+}
+
+#modal-box .modal-header {
+  border-bottom: 1px solid var(--br-border);
+  padding: 14px 18px;
+  font-weight: 650;
+}
+
+#modal-box .modal-content {
+  padding: 18px;
+}
+
+.js-dropdown-container {
+  background: var(--br-surface);
+  border: 1px solid var(--br-border);
+  border-radius: var(--br-radius);
+  box-shadow: var(--br-shadow-md);
+  padding: 6px;
+}
+.js-dropdown-container a {
+  display: block;
+  padding: 7px 10px;
+  border-radius: var(--br-radius-sm);
+  color: var(--br-text);
+}
+.js-dropdown-container a:hover {
+  background: var(--br-surface-2);
+  text-decoration: none;
+}
+
+.form-login {
+  max-width: 380px;
+  margin: 8vh auto;
+  background: var(--br-surface);
+  border: 1px solid var(--br-border);
+  border-radius: var(--br-radius-lg);
+  box-shadow: var(--br-shadow-md);
+  padding: 32px;
+}

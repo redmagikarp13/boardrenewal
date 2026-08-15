@@ -1,0 +1,224 @@
+// BoardRenewal — botões, forms, tabelas, modais, alertas e dropdowns
+
+// Dropdowns do core (span.dropdown > ul) — escondidos por padrão, abertos via JS
+.dropdown {
+  display: inline;
+  position: relative;
+
+  ul {
+    display: none;
+    position: absolute;
+    right: 0;
+    z-index: 1000;
+    min-width: 240px;
+    list-style: none;
+    margin: 4px 0 0;
+    padding: 6px;
+    background: var(--br-surface);
+    border: 1px solid var(--br-border);
+    border-radius: var(--br-radius);
+    box-shadow: var(--br-shadow-md);
+
+    li {
+      a {
+        display: block;
+        padding: 7px 10px;
+        border-radius: var(--br-radius-sm);
+        color: var(--br-text);
+        font-size: 13px;
+
+        &:hover {
+          background: var(--br-surface-2);
+          text-decoration: none;
+        }
+      }
+
+      &.no-hover a:hover {
+        background: none;
+      }
+    }
+  }
+
+  &.dropdown-open ul {
+    display: block;
+  }
+}
+
+// Classe aplicada pelo app.min.js no <ul> ao abrir
+ul.dropdown-submenu-open {
+  display: block !important;
+}
+
+// Botões (o core usa .btn, .btn-blue, .btn-red, .btn-green)
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--br-surface);
+  color: var(--br-text);
+  border: 1px solid var(--br-border-strong);
+  border-radius: var(--br-radius-sm);
+  font-size: 13px;
+  font-weight: 500;
+  padding: 7px 14px;
+  cursor: pointer;
+  text-decoration: none !important;
+  transition: background 0.1s ease, border-color 0.1s ease;
+
+  &:hover {
+    background: var(--br-surface-2);
+    color: var(--br-text);
+  }
+}
+
+.btn-blue, .btn-primary {
+  background: var(--br-accent);
+  border-color: var(--br-accent);
+  color: var(--br-accent-contrast);
+
+  &:hover {
+    background: var(--br-accent-hover);
+    color: var(--br-accent-contrast);
+  }
+}
+
+.btn-red {
+  background: var(--br-danger);
+  border-color: var(--br-danger);
+  color: #fff;
+}
+
+.btn-green {
+  background: var(--br-success);
+  border-color: var(--br-success);
+  color: #fff;
+}
+
+// Formulários
+input[type="text"], input[type="password"], input[type="email"],
+input[type="number"], input[type="search"], select, textarea {
+  background: var(--br-surface);
+  color: var(--br-text);
+  border: 1px solid var(--br-border-strong);
+  border-radius: var(--br-radius-sm);
+  padding: 8px 10px;
+  font-size: 14px;
+  font-family: var(--br-font);
+  max-width: 100%;
+
+  &:focus {
+    outline: none;
+    border-color: var(--br-accent);
+    box-shadow: 0 0 0 3px var(--br-accent-soft);
+  }
+}
+
+label {
+  color: var(--br-text-secondary);
+  font-weight: 500;
+  font-size: 13px;
+}
+
+.form-help {
+  color: var(--br-text-muted);
+  font-size: 12px;
+}
+
+.form-required {
+  color: var(--br-danger);
+}
+
+// Tabelas
+table {
+  border-collapse: collapse;
+  width: 100%;
+
+  th, td {
+    text-align: left;
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--br-border);
+    color: var(--br-text);
+  }
+
+  th {
+    background: var(--br-surface-2);
+    color: var(--br-text-secondary);
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  tr:hover td {
+    background: var(--br-surface-2);
+  }
+}
+
+// Alertas
+.alert {
+  border-radius: var(--br-radius);
+  padding: 10px 14px;
+  font-size: 13px;
+  border: 1px solid var(--br-border);
+  background: var(--br-surface-2);
+  color: var(--br-text);
+}
+
+.alert-success {
+  border-color: var(--br-success);
+}
+
+.alert-error {
+  border-color: var(--br-danger);
+}
+
+// Modais / popovers (vendor dropdowns + modais do app.min.js)
+#modal-box, .ui-widget, .select2-dropdown, .tooltip-container .tooltip {
+  background: var(--br-surface);
+  color: var(--br-text);
+  border: 1px solid var(--br-border);
+  border-radius: var(--br-radius);
+  box-shadow: var(--br-shadow-md);
+}
+
+#modal-box .modal-header {
+  border-bottom: 1px solid var(--br-border);
+  padding: 14px 18px;
+  font-weight: 650;
+}
+
+#modal-box .modal-content {
+  padding: 18px;
+}
+
+// Dropdowns de menu do header (js-dropdown-container)
+.js-dropdown-container {
+  background: var(--br-surface);
+  border: 1px solid var(--br-border);
+  border-radius: var(--br-radius);
+  box-shadow: var(--br-shadow-md);
+  padding: 6px;
+
+  a {
+    display: block;
+    padding: 7px 10px;
+    border-radius: var(--br-radius-sm);
+    color: var(--br-text);
+
+    &:hover {
+      background: var(--br-surface-2);
+      text-decoration: none;
+    }
+  }
+}
+
+// Tela de login
+.form-login {
+  max-width: 380px;
+  margin: 8vh auto;
+  background: var(--br-surface);
+  border: 1px solid var(--br-border);
+  border-radius: var(--br-radius-lg);
+  box-shadow: var(--br-shadow-md);
+  padding: 32px;
+}
