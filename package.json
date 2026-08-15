@@ -1,0 +1,11 @@
+{
+  "name": "boardrenewal",
+  "private": true,
+  "scripts": {
+    "build": "sass --no-source-map plugins/BoardRenewal/Assets/src/sass/main.scss plugins/BoardRenewal/Assets/css/boardrenewal.css",
+    "watch": "sass --watch --no-source-map plugins/BoardRenewal/Assets/src/sass/main.scss plugins/BoardRenewal/Assets/css/boardrenewal.css"
+  },
+  "devDependencies": {
+    "sass": "^1.77.0"
+  }
+}
