@@ -1,4 +1,2 @@
-// BoardRenewal — entrypoint (tokens e componentes entram nas próximas tasks)
-body {
-  outline: 3px solid magenta; // marcador temporário para confirmar que o CSS está carregando
-}
+// BoardRenewal — entrypoint
+@use 'tokens';

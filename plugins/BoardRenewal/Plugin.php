@@ -8,7 +8,14 @@ class Plugin extends Base
 {
     public function initialize()
     {
-        $this->template->setTemplateOverride('layout', 'boardrenewal:layout');
+        $this->template->setTemplateOverride('layout', 'boardRenewal:layout');
+    }
+
+    public function getHelpers()
+    {
+        return array(
+            'Plugin\BoardRenewal\Helper' => array('BoardRenewalHelper'),
+        );
     }
 
     public function getPluginName()
