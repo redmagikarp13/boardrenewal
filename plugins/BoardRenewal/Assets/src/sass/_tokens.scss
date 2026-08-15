@@ -1,1 +1,97 @@
-// BoardRenewal — tokens de design (preenchido na Task 3)
+// Tokens BoardRenewal (--br-*)
+
+:root,
+[data-theme='light'] {
+  --br-accent: #6366f1;
+  --br-accent-hover: #4f46e5;
+  --br-accent-soft: #eef2ff;
+  --br-accent-contrast: #ffffff;
+
+  --br-bg: #fafafa;
+  --br-surface: #ffffff;
+  --br-surface-2: #f1f2f8;
+  --br-sidebar-bg: #191a23;
+  --br-sidebar-fg: #c7cadf;
+  --br-sidebar-fg-muted: #6b7194;
+  --br-sidebar-active: #6366f1;
+
+  --br-text: #0f172a;
+  --br-text-secondary: #475569;
+  --br-text-muted: #94a3b8;
+
+  --br-border: #e5e7ef;
+  --br-border-strong: #cbd5e1;
+
+  --br-shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.06);
+  --br-shadow-md: 0 4px 12px rgba(15, 23, 42, 0.10);
+
+  --br-danger: #dc2626;
+  --br-success: #16a34a;
+  --br-warning: #d97706;
+
+  --br-radius-sm: 6px;
+  --br-radius: 10px;
+  --br-radius-lg: 14px;
+
+  --br-font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+
+  // Compat com componentes do core que ainda referenciam tokens antigos (vendor, colorCss)
+  --color-primary: var(--br-text);
+  --link-color-primary: var(--br-accent);
+  --button-primary-background-color: var(--br-accent);
+  --button-primary-border-color: var(--br-accent);
+}
+
+@mixin dark-vars {
+  --br-accent-soft: #2a2c3f;
+  --br-bg: #14151d;
+  --br-surface: #1e2030;
+  --br-surface-2: #262839;
+  --br-sidebar-bg: #101118;
+  --br-text: #e6e8f2;
+  --br-text-secondary: #a7adc6;
+  --br-text-muted: #6b7194;
+  --br-border: #32344a;
+  --br-border-strong: #4a4d6a;
+  --br-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --br-shadow-md: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+[data-theme='dark'] {
+  @include dark-vars;
+}
+
+// Auto: acompanha o dispositivo quando o usuário escolheu "auto"
+[data-theme='auto'] {
+  @media (prefers-color-scheme: dark) {
+    @include dark-vars;
+  }
+}
+
+// Alto contraste (ortogonal ao tema)
+[data-contrast='high'] {
+  --br-shadow-sm: none;
+  --br-shadow-md: none;
+  --br-border: #64748b;
+  --br-border-strong: #0f172a;
+  --br-text-muted: var(--br-text-secondary);
+
+  &[data-theme='dark'] {
+    --br-border: #94a3b8;
+  }
+
+  &[data-theme='auto'] {
+    @media (prefers-color-scheme: dark) {
+      --br-border: #94a3b8;
+    }
+  }
+
+  * {
+    text-shadow: none !important;
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--br-accent);
+    outline-offset: 2px;
+  }
+}
