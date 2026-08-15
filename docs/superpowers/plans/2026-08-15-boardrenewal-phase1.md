@@ -17,7 +17,7 @@
 - Instância: Kanboard 1.2.53 em Docker no NAS. Web: `http://nasleo.local:8080`. SSH: `root@nasleo.local`.
 - Volumes do host: `/opt/kanboard/data` e `/opt/kanboard/plugins` — copiar a pasta do plugin já ativa (não precisa restart do container).
 - Plugins carregam via classe `Kanboard\Plugin\{NomePasta}\Plugin` (arquivo `Plugin.php`), extendendo `Kanboard\Core\Plugin\Base`.
-- Template override: `$this->template->setTemplateOverride('layout', 'boardrenewal:layout')` → resolve para `plugins/BoardRenewal/Template/layout.php`.
+- Template override: `$this->template->setTemplateOverride('layout', 'boardRenewal:layout')` → resolve para `plugins/BoardRenewal/Template/layout.php`.
 - Helpers disponíveis em templates: `$this->app`, `$this->asset`, `$this->url`, `$this->user`, `$this->text`, `$this->hook`, `$this->model`, `$this->layout`, etc.
 - `UserSession::getTheme()` retorna `light|dark|auto` (preferência nativa do usuário).
 - O layout do core está em `app/Template/layout.php` (já copiado abaixo como base do nosso override).
@@ -56,7 +56,7 @@ class Plugin extends Base
 {
     public function initialize()
     {
-        $this->template->setTemplateOverride('layout', 'boardrenewal:layout');
+        $this->template->setTemplateOverride('layout', 'boardRenewal:layout');
     }
 
     public function getPluginName()
@@ -293,7 +293,7 @@ Baseado no `app/Template/layout.php` do core 1.2.53, com estas mudanças:
         <?= $this->hook->render('template:layout:top') ?>
         <div class="br-app">
             <?php if ($this->BoardRenewalHelper->isLogged()): ?>
-                <?= $this->render('boardrenewal:sidebar', array(
+                <?= $this->render('boardRenewal:sidebar', array(
                     'project' => isset($project) ? $project : array(),
                 )) ?>
             <?php endif ?>
