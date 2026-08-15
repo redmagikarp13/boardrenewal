@@ -114,9 +114,12 @@ input[type="number"], input[type="search"], select, textarea {
 }
 
 label {
+  display: block;
+  margin-top: 10px;
   color: var(--br-text-secondary);
   font-weight: 500;
   font-size: 13px;
+  cursor: pointer;
 }
 
 .form-help {
@@ -221,4 +224,31 @@ table {
   border-radius: var(--br-radius-lg);
   box-shadow: var(--br-shadow-md);
   padding: 32px;
+
+  form {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    column-gap: 6px;
+  }
+
+  label {
+    flex-basis: 100%;
+    margin-top: 12px;
+  }
+
+  input[type="text"], input[type="password"] {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .form-actions {
+    flex-basis: 100%;
+    margin-top: 18px;
+  }
+
+  .reset-password {
+    flex-basis: 100%;
+    margin-top: 12px;
+  }
 }
