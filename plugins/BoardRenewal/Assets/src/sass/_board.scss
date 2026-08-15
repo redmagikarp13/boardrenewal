@@ -106,3 +106,22 @@
 .task-board-sortable, .draggable-item {
   cursor: grab;
 }
+
+// Regras estruturais do board.css do core (necessárias sem o CSS de tema)
+.board-column-collapsed {
+  display: none;
+}
+
+.draggable-placeholder {
+  border: 2px dashed var(--br-border-strong);
+  background: var(--br-surface-2);
+  height: 70px;
+  margin-bottom: 10px;
+  border-radius: var(--br-radius);
+}
+
+// Linhas "fantasma" de alinhamento em boards multi-raia
+.board-swimlane-columns-first {
+  visibility: hidden;
+  padding: 0;
+}

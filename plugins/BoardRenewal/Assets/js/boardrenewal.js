@@ -10,18 +10,39 @@
         root.setAttribute('data-contrast', 'high');
     }
 
-    function toggleContrast() {
+    function syncContrastButton(button) {
+        if (button) {
+            button.setAttribute('aria-pressed',
+                root.getAttribute('data-contrast') === 'high' ? 'true' : 'false');
+        }
+    }
+
+    function toggleContrast(button) {
         var current = root.getAttribute('data-contrast') === 'high' ? 'default' : 'high';
         root.setAttribute('data-contrast', current);
+        syncContrastButton(button);
         try { localStorage.setItem('boardrenewal.contrast', current); } catch (e) {}
     }
 
     document.addEventListener('DOMContentLoaded', function () {
         var contrastButton = document.getElementById('br-contrast-toggle');
         if (contrastButton) {
-            contrastButton.addEventListener('click', toggleContrast);
-            contrastButton.setAttribute('aria-pressed',
-                root.getAttribute('data-contrast') === 'high' ? 'true' : 'false');
+            syncContrastButton(contrastButton);
+            contrastButton.addEventListener('click', function () {
+                toggleContrast(contrastButton);
+            });
+        }
+
+        // Botão de busca da sidebar: foca o campo de busca/pesquisa da página
+        var searchButton = document.getElementById('br-search-button');
+        if (searchButton) {
+            searchButton.addEventListener('click', function () {
+                var input = document.querySelector('section.page input[type="text"], section.page input[type="search"]');
+                if (input) {
+                    input.focus();
+                    input.scrollIntoView({ block: 'center' });
+                }
+            });
         }
 
         // Drawer mobile

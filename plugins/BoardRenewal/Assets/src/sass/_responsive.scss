@@ -95,8 +95,8 @@
     }
   }
 
-  // Tabelas de listagem viram cards empilhados
-  table:not([id^="board-"], .board-project-1) {
+  // Tabelas de listagem viram cards empilhados (a tabela do board é #board)
+  table:not(#board) {
     thead {
       display: none;
     }

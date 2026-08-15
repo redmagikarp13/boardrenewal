@@ -382,6 +382,23 @@ section.page {
   cursor: grab;
 }
 
+.board-column-collapsed {
+  display: none;
+}
+
+.draggable-placeholder {
+  border: 2px dashed var(--br-border-strong);
+  background: var(--br-surface-2);
+  height: 70px;
+  margin-bottom: 10px;
+  border-radius: var(--br-radius);
+}
+
+.board-swimlane-columns-first {
+  visibility: hidden;
+  padding: 0;
+}
+
 .dropdown {
   display: inline;
   position: relative;
@@ -420,6 +437,27 @@ section.page {
 
 ul.dropdown-submenu-open {
   display: block !important;
+  position: absolute;
+  z-index: 1000;
+  min-width: 240px;
+  list-style: none;
+  margin: 3px 0 0;
+  padding: 6px;
+  background: var(--br-surface);
+  border: 1px solid var(--br-border);
+  border-radius: var(--br-radius);
+  box-shadow: var(--br-shadow-md);
+}
+ul.dropdown-submenu-open li a {
+  display: block;
+  padding: 7px 10px;
+  border-radius: var(--br-radius-sm);
+  color: var(--br-text);
+  font-size: 13px;
+}
+ul.dropdown-submenu-open li a:hover {
+  background: var(--br-surface-2);
+  text-decoration: none;
 }
 
 .btn {
@@ -539,7 +577,24 @@ table tr:hover td {
   border-color: var(--br-danger);
 }
 
-#modal-box, .ui-widget, .select2-dropdown, .tooltip-container .tooltip {
+#modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  overflow: auto;
+  z-index: 100;
+}
+
+#modal-box {
+  position: fixed;
+  top: 2%;
+  left: 50%;
+  transform: translateX(-50%);
+  max-height: calc(100% - 30px);
+  overflow: auto;
   background: var(--br-surface);
   color: var(--br-text);
   border: 1px solid var(--br-border);
@@ -555,24 +610,6 @@ table tr:hover td {
 
 #modal-box .modal-content {
   padding: 18px;
-}
-
-.js-dropdown-container {
-  background: var(--br-surface);
-  border: 1px solid var(--br-border);
-  border-radius: var(--br-radius);
-  box-shadow: var(--br-shadow-md);
-  padding: 6px;
-}
-.js-dropdown-container a {
-  display: block;
-  padding: 7px 10px;
-  border-radius: var(--br-radius-sm);
-  color: var(--br-text);
-}
-.js-dropdown-container a:hover {
-  background: var(--br-surface-2);
-  text-decoration: none;
 }
 
 .form-login {
@@ -680,10 +717,10 @@ table tr:hover td {
     min-width: 80vw;
     scroll-snap-align: start;
   }
-  table:not([id^=board-], .board-project-1) thead {
+  table:not(#board) thead {
     display: none;
   }
-  table:not([id^=board-], .board-project-1) tr {
+  table:not(#board) tr {
     display: block;
     background: var(--br-surface);
     border: 1px solid var(--br-border);
@@ -691,7 +728,7 @@ table tr:hover td {
     margin-bottom: 10px;
     padding: 6px 0;
   }
-  table:not([id^=board-], .board-project-1) td {
+  table:not(#board) td {
     display: flex;
     justify-content: space-between;
     gap: 12px;
