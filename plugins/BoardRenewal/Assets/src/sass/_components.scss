@@ -123,6 +123,43 @@ ul.dropdown-submenu-open {
   }
 }
 
+// Menu de autocomplete do seletor de projetos (select-dropdown-autocomplete)
+.select-dropdown-menu {
+  position: absolute;
+  display: block;
+  z-index: 1000;
+  min-width: 200px;
+  max-height: 300px;
+  overflow: auto;
+  margin: 4px 0 0;
+  padding: 6px;
+  list-style: none;
+  background: var(--br-surface);
+  border: 1px solid var(--br-border);
+  border-radius: var(--br-radius);
+  box-shadow: var(--br-shadow-md);
+}
+
+.select-dropdown-menu-item {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 7px 10px;
+  border-radius: var(--br-radius-sm);
+  color: var(--br-text);
+  font-size: 13px;
+  cursor: pointer;
+
+  &:hover {
+    background: var(--br-surface-2);
+  }
+
+  &.active {
+    background: var(--br-accent);
+    color: #fff;
+  }
+}
+
 // Botões (o core usa .btn, .btn-blue, .btn-red, .btn-green)
 .btn {
   display: inline-flex;

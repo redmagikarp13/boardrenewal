@@ -81,14 +81,23 @@
 
     .js-select-dropdown-autocomplete-rendered {
       width: 100%;
+    }
 
-      input,
-      .select-dropdown-autocomplete-input {
-        width: 100%;
-        background: rgba(255, 255, 255, 0.08);
-        border: 1px solid transparent;
-        border-radius: var(--br-radius);
-        padding: 8px 10px;
+    // Container relativo para posicionar a seta à direita
+    .select-dropdown-input-container {
+      position: relative;
+      display: flex;
+      align-items: center;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid transparent;
+      border-radius: var(--br-radius);
+
+      input.select-dropdown-input {
+        flex: 1;
+        min-width: 0;
+        background: transparent;
+        border: none;
+        padding: 8px 28px 8px 10px;
         color: var(--br-sidebar-fg);
         font-size: 13px;
 
@@ -98,13 +107,26 @@
 
         &:focus {
           outline: none;
-          border-color: var(--br-accent);
-          background: rgba(255, 255, 255, 0.12);
         }
       }
+
+      // Seta (chevron) alinhada à direita
+      .select-dropdown-chevron {
+        position: absolute;
+        top: 50%;
+        right: 10px;
+        transform: translateY(-50%);
+        color: var(--br-sidebar-fg-muted);
+        cursor: pointer;
+        pointer-events: none;
+      }
+    }
+
+    &:focus-within .select-dropdown-input-container {
+      border-color: var(--br-accent);
+      background: rgba(255, 255, 255, 0.12);
     }
   }
-
   &__section-title {
     color: var(--br-sidebar-fg-muted);
     font-size: 11px;
