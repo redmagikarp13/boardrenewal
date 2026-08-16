@@ -847,7 +847,7 @@ table tr:hover td {
     padding: 10px 6px;
   }
   .br-sidebar .br-sidebar__name, .br-sidebar .br-sidebar__section-title,
-  .br-sidebar .br-nav-item span:not(.br-nav-item__icon),
+  .br-sidebar .br-nav-item__label,
   .br-sidebar .br-sidebar__search span, .br-sidebar .br-sidebar__search kbd {
     display: none;
   }
