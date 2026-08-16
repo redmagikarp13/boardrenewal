@@ -25,14 +25,6 @@
     }
 
     document.addEventListener('DOMContentLoaded', function () {
-        // Move o seletor de projetos da topbar para a sidebar
-        var boardSelector = document.querySelector('.board-selector-container');
-        var sidebarSelector = document.querySelector('.br-sidebar__project-selector');
-        if (boardSelector && sidebarSelector) {
-            sidebarSelector.appendChild(boardSelector);
-            boardSelector.style.display = 'block';
-        }
-
         // Adiciona avatar no cabeçalho do dropdown do usuário
         // (capture: o app.min.js faz stopPropagation no clique do dropdown)
         document.addEventListener('click', function (e) {

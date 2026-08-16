@@ -22,7 +22,6 @@ $brCurrentProjectId = isset($project['id']) ? $project['id'] : 0;
 
         <div class="br-sidebar__section-title"><?= t('Projects') ?></div>
 
-        <div class="br-sidebar__project-selector br-nav-item"></div>
         <?php foreach ($brProjects as $brProject): ?>
             <a class="br-nav-item <?= $brProject['id'] == $brCurrentProjectId ? 'br-nav-item--active' : '' ?>"
                href="<?= $this->url->href('BoardViewController', 'show', array('project_id' => $brProject['id'])) ?>">

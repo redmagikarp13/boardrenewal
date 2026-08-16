@@ -409,7 +409,7 @@ section.page {
   text-overflow: ellipsis;
 }
 .br-main > header .board-selector-container {
-  display: none;
+  max-width: 260px;
 }
 .br-main > header .menus-container {
   display: flex;
