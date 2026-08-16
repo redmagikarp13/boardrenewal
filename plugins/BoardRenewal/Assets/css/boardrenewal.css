@@ -341,9 +341,14 @@ section.page {
   padding: 9px 6px;
 }
 .br-sidebar--collapsed .br-sidebar__brand {
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 0 12px;
+}
+.br-sidebar--collapsed .br-sidebar__brand a {
   justify-content: center;
-  padding-left: 0;
-  padding-right: 0;
+  width: 100%;
 }
 .br-sidebar--collapsed .br-sidebar__footer {
   flex-direction: column;
@@ -367,9 +372,14 @@ section.page {
     padding: 9px 6px;
   }
   [data-sidebar=collapsed] .br-sidebar .br-sidebar__brand {
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    padding: 4px 0 12px;
+  }
+  [data-sidebar=collapsed] .br-sidebar .br-sidebar__brand a {
     justify-content: center;
-    padding-left: 0;
-    padding-right: 0;
+    width: 100%;
   }
   [data-sidebar=collapsed] .br-sidebar .br-sidebar__footer {
     flex-direction: column;
