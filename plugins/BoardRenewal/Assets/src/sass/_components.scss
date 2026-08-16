@@ -545,6 +545,85 @@ section.page:has(.sidebar-container .sidebar ul li.active) {
   }
 }
 
+// Visão Global real (/project/N/overview): cards de contagem + accordion
+.project-overview-columns {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 12px;
+  margin: 20px 0;
+
+  .project-overview-column {
+    background: var(--br-surface);
+    border: 1px solid var(--br-border);
+    border-radius: var(--br-radius);
+    padding: 16px;
+    text-align: center;
+    transition: all 0.2s ease;
+
+    &:hover {
+      border-color: var(--br-accent);
+      box-shadow: var(--br-shadow-sm);
+    }
+
+    strong {
+      display: block;
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--br-text);
+      margin-bottom: 4px;
+    }
+
+    small {
+      font-size: 12px;
+      color: var(--br-text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+  }
+}
+
+// Accordion (Descrição, Anexos, Informações, Atividades)
+.accordion-section {
+  background: var(--br-surface);
+  border: 1px solid var(--br-border);
+  border-radius: var(--br-radius);
+  margin-bottom: 12px;
+  overflow: hidden;
+
+  .accordion-title {
+    padding: 14px 16px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--br-text);
+    cursor: pointer;
+    transition: background 0.2s ease;
+    list-style: none;
+
+    &::-webkit-details-marker {
+      display: none;
+    }
+
+    &:hover {
+      background: var(--br-surface-2);
+    }
+  }
+
+  .accordion-content {
+    padding: 16px;
+    border-top: 1px solid var(--br-border);
+    font-size: 14px;
+    color: var(--br-text);
+
+    .buttons-header {
+      margin-bottom: 12px;
+    }
+  }
+
+  &[open] .accordion-title {
+    border-bottom: 1px solid var(--br-border);
+  }
+}
+
 // Dropdowns do core (span.dropdown > ul) — escondidos por padrão, abertos via JS
 .dropdown {
   display: inline;

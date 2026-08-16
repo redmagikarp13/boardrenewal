@@ -1062,6 +1062,73 @@ section.page:has(.sidebar-container .sidebar ul li.active) table.table-striped t
   color: var(--br-text);
 }
 
+.project-overview-columns {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 12px;
+  margin: 20px 0;
+}
+.project-overview-columns .project-overview-column {
+  background: var(--br-surface);
+  border: 1px solid var(--br-border);
+  border-radius: var(--br-radius);
+  padding: 16px;
+  text-align: center;
+  transition: all 0.2s ease;
+}
+.project-overview-columns .project-overview-column:hover {
+  border-color: var(--br-accent);
+  box-shadow: var(--br-shadow-sm);
+}
+.project-overview-columns .project-overview-column strong {
+  display: block;
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--br-text);
+  margin-bottom: 4px;
+}
+.project-overview-columns .project-overview-column small {
+  font-size: 12px;
+  color: var(--br-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.accordion-section {
+  background: var(--br-surface);
+  border: 1px solid var(--br-border);
+  border-radius: var(--br-radius);
+  margin-bottom: 12px;
+  overflow: hidden;
+}
+.accordion-section .accordion-title {
+  padding: 14px 16px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--br-text);
+  cursor: pointer;
+  transition: background 0.2s ease;
+  list-style: none;
+}
+.accordion-section .accordion-title::-webkit-details-marker {
+  display: none;
+}
+.accordion-section .accordion-title:hover {
+  background: var(--br-surface-2);
+}
+.accordion-section .accordion-content {
+  padding: 16px;
+  border-top: 1px solid var(--br-border);
+  font-size: 14px;
+  color: var(--br-text);
+}
+.accordion-section .accordion-content .buttons-header {
+  margin-bottom: 12px;
+}
+.accordion-section[open] .accordion-title {
+  border-bottom: 1px solid var(--br-border);
+}
+
 .dropdown {
   display: inline;
   position: relative;
