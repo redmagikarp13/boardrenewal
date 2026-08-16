@@ -1202,3 +1202,229 @@ table {
     margin-top: 12px;
   }
 }
+
+// Tela de Tarefa Individual - Card de resumo
+.task-summary-container {
+  // Mantém o fundo colorido original mas melhora legibilidade
+  border-radius: var(--br-radius);
+  padding: 20px;
+  margin-bottom: 20px;
+
+  // Ajusta cores para legibilidade no fundo amarelo
+  .task-summary-columns {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+
+    .task-summary-column {
+      ul.no-bullet {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+
+        li {
+          margin-bottom: 12px;
+          font-size: 14px;
+          color: #000;
+
+          strong {
+            color: #000;
+            font-weight: 600;
+            margin-right: 6px;
+          }
+
+          span {
+            color: #000;
+          }
+
+          a {
+            color: #0066cc;
+            text-decoration: none;
+            font-weight: 600;
+
+            &:hover {
+              text-decoration: underline;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // Tags/Badges
+  .task-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 16px;
+
+    .task-tag {
+      display: inline-flex;
+      align-items: center;
+      padding: 4px 12px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 500;
+
+      &.color-yellow {
+        background: #f5d76e;
+        color: #000;
+      }
+
+      &.color-blue {
+        background: #5dade2;
+        color: #fff;
+      }
+
+      &.color-green {
+        background: #58d68d;
+        color: #fff;
+      }
+
+      &.color-red {
+        background: #ec7063;
+        color: #fff;
+      }
+
+      &.color-orange {
+        background: #f0b27a;
+        color: #000;
+      }
+
+      &.color-purple {
+        background: #af7ac5;
+        color: #fff;
+      }
+    }
+  }
+}
+
+// Tabela de subtarefas
+.task-list-container {
+  margin-top: 20px;
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--br-surface);
+    border-radius: var(--br-radius);
+    overflow: hidden;
+
+    thead {
+      background: var(--br-surface-2);
+
+      th {
+        padding: 12px 16px;
+        text-align: left;
+        font-size: 11px;
+        font-weight: 600;
+        color: var(--br-text-muted);
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        border-bottom: 2px solid var(--br-border);
+      }
+    }
+
+    tbody {
+      tr {
+        border-bottom: 1px solid var(--br-border);
+        transition: background 0.2s ease;
+
+        &:hover {
+          background: var(--br-surface-2);
+        }
+
+        &:last-child {
+          border-bottom: none;
+        }
+
+        td {
+          padding: 12px 16px;
+          font-size: 14px;
+          color: var(--br-text);
+          vertical-align: middle;
+
+          // Inputs e selects
+          input[type="text"],
+          select {
+            width: 100%;
+            padding: 8px 12px;
+            background: var(--br-surface);
+            border: 1px solid var(--br-border);
+            border-radius: var(--br-radius-sm);
+            color: var(--br-text);
+            font-size: 13px;
+
+            &:focus {
+              outline: none;
+              border-color: var(--br-accent);
+            }
+          }
+
+          select {
+            cursor: pointer;
+          }
+
+          // Links
+          a {
+            color: var(--br-accent);
+            text-decoration: none;
+            font-weight: 500;
+
+            &:hover {
+              text-decoration: underline;
+            }
+          }
+
+          // Checkbox
+          input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Dashboard: links de ação como cards rápidos
+#dashboard .page-header {
+  ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 12px;
+    margin: 20px 0;
+
+    li {
+      a {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 14px 16px;
+        background: var(--br-surface);
+        border: 1px solid var(--br-border);
+        border-radius: var(--br-radius);
+        color: var(--br-text);
+        font-size: 14px;
+        font-weight: 500;
+        text-decoration: none;
+        transition: all 0.2s ease;
+
+        i {
+          color: var(--br-accent);
+          opacity: 1;
+          width: 20px;
+          text-align: center;
+          font-size: 16px;
+        }
+
+        &:hover {
+          background: var(--br-surface-2);
+          border-color: var(--br-accent);
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}
