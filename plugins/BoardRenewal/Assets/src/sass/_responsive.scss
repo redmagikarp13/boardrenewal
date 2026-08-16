@@ -1,63 +1,30 @@
 // BoardRenewal — responsividade
 
-// Tablet: sidebar vira barra de ícones
+// Até 1023px (tablet e mobile): sidebar vira drawer + botão hambúrguer
 @media (max-width: 1023px) {
-  .br-sidebar {
-    width: 56px;
-    padding: 10px 6px;
-
-    .br-sidebar__name, .br-sidebar__section-title,
-    .br-nav-item__label,
-    .br-sidebar__search span, .br-sidebar__search kbd,
-    .br-sidebar__project-selector {
-      display: none;
-    }
-
-    .br-sidebar__search {
-      justify-content: center;
-    }
-
-    .br-nav-item {
-      justify-content: center;
-      padding: 9px 6px;
-    }
-  }
-}
-
-// Mobile: sidebar vira drawer, board rola com snap
-@media (max-width: 767px) {
   .br-menu-button {
     display: block;
   }
 
-  .br-app {
-    display: block;
+  .br-main {
+    margin-left: 0;
   }
 
   .br-sidebar {
-    position: fixed;
-    left: 0;
-    top: 0;
-    bottom: 0;
     width: 270px;
     transform: translateX(-100%);
     transition: transform 0.2s ease;
     z-index: 1000;
 
-    .br-sidebar__name, .br-sidebar__section-title,
-    .br-nav-item__label,
-    .br-sidebar__search span, .br-sidebar__search kbd {
-      display: inline;
-    }
-
-    .br-nav-item {
-      justify-content: flex-start;
-    }
-
     &--open {
       transform: translateX(0);
       box-shadow: var(--br-shadow-md);
     }
+  }
+
+  // Botão de recolher não faz sentido no drawer
+  .br-sidebar__collapse {
+    display: none;
   }
 
   body.br-drawer-open::after {
@@ -67,7 +34,10 @@
     background: rgba(0, 0, 0, 0.45);
     z-index: 999;
   }
+}
 
+// Mobile: ajustes extras de densidade e targets de toque
+@media (max-width: 767px) {
   .br-main > header {
     padding: 8px 12px;
 

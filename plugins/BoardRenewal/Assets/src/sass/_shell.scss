@@ -9,10 +9,12 @@
   flex-direction: column;
   gap: 4px;
   padding: 14px 10px;
-  position: sticky;
+  position: fixed;
+  left: 0;
   top: 0;
-  height: 100vh;
+  bottom: 0;
   overflow-y: auto;
+  z-index: 100;
 
   &__brand {
     display: flex;
@@ -237,10 +239,14 @@
 }
 
 // Estado persistido (aplicado no <html> por script inline antes do paint);
-// só vale no desktop — no mobile a sidebar é drawer
+// só vale no desktop — abaixo de 1024px a sidebar é drawer
 @media (min-width: 1024px) {
   [data-sidebar='collapsed'] .br-sidebar {
     @include sidebar-rail;
+  }
+
+  [data-sidebar='collapsed'] .br-main {
+    margin-left: 56px;
   }
 
   // Esconde o seletor de projetos quando recolhida

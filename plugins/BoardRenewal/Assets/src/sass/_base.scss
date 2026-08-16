@@ -46,20 +46,18 @@ code, pre {
 
 // App shell
 .br-app {
-  display: flex;
   min-height: 100vh;
 }
 
 .br-main {
-  flex: 1;
+  margin-left: 230px;
   min-width: 0;
   display: flex;
   flex-direction: column;
+  min-height: 100vh;
 }
 
 section.page {
   padding: 20px 28px;
-  max-width: 1400px;
   width: 100%;
-  margin: 0 auto;
 }

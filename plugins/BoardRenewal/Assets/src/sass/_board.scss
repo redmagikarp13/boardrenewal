@@ -8,6 +8,9 @@
   background: var(--br-bg);
   border-radius: var(--br-radius-lg);
   overflow-x: auto;
+  // Impede que o scrollable overflow da tabela vaze para o documento
+  // (sem isso, o body ganha scroll horizontal e arrasta a sidebar junto)
+  contain: layout paint;
 
   table {
     border-collapse: separate;
