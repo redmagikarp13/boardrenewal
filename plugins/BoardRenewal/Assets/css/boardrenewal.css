@@ -790,6 +790,20 @@ table tr:hover td {
   gap: 8px;
   margin: 0;
 }
+.project-header .filter-box-component form.search .input-addon {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+}
+.project-header .filter-box-component form.search .input-addon .input-addon-field {
+  flex: 1;
+  min-width: 180px;
+}
+.project-header .filter-box-component form.search .input-addon .input-addon-item {
+  display: flex;
+  align-items: center;
+}
 .project-header .filter-box-component .dropdown {
   display: inline-flex;
   align-items: center;

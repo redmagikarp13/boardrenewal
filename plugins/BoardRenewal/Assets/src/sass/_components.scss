@@ -308,6 +308,23 @@ table {
       align-items: center;
       gap: 8px;
       margin: 0;
+
+      .input-addon {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        flex: 1;
+
+        .input-addon-field {
+          flex: 1;
+          min-width: 180px;
+        }
+
+        .input-addon-item {
+          display: flex;
+          align-items: center;
+        }
+      }
     }
 
     .dropdown {
