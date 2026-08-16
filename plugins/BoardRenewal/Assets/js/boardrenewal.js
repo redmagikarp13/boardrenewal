@@ -103,5 +103,76 @@
                 }
             });
         }
+
+        // Feed de atividades: adiciona ícone da ação e transforma o autor em link
+        enhanceActivityFeed();
     });
+
+    // Reestrutura o feed de atividades: cada card ganha um ícone de ação
+    // (detectado por palavras-chave) e o nome do autor vira link de perfil.
+    function enhanceActivityFeed() {
+        var events = document.querySelectorAll('.activity-event');
+        events.forEach(function (event) {
+            var title = event.querySelector('.activity-title');
+            if (!title || title.querySelector('.activity-icon')) return; // já processado
+
+            var text = (title.textContent || '').toLowerCase();
+
+            // Ícone da ação baseado no verbo da atividade
+            var icon = 'fa-bolt';
+            if (text.indexOf('criou') > -1) icon = 'fa-plus';
+            else if (text.indexOf('moveu') > -1) icon = 'fa-arrows';
+            else if (text.indexOf('atualizou') > -1) icon = 'fa-pencil';
+            else if (text.indexOf('removeu') > -1 || text.indexOf('excluiu') > -1) icon = 'fa-trash';
+            else if (text.indexOf('coment') > -1) icon = 'fa-comment';
+            else if (text.indexOf('finalizou') > -1 || text.indexOf('fechou') > -1) icon = 'fa-check';
+            else if (text.indexOf('anex') > -1 || text.indexOf('arquivo') > -1) icon = 'fa-paperclip';
+
+            var iconEl = document.createElement('i');
+            iconEl.className = 'fa ' + icon + ' activity-icon';
+            iconEl.setAttribute('aria-hidden', 'true');
+
+            // Autor: primeiro nó de texto do título vira link de perfil
+            // (processa ANTES de inserir o ícone, pois o ícone é um elemento)
+            var authorLink = wrapAuthorInLink(title);
+
+            title.insertBefore(iconEl, title.firstChild);
+            if (authorLink) {
+                // move o link do autor para logo após o ícone
+                iconEl.after(authorLink);
+            }
+        });
+    }
+
+    // Envelopa o nome do autor (texto solto no início do título) em <a class="activity-author">
+    function wrapAuthorInLink(title) {
+        // O autor é o primeiro nó de texto antes do primeiro <a> (link da tarefa)
+        var firstText = null;
+        for (var i = 0; i < title.childNodes.length; i++) {
+            var node = title.childNodes[i];
+            if (node.nodeType === Node.TEXT_NODE && node.textContent.trim().length > 0) {
+                firstText = node;
+                break;
+            }
+            if (node.nodeType === Node.ELEMENT_NODE) break; // já começa com elemento
+        }
+        if (!firstText) return null;
+
+        // O texto é algo como "admin atualizou uma subtarefa da tarefa ";
+        // o autor é a primeira palavra
+        var raw = firstText.textContent;
+        var match = raw.match(/^\s*(\S+)\s/);
+        if (!match) return null;
+        var author = match[1];
+
+        var a = document.createElement('a');
+        a.className = 'activity-author';
+        a.href = '#';
+        a.textContent = author;
+        a.title = author;
+
+        // substitui o nome do autor no texto original por vazio
+        firstText.textContent = raw.replace(author, '');
+        return a;
+    }
 })();

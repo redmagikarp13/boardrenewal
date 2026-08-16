@@ -624,6 +624,107 @@ section.page:has(.sidebar-container .sidebar ul li.active) {
   }
 }
 
+// Feed de atividades: cada evento vira um card
+.activity-event {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  background: var(--br-surface);
+  border: 1px solid var(--br-border);
+  border-radius: var(--br-radius);
+  padding: 14px 16px;
+  margin-bottom: 12px;
+  transition: all 0.2s ease;
+
+  &:hover {
+    border-color: var(--br-accent);
+    box-shadow: var(--br-shadow-sm);
+  }
+
+  // Avatar à esquerda
+  .avatar {
+    flex-shrink: 0;
+
+    img {
+      border-radius: var(--br-radius);
+      display: block;
+    }
+  }
+
+  .activity-content {
+    flex: 1;
+    min-width: 0;
+  }
+
+  // Linha do título: ícone da ação + texto + data à direita
+  .activity-title {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin: 0 0 6px;
+    font-size: 14px;
+    color: var(--br-text);
+
+    // Ícone da ação (adicionado via JS como .activity-icon)
+    .activity-icon {
+      color: var(--br-accent);
+      width: 16px;
+      text-align: center;
+      flex-shrink: 0;
+    }
+
+    a {
+      color: var(--br-accent);
+      font-weight: 600;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    // Autor em destaque (link adicionado via JS)
+    a.activity-author {
+      color: var(--br-text);
+      font-weight: 600;
+
+      &:hover {
+        color: var(--br-accent);
+      }
+    }
+
+    .activity-date {
+      margin-left: auto;
+      font-size: 12px;
+      color: var(--br-text-muted);
+      white-space: nowrap;
+    }
+  }
+
+  // Descrição da atividade
+  .activity-description {
+    font-size: 13px;
+    color: var(--br-text-muted);
+
+    .activity-task-title {
+      margin: 0 0 4px;
+      font-weight: 600;
+      color: var(--br-text);
+    }
+
+    ul {
+      margin: 4px 0 0;
+      padding-left: 18px;
+      list-style: disc;
+
+      li {
+        margin-bottom: 2px;
+      }
+    }
+  }
+}
+
 // Dropdowns do core (span.dropdown > ul) — escondidos por padrão, abertos via JS
 .dropdown {
   display: inline;
