@@ -22,6 +22,24 @@ $brCurrentProjectId = isset($project['id']) ? $project['id'] : 0;
 
         <div class="br-sidebar__section-title"><?= t('Projects') ?></div>
 
+        <?php if (!empty($board_selector)): ?>
+        <div class="br-sidebar__project-selector">
+            <?= $this->app->component('select-dropdown-autocomplete', array(
+                'name' => 'boardId',
+                'placeholder' => t('Display another project'),
+                'ariaLabel' => t('Display another project'),
+                'items' => $board_selector,
+                'redirect' => array(
+                    'regex' => 'PROJECT_ID',
+                    'url' => $this->url->to('BoardViewController', 'show', array('project_id' => 'PROJECT_ID')),
+                ),
+                'onFocus' => array(
+                    'board.selector.open',
+                )
+            )) ?>
+        </div>
+        <?php endif ?>
+
         <?php foreach ($brProjects as $brProject): ?>
             <a class="br-nav-item <?= $brProject['id'] == $brCurrentProjectId ? 'br-nav-item--active' : '' ?>"
                href="<?= $this->url->href('BoardViewController', 'show', array('project_id' => $brProject['id'])) ?>">

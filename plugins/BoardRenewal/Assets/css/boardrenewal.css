@@ -412,7 +412,7 @@ section.page {
   text-overflow: ellipsis;
 }
 .br-main > header .board-selector-container {
-  max-width: 260px;
+  display: none;
 }
 .br-main > header .menus-container {
   display: flex;
@@ -703,12 +703,9 @@ ul.dropdown-submenu-open li strong::before {
   font-weight: 600;
 }
 
-.select-dropdown-menu {
+#select-dropdown-menu {
   position: absolute;
-  display: block;
-  z-index: 1000;
-  min-width: 200px;
-  max-height: 300px;
+  z-index: 1100;
   overflow: auto;
   margin: 4px 0 0;
   padding: 6px;

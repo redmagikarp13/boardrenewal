@@ -279,7 +279,7 @@
   }
 
   .board-selector-container {
-    max-width: 260px;
+    display: none; // seletor de projetos vive na sidebar (.br-sidebar__project-selector)
   }
 
   .menus-container {

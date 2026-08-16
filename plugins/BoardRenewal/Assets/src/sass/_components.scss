@@ -123,13 +123,12 @@ ul.dropdown-submenu-open {
   }
 }
 
-// Menu de autocomplete do seletor de projetos (select-dropdown-autocomplete)
-.select-dropdown-menu {
+// Menu de autocomplete do seletor de projetos (select-dropdown-autocomplete).
+// O Kanboard cria um ul#select-dropdown-menu (ID, não classe) no fim do body,
+// com top/left/width inline — sem position:absolute ele fica invisível no fluxo.
+#select-dropdown-menu {
   position: absolute;
-  display: block;
-  z-index: 1000;
-  min-width: 200px;
-  max-height: 300px;
+  z-index: 1100;
   overflow: auto;
   margin: 4px 0 0;
   padding: 6px;
