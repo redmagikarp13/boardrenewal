@@ -968,6 +968,100 @@ ul, ol {
   letter-spacing: 0.3px;
 }
 
+section.page:has(.sidebar-container .sidebar ul li.active) .sidebar-container {
+  display: flex;
+  gap: 32px;
+  margin: 24px 0;
+}
+section.page:has(.sidebar-container .sidebar ul li.active) .sidebar-container .sidebar {
+  flex-shrink: 0;
+  width: 240px;
+}
+section.page:has(.sidebar-container .sidebar ul li.active) .sidebar-container .sidebar ul {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin: 0;
+}
+section.page:has(.sidebar-container .sidebar ul li.active) .sidebar-container .sidebar ul li a {
+  display: block;
+  padding: 10px 14px;
+  border-radius: var(--br-radius-sm);
+  color: var(--br-text);
+  font-size: 14px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+section.page:has(.sidebar-container .sidebar ul li.active) .sidebar-container .sidebar ul li a:hover {
+  background: var(--br-surface-2);
+  color: var(--br-accent);
+}
+section.page:has(.sidebar-container .sidebar ul li.active) .sidebar-container .sidebar ul li.active a {
+  background: var(--br-accent);
+  color: #fff;
+  font-weight: 500;
+}
+section.page:has(.sidebar-container .sidebar ul li.active) .sidebar-container .sidebar-content {
+  flex: 1;
+  min-width: 0;
+}
+section.page:has(.sidebar-container .sidebar ul li.active) ul.panel {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 12px;
+  margin: 20px 0;
+  padding: 0;
+  list-style: none;
+}
+section.page:has(.sidebar-container .sidebar ul li.active) ul.panel li {
+  background: var(--br-surface);
+  border: 1px solid var(--br-border);
+  border-radius: var(--br-radius);
+  padding: 14px 16px;
+  font-size: 14px;
+  color: var(--br-text);
+}
+section.page:has(.sidebar-container .sidebar ul li.active) ul.panel li strong {
+  color: var(--br-text);
+  font-weight: 600;
+}
+section.page:has(.sidebar-container .sidebar ul li.active) table.table-striped {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  background: var(--br-surface);
+  border-radius: var(--br-radius);
+  overflow: hidden;
+}
+section.page:has(.sidebar-container .sidebar ul li.active) table.table-striped thead {
+  background: var(--br-surface-2);
+}
+section.page:has(.sidebar-container .sidebar ul li.active) table.table-striped thead th {
+  padding: 12px 16px;
+  text-align: left;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--br-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-bottom: 2px solid var(--br-border);
+}
+section.page:has(.sidebar-container .sidebar ul li.active) table.table-striped tbody tr {
+  border-bottom: 1px solid var(--br-border);
+  transition: background 0.2s ease;
+}
+section.page:has(.sidebar-container .sidebar ul li.active) table.table-striped tbody tr:hover {
+  background: var(--br-surface-2);
+}
+section.page:has(.sidebar-container .sidebar ul li.active) table.table-striped tbody tr:last-child {
+  border-bottom: none;
+}
+section.page:has(.sidebar-container .sidebar ul li.active) table.table-striped tbody tr td {
+  padding: 12px 16px;
+  font-size: 14px;
+  color: var(--br-text);
+}
+
 .dropdown {
   display: inline;
   position: relative;
