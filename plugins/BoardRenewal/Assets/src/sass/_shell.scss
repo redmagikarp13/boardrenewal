@@ -14,17 +14,40 @@
   height: 100vh;
   overflow-y: auto;
 
-  &__brand a {
+  &__brand {
     display: flex;
     align-items: center;
-    gap: 8px;
-    color: #fff;
-    font-weight: 700;
-    font-size: 16px;
+    gap: 4px;
     padding: 4px 8px 12px;
 
+    a {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: #fff;
+      font-weight: 700;
+      font-size: 16px;
+      flex: 1;
+      min-width: 0;
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+
+  &__collapse {
+    background: none;
+    border: 0;
+    color: var(--br-sidebar-fg-muted);
+    font-size: 11px;
+    cursor: pointer;
+    padding: 6px;
+    border-radius: var(--br-radius-sm);
+
     &:hover {
-      text-decoration: none;
+      background: rgba(255, 255, 255, 0.1);
+      color: #fff;
     }
   }
 
@@ -64,6 +87,14 @@
     margin-top: auto;
     padding-top: 10px;
     border-top: 1px solid rgba(255, 255, 255, 0.08);
+    display: flex;
+    align-items: center;
+    gap: 4px;
+
+    .br-nav-item--user {
+      flex: 1;
+      min-width: 0;
+    }
   }
 
   &__mode {
@@ -112,15 +143,58 @@
   }
 }
 
+// Sidebar recolhida (manual ou tablet)
+@mixin sidebar-rail {
+  width: 56px;
+  padding: 10px 6px;
+
+  .br-sidebar__name, .br-sidebar__section-title,
+  .br-nav-item__label,
+  .br-sidebar__search span, .br-sidebar__search kbd {
+    display: none;
+  }
+
+  .br-sidebar__search {
+    justify-content: center;
+  }
+
+  .br-nav-item {
+    justify-content: center;
+    padding: 9px 6px;
+  }
+
+  .br-sidebar__brand {
+    justify-content: center;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .br-sidebar__footer {
+    flex-direction: column;
+  }
+}
+
+.br-sidebar--collapsed {
+  @include sidebar-rail;
+}
+
+// Estado persistido (aplicado no <html> por script inline antes do paint);
+// só vale no desktop — no mobile a sidebar é drawer
+@media (min-width: 1024px) {
+  [data-sidebar='collapsed'] .br-sidebar {
+    @include sidebar-rail;
+  }
+}
+
 // Topbar: reaproveita o <header> do core, reestilizado
 .br-main > header {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 16px;
   background: var(--br-surface);
   border-bottom: 1px solid var(--br-border);
-  padding: 10px 20px;
-  min-height: 52px;
+  padding: 12px 24px;
+  min-height: 56px;
 
   .title-container {
     flex: 1;
@@ -142,7 +216,41 @@
   .menus-container {
     display: flex;
     align-items: center;
-    gap: 6px;
+    gap: 12px;
+  }
+
+  // Âncoras dos dropdowns (menu "+" e menu do usuário): o avatar é block e,
+  // sem flex, o caret quebra para a linha seguinte e estica a barra.
+  // inline-flex mantém ícone/avatar + caret na mesma linha, centrados.
+  .dropdown > a.dropdown-menu {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  // Avatar: quadradinho arredondado de 32px (com letra ou imagem)
+  .avatar {
+    width: 32px;
+    height: 32px;
+
+    .avatar-letter {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    img {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      object-fit: cover;
+    }
   }
 }
 

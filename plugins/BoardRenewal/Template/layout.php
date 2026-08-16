@@ -5,6 +5,14 @@
       data-contrast="default"
       <?php if ($this->app->isRtlLanguage()): ?> dir="rtl"<?php endif; ?>>
     <head>
+        <script>
+        // Aplica o estado recolhido da sidebar antes do paint (evita "flash" expandido)
+        try {
+            if (localStorage.getItem('boardrenewal.sidebar') === 'collapsed') {
+                document.documentElement.setAttribute('data-sidebar', 'collapsed');
+            }
+        } catch (e) {}
+        </script>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
         <meta name="mobile-web-app-capable" content="yes">

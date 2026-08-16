@@ -176,6 +176,13 @@ table {
     letter-spacing: 0.04em;
   }
 
+  // Cabeçalhos de coluna do board têm estilo próprio (ver _board.scss)
+  th.board-column-header {
+    background: none;
+    text-transform: none;
+    letter-spacing: normal;
+  }
+
   tr:hover td {
     background: var(--br-surface-2);
   }
@@ -233,6 +240,81 @@ table {
 
 #modal-box .modal-content {
   padding: 18px;
+}
+
+// Cabeçalho de projeto: abas de visão + filtros + engrenagem na mesma linha
+.project-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+
+  // Engrenagem (dropdown de configurações do projeto) à direita
+  > .dropdown-component {
+    order: 3;
+    margin-left: auto;
+  }
+
+  .views-switcher-component {
+    order: 1;
+
+    ul.views {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+
+      li a {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 7px 12px;
+        color: var(--br-text-secondary);
+        font-size: 13px;
+        font-weight: 500;
+        border-radius: 999px;
+
+        &:hover {
+          color: var(--br-text);
+          background: var(--br-surface-2);
+          text-decoration: none;
+        }
+      }
+
+      li.active a {
+        background: var(--br-accent-soft);
+        color: var(--br-accent);
+      }
+    }
+  }
+
+  // Busca + filtros: escondidos por padrão, aparecem ao clicar no botão de busca da sidebar
+  .filter-box-component {
+    order: 2;
+    display: none;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+
+    &.br-filter-visible {
+      display: flex;
+    }
+
+    form.search {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin: 0;
+    }
+
+    .dropdown {
+      display: inline-flex;
+      align-items: center;
+    }
+  }
 }
 
 // Tela de login

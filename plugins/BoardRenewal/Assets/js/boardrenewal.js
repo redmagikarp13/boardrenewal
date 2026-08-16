@@ -33,15 +33,36 @@
             });
         }
 
-        // Botão de busca da sidebar: foca o campo de busca/pesquisa da página
+        // Botão de busca da sidebar: alterna a visibilidade do filtro de tarefas
         var searchButton = document.getElementById('br-search-button');
         if (searchButton) {
             searchButton.addEventListener('click', function () {
-                var input = document.querySelector('section.page input[type="text"], section.page input[type="search"]');
-                if (input) {
-                    input.focus();
-                    input.scrollIntoView({ block: 'center' });
+                var filterBox = document.querySelector('.filter-box-component');
+                if (filterBox) {
+                    filterBox.classList.toggle('br-filter-visible');
+                    if (filterBox.classList.contains('br-filter-visible')) {
+                        var input = filterBox.querySelector('input[type="text"], input[type="search"]');
+                        if (input) input.focus();
+                    }
                 }
+            });
+        }
+
+        // Recolher/expandar a sidebar (persistido; estado inicial aplicado no <html>
+        // por script inline no head, antes do paint)
+        var collapseButton = document.getElementById('br-sidebar-collapse');
+        if (collapseButton) {
+            collapseButton.textContent =
+                root.getAttribute('data-sidebar') === 'collapsed' ? '▶' : '◀';
+            collapseButton.addEventListener('click', function () {
+                var collapsed = root.getAttribute('data-sidebar') === 'collapsed';
+                if (collapsed) {
+                    root.removeAttribute('data-sidebar');
+                } else {
+                    root.setAttribute('data-sidebar', 'collapsed');
+                }
+                collapseButton.textContent = collapsed ? '◀' : '▶';
+                try { localStorage.setItem('boardrenewal.sidebar', collapsed ? 'expanded' : 'collapsed'); } catch (e) {}
             });
         }
 

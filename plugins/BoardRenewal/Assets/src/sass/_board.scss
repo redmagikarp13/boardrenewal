@@ -28,9 +28,24 @@
 .board-column-header {
   padding: 4px 4px 8px;
 
-  .board-column-title, strong, a {
-    color: var(--br-text);
+  .board-column-title {
     font-size: 13px;
+    font-weight: 600;
+
+    a {
+      color: var(--br-text-secondary);
+      text-transform: none;
+      letter-spacing: normal;
+
+      &:hover {
+        color: var(--br-text);
+      }
+    }
+  }
+
+  .board-column-header-task-count {
+    color: var(--br-text-muted);
+    font-weight: 400;
   }
 }
 
