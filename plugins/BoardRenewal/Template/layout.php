@@ -76,6 +76,7 @@
             <?php if ($this->BoardRenewalHelper->isLogged()): ?>
                 <?= $this->render('boardRenewal:sidebar', array(
                     'project' => isset($project) ? $project : array(),
+                    'board_selector' => isset($board_selector) ? $board_selector : array(),
                 )) ?>
             <?php endif ?>
             <div class="br-main">

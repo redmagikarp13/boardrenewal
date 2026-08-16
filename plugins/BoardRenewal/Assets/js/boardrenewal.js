@@ -25,6 +25,35 @@
     }
 
     document.addEventListener('DOMContentLoaded', function () {
+        // Move o seletor de projetos da topbar para a sidebar
+        var boardSelector = document.querySelector('.board-selector-container');
+        var sidebarSelector = document.querySelector('.br-sidebar__project-selector');
+        if (boardSelector && sidebarSelector) {
+            sidebarSelector.appendChild(boardSelector);
+            boardSelector.style.display = 'block';
+        }
+
+        // Adiciona avatar no cabeçalho do dropdown do usuário
+        document.addEventListener('click', function (e) {
+            var userDropdown = e.target.closest('.dropdown');
+            if (!userDropdown) return;
+            var anchor = userDropdown.querySelector('a.dropdown-menu');
+            if (!anchor) return;
+            // Verifica se é o dropdown do usuário (tem avatar)
+            var avatar = anchor.querySelector('.avatar');
+            if (!avatar) return;
+            // Aguarda o Kanboard clonar o dropdown
+            setTimeout(function () {
+                var cloned = document.querySelector('#dropdown ul.dropdown-submenu-open');
+                if (!cloned) return;
+                var strong = cloned.querySelector('li strong');
+                if (strong && !strong.getAttribute('data-initial')) {
+                    var initial = (strong.textContent || '?').trim().charAt(0).toUpperCase();
+                    strong.setAttribute('data-initial', initial);
+                }
+            }, 50);
+        });
+
         var contrastButton = document.getElementById('br-contrast-toggle');
         if (contrastButton) {
             syncContrastButton(contrastButton);

@@ -75,6 +75,36 @@
     }
   }
 
+  // Seletor de projetos na sidebar (primeiro item da lista de projetos)
+  &__project-selector {
+    margin-bottom: 4px;
+
+    .js-select-dropdown-autocomplete-rendered {
+      width: 100%;
+
+      input,
+      .select-dropdown-autocomplete-input {
+        width: 100%;
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid transparent;
+        border-radius: var(--br-radius);
+        padding: 8px 10px;
+        color: var(--br-sidebar-fg);
+        font-size: 13px;
+
+        &::placeholder {
+          color: var(--br-sidebar-fg-muted);
+        }
+
+        &:focus {
+          outline: none;
+          border-color: var(--br-accent);
+          background: rgba(255, 255, 255, 0.12);
+        }
+      }
+    }
+  }
+
   &__section-title {
     color: var(--br-sidebar-fg-muted);
     font-size: 11px;
@@ -184,6 +214,11 @@
   [data-sidebar='collapsed'] .br-sidebar {
     @include sidebar-rail;
   }
+
+  // Esconde o seletor de projetos quando recolhida
+  [data-sidebar='collapsed'] .br-sidebar__project-selector {
+    display: none;
+  }
 }
 
 // Topbar: reaproveita o <header> do core, reestilizado
@@ -210,7 +245,7 @@
   }
 
   .board-selector-container {
-    max-width: 260px;
+    display: none; // movido para a sidebar
   }
 
   .menus-container {
@@ -226,6 +261,11 @@
     display: inline-flex;
     align-items: center;
     gap: 4px;
+
+    // Caret deve ser inline para não quebrar linha
+    .fa-caret-down {
+      display: inline-block !important;
+    }
   }
 
   // Avatar: quadradinho arredondado de 32px (com letra ou imagem)
