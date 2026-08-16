@@ -601,6 +601,233 @@ section.page {
   padding: 0;
 }
 
+ul, ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.page-header ul,
+.sidebar-container .sidebar ul {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin: 12px 0;
+}
+.page-header ul li a,
+.sidebar-container .sidebar ul li a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: var(--br-radius-sm);
+  color: var(--br-accent);
+  font-size: 14px;
+  text-decoration: none;
+}
+.page-header ul li a i,
+.sidebar-container .sidebar ul li a i {
+  opacity: 0.7;
+  width: 16px;
+  text-align: center;
+}
+.page-header ul li a:hover,
+.sidebar-container .sidebar ul li a:hover {
+  background: var(--br-surface-2);
+  text-decoration: none;
+}
+.page-header ul li.active a,
+.sidebar-container .sidebar ul li.active a {
+  background: var(--br-accent);
+  color: #fff;
+  font-weight: 500;
+}
+.page-header ul li.active a i,
+.sidebar-container .sidebar ul li.active a i {
+  opacity: 1;
+}
+
+.sidebar-container {
+  display: flex;
+  gap: 24px;
+  margin: 20px 0;
+}
+.sidebar-container .sidebar {
+  flex-shrink: 0;
+  width: 200px;
+}
+.sidebar-container .sidebar ul {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.sidebar-container .sidebar ul li a {
+  display: block;
+  padding: 10px 14px;
+  border-radius: var(--br-radius-sm);
+  color: var(--br-text);
+  font-size: 14px;
+  text-decoration: none;
+}
+.sidebar-container .sidebar ul li a:hover {
+  background: var(--br-surface-2);
+}
+.sidebar-container .sidebar ul li.active a {
+  background: var(--br-accent);
+  color: #fff;
+  font-weight: 500;
+}
+.sidebar-container .sidebar-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.filter-box {
+  margin: 20px 0;
+}
+.filter-box form.search {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+.filter-box form.search .input-addon {
+  display: flex;
+  flex: 1;
+  gap: 8px;
+}
+.filter-box form.search .input-addon input[type=text] {
+  flex: 1;
+  padding: 10px 14px;
+  border: 1px solid var(--br-border);
+  border-radius: var(--br-radius);
+  background: var(--br-surface);
+  color: var(--br-text);
+  font-size: 14px;
+}
+.filter-box form.search .input-addon input[type=text]:focus {
+  outline: none;
+  border-color: var(--br-accent);
+}
+.filter-box form.search .input-addon .input-addon-item {
+  display: flex;
+  align-items: center;
+}
+
+.table-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 16px;
+  margin: 20px 0;
+}
+.table-list .table-list-header {
+  grid-column: 1/-1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  background: var(--br-surface);
+  border: 1px solid var(--br-border);
+  border-radius: var(--br-radius);
+  margin-bottom: 8px;
+}
+.table-list .table-list-header .table-list-header-count {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--br-text);
+}
+.table-list .table-list-header .table-list-header-menu .dropdown > a {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 12px;
+  background: var(--br-surface-2);
+  border-radius: var(--br-radius-sm);
+  color: var(--br-text);
+  font-size: 13px;
+  text-decoration: none;
+}
+.table-list .table-list-header .table-list-header-menu .dropdown > a:hover {
+  background: var(--br-surface-3);
+}
+.table-list .table-list-header .table-list-header-menu .dropdown > a strong {
+  font-weight: 500;
+}
+.table-list .table-list-row {
+  background: var(--br-surface);
+  border: 1px solid var(--br-border);
+  border-radius: var(--br-radius);
+  padding: 16px;
+  transition: all 0.2s ease;
+}
+.table-list .table-list-row:hover {
+  border-color: var(--br-accent);
+  box-shadow: var(--br-shadow-sm);
+}
+.table-list .table-list-row > div:first-child {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+.table-list .table-list-row > div:first-child .dropdown {
+  flex-shrink: 0;
+}
+.table-list .table-list-row > div:first-child .dropdown > a {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 8px;
+  background: var(--br-surface-2);
+  border-radius: var(--br-radius-sm);
+  color: var(--br-text-muted);
+  font-size: 12px;
+  text-decoration: none;
+}
+.table-list .table-list-row > div:first-child .dropdown > a:hover {
+  background: var(--br-surface-3);
+  color: var(--br-text);
+}
+.table-list .table-list-row > div:first-child .dropdown > a strong {
+  font-weight: 600;
+}
+.table-list .table-list-row > div:first-child .table-list-title {
+  flex: 1;
+  min-width: 0;
+}
+.table-list .table-list-row > div:first-child .table-list-title a {
+  display: block;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--br-text);
+  text-decoration: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.table-list .table-list-row > div:first-child .table-list-title a:hover {
+  color: var(--br-accent);
+}
+.table-list .table-list-row .table-list-details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  font-size: 12px;
+  color: var(--br-text-muted);
+  line-height: 1.6;
+}
+.table-list .table-list-row .table-list-details strong {
+  color: var(--br-text);
+  font-weight: 600;
+  margin-right: 4px;
+}
+.table-list .table-list-row .table-list-details small {
+  color: var(--br-text-muted);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
 .dropdown {
   display: inline;
   position: relative;
