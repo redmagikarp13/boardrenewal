@@ -132,7 +132,7 @@ ul, ol {
   }
 }
 
-// Dashboard: cards de projeto (table-list)
+// Lista de tarefas (table-list)
 .table-list {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
@@ -156,8 +156,52 @@ ul, ol {
       color: var(--br-text);
     }
 
-    .table-list-header-menu {
+    .list-item-links {
+      display: flex;
+      gap: 8px;
+      font-size: 13px;
+
+      a {
+        color: var(--br-accent);
+        text-decoration: none;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+
+    .list-item-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+
       .dropdown > a {
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+        padding: 6px 12px;
+        background: var(--br-surface-2);
+        border-radius: var(--br-radius-sm);
+        color: var(--br-text);
+        text-decoration: none;
+
+        &:hover {
+          background: var(--br-surface-3);
+        }
+
+        strong {
+          font-weight: 500;
+        }
+      }
+    }
+
+    .table-list-header-menu {
+      display: flex;
+      gap: 8px;
+
+      a {
         display: inline-flex;
         align-items: center;
         gap: 4px;
@@ -172,8 +216,8 @@ ul, ol {
           background: var(--br-surface-3);
         }
 
-        strong {
-          font-weight: 500;
+        i {
+          opacity: 0.7;
         }
       }
     }
@@ -185,10 +229,35 @@ ul, ol {
     border-radius: var(--br-radius);
     padding: 16px;
     transition: all 0.2s ease;
+    position: relative;
+    overflow: hidden;
+
+    // Barra lateral colorida baseada na cor da tarefa
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      background: var(--br-text-muted);
+      transition: width 0.2s ease;
+    }
+
+    &.color-yellow::before { background: #f5d76e; }
+    &.color-blue::before { background: #5dade2; }
+    &.color-green::before { background: #58d68d; }
+    &.color-red::before { background: #ec7063; }
+    &.color-orange::before { background: #f0b27a; }
+    &.color-purple::before { background: #af7ac5; }
 
     &:hover {
       border-color: var(--br-accent);
       box-shadow: var(--br-shadow-sm);
+
+      &::before {
+        width: 6px;
+      }
     }
 
     > div:first-child {
@@ -196,6 +265,40 @@ ul, ol {
       align-items: center;
       gap: 12px;
       margin-bottom: 12px;
+
+      // Checkbox customizado
+      input[type="checkbox"] {
+        appearance: none;
+        width: 18px;
+        height: 18px;
+        border: 2px solid var(--br-border);
+        border-radius: 4px;
+        background: var(--br-surface);
+        cursor: pointer;
+        position: relative;
+        flex-shrink: 0;
+        transition: all 0.2s ease;
+
+        &:checked {
+          background: var(--br-accent);
+          border-color: var(--br-accent);
+
+          &::after {
+            content: '✓';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #fff;
+            font-size: 12px;
+            font-weight: bold;
+          }
+        }
+
+        &:hover {
+          border-color: var(--br-accent);
+        }
+      }
 
       .dropdown {
         flex-shrink: 0;
@@ -244,12 +347,67 @@ ul, ol {
     }
 
     .table-list-details {
+      font-size: 12px;
+      color: var(--br-text-muted);
+      margin-bottom: 12px;
+      padding-left: 30px;
+    }
+
+    .task-list-icons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-size: 12px;
+      color: var(--br-text-muted);
+      padding-left: 30px;
+
+      > span, > div {
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+
+        i {
+          opacity: 0.7;
+        }
+      }
+
+      .task-priority {
+        font-weight: 600;
+        color: var(--br-text);
+      }
+
+      .task-icon-age {
+        display: inline-flex;
+        gap: 4px;
+
+        span {
+          white-space: nowrap;
+        }
+      }
+    }
+  }
+}
+
+// Dashboard: cards de projeto (table-list)
+#dashboard .table-list {
+  .table-list-row {
+    // Remove barra colorida e checkbox do Dashboard
+    &::before {
+      display: none;
+    }
+
+    > div:first-child {
+      input[type="checkbox"] {
+        display: none;
+      }
+    }
+
+    .table-list-details {
       display: flex;
       flex-wrap: wrap;
       gap: 16px;
-      font-size: 12px;
-      color: var(--br-text-muted);
       line-height: 1.6;
+      padding-left: 0;
 
       strong {
         color: var(--br-text);
