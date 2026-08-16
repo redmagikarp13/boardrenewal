@@ -28,14 +28,40 @@
 .board-column-header {
   padding: 4px 4px 8px;
 
+  .board-column-expanded-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .board-add-icon {
+    flex-shrink: 0;
+
+    a {
+      color: var(--br-text-muted);
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+
+      &:hover {
+        color: var(--br-accent);
+      }
+    }
+  }
+
   .board-column-title {
     font-size: 13px;
     font-weight: 600;
+    flex: 1;
+    min-width: 0;
 
     a {
       color: var(--br-text-secondary);
       text-transform: none;
       letter-spacing: normal;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
 
       &:hover {
         color: var(--br-text);

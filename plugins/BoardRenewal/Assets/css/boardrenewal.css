@@ -470,14 +470,36 @@ section.page {
 .board-column-header {
   padding: 4px 4px 8px;
 }
+.board-column-header .board-column-expanded-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.board-column-header .board-add-icon {
+  flex-shrink: 0;
+}
+.board-column-header .board-add-icon a {
+  color: var(--br-text-muted);
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+}
+.board-column-header .board-add-icon a:hover {
+  color: var(--br-accent);
+}
 .board-column-header .board-column-title {
   font-size: 13px;
   font-weight: 600;
+  flex: 1;
+  min-width: 0;
 }
 .board-column-header .board-column-title a {
   color: var(--br-text-secondary);
   text-transform: none;
   letter-spacing: normal;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
 }
 .board-column-header .board-column-title a:hover {
   color: var(--br-text);
