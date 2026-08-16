@@ -3,6 +3,15 @@
 
     var root = document.documentElement;
 
+    // Restaura o estado da sidebar do localStorage
+    var savedSidebar = null;
+    try { savedSidebar = localStorage.getItem('boardrenewal.sidebar'); } catch (e) {}
+    if (savedSidebar === 'collapsed') {
+        root.setAttribute('data-sidebar', 'collapsed');
+    } else {
+        root.removeAttribute('data-sidebar');
+    }
+
     // Alto contraste: persistido em localStorage até a Fase 3 (metadado de usuário)
     var savedContrast = null;
     try { savedContrast = localStorage.getItem('boardrenewal.contrast'); } catch (e) {}
