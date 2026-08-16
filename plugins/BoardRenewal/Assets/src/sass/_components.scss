@@ -79,6 +79,24 @@ ul.dropdown-submenu-open {
     }
   }
 
+  // Itens cujo ícone fica fora do <a> (ex: Documentação):
+  // flex no li alinha ícone + texto na mesma linha
+  li {
+    display: flex;
+    align-items: center;
+
+    > i.fa {
+      margin-left: 10px;
+      width: 16px;
+      text-align: center;
+      opacity: 0.7;
+    }
+
+    > a {
+      flex: 1;
+    }
+  }
+
   // Cabeçalho do dropdown do usuário (ex: "admin")
   li strong {
     display: flex;

@@ -257,7 +257,10 @@
   // Âncoras dos dropdowns (menu "+" e menu do usuário): o avatar é block e,
   // sem flex, o caret quebra para a linha seguinte e estica a barra.
   // inline-flex mantém ícone/avatar + caret na mesma linha, centrados.
-  .dropdown > a.dropdown-menu {
+  // Nota: ao abrir, o Kanboard troca a classe do anchor de .dropdown-menu
+  // para .active-dropdown-menu — precisamos casar os dois estados.
+  .dropdown > a.dropdown-menu,
+  .dropdown > a.active-dropdown-menu {
     display: inline-flex;
     align-items: center;
     gap: 4px;

@@ -34,14 +34,14 @@
         }
 
         // Adiciona avatar no cabeçalho do dropdown do usuário
+        // (capture: o app.min.js faz stopPropagation no clique do dropdown)
         document.addEventListener('click', function (e) {
             var userDropdown = e.target.closest('.dropdown');
             if (!userDropdown) return;
-            var anchor = userDropdown.querySelector('a.dropdown-menu');
-            if (!anchor) return;
-            // Verifica se é o dropdown do usuário (tem avatar)
-            var avatar = anchor.querySelector('.avatar');
-            if (!avatar) return;
+            // O Kanboard troca .dropdown-menu por .active-dropdown-menu ao abrir,
+            // então busca qualquer âncora e confirma pela presença do avatar
+            var anchor = userDropdown.querySelector('a');
+            if (!anchor || !anchor.querySelector('.avatar')) return;
             // Aguarda o Kanboard clonar o dropdown
             setTimeout(function () {
                 var cloned = document.querySelector('#dropdown ul.dropdown-submenu-open');
@@ -52,7 +52,7 @@
                     strong.setAttribute('data-initial', initial);
                 }
             }, 50);
-        });
+        }, true);
 
         var contrastButton = document.getElementById('br-contrast-toggle');
         if (contrastButton) {
