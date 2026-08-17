@@ -14,6 +14,19 @@
   // Board ocupa toda a largura disponível e rola horizontalmente quando necessário
   width: 100%;
   min-width: 0;
+  // Compensa o padding do section.page para o board encostar nas bordas
+  margin: 0 -28px; // -28px compensa o padding-right do section.page
+  
+  @media (min-width: 1024px) {
+    margin-left: -84px; // compensa o padding-left quando sidebar recolhida (padrão)
+  }
+  
+  // Quando sidebar expandida: compensa padding-left maior
+  @media (min-width: 1024px) {
+    html:not([data-sidebar='collapsed']) & {
+      margin-left: -258px;
+    }
+  }
 
   table {
     border-collapse: separate;

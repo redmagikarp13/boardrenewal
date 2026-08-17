@@ -541,6 +541,17 @@ section.page {
   contain: layout paint;
   width: 100%;
   min-width: 0;
+  margin: 0 -28px;
+}
+@media (min-width: 1024px) {
+  #board-container {
+    margin-left: -84px;
+  }
+}
+@media (min-width: 1024px) {
+  html:not([data-sidebar=collapsed]) #board-container {
+    margin-left: -258px;
+  }
 }
 #board-container table {
   border-collapse: separate;
