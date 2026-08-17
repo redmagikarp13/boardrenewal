@@ -231,6 +231,8 @@ ul, ol {
     transition: all 0.2s ease;
     position: relative;
     overflow: hidden;
+    // Sombra base sutil
+    box-shadow: var(--br-shadow-sm);
 
     // Barra lateral colorida baseada na cor da tarefa
     &::before {
@@ -251,9 +253,11 @@ ul, ol {
     &.color-orange::before { background: #f0b27a; }
     &.color-purple::before { background: #af7ac5; }
 
+    // Hover com sombra elaborada e glow índigo sutil
     &:hover {
       border-color: var(--br-accent);
-      box-shadow: var(--br-shadow-sm);
+      box-shadow: var(--br-shadow-md), 0 0 0 1px var(--br-accent-soft);
+      transform: translateY(-1px);
 
       &::before {
         width: 6px;
@@ -401,9 +405,18 @@ ul, ol {
 // Dashboard: cards de projeto (table-list)
 #dashboard .table-list {
   .table-list-row {
+    // Sombra base nos cards do Dashboard
+    box-shadow: var(--br-shadow-sm);
+
     // Remove barra colorida e checkbox do Dashboard
     &::before {
       display: none;
+    }
+
+    // Hover com sombra elaborada
+    &:hover {
+      box-shadow: var(--br-shadow-md), 0 0 0 1px var(--br-accent-soft);
+      transform: translateY(-1px);
     }
 
     > div:first-child {

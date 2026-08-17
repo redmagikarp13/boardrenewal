@@ -816,6 +816,7 @@ ul, ol {
   transition: all 0.2s ease;
   position: relative;
   overflow: hidden;
+  box-shadow: var(--br-shadow-sm);
 }
 .table-list .table-list-row::before {
   content: "";
@@ -847,7 +848,8 @@ ul, ol {
 }
 .table-list .table-list-row:hover {
   border-color: var(--br-accent);
-  box-shadow: var(--br-shadow-sm);
+  box-shadow: var(--br-shadow-md), 0 0 0 1px var(--br-accent-soft);
+  transform: translateY(-1px);
 }
 .table-list .table-list-row:hover::before {
   width: 6px;
@@ -967,8 +969,15 @@ ul, ol {
   white-space: nowrap;
 }
 
+#dashboard .table-list .table-list-row {
+  box-shadow: var(--br-shadow-sm);
+}
 #dashboard .table-list .table-list-row::before {
   display: none;
+}
+#dashboard .table-list .table-list-row:hover {
+  box-shadow: var(--br-shadow-md), 0 0 0 1px var(--br-accent-soft);
+  transform: translateY(-1px);
 }
 #dashboard .table-list .table-list-row > div:first-child input[type=checkbox] {
   display: none;

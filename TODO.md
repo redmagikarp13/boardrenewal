@@ -90,6 +90,6 @@
 - [x] 6. Formulários com fieldsets suaves
 - [x] 7. Tabelas com mais estilo
 - [x] 8. Checkboxes customizados
-- [ ] 9. Efeitos de transparência (glassmorphism)
+- [x] 9. Efeitos de transparência (glassmorphism)
 - [ ] 10. Sombras elaboradas nos cards
 - [ ] 11. [Final]Auditoria de modos de cor e consistência dos tokens `--br-*`
