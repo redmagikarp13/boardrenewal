@@ -835,12 +835,19 @@ ul, ol {
   gap: 2px;
 }
 .sidebar-container .sidebar ul li a {
-  display: block;
+  display: flex;
+  align-items: center;
+  gap: 10px;
   padding: 10px 14px;
   border-radius: var(--br-radius-sm);
   color: var(--br-text);
   font-size: 14px;
   text-decoration: none;
+}
+.sidebar-container .sidebar ul li a i.fa {
+  width: 16px;
+  text-align: center;
+  flex-shrink: 0;
 }
 .sidebar-container .sidebar ul li a:hover {
   background: var(--br-surface-2);
@@ -871,12 +878,19 @@ ul, ol {
   gap: 2px;
 }
 #dashboard > .sidebar ul li a {
-  display: block;
+  display: flex;
+  align-items: center;
+  gap: 10px;
   padding: 10px 14px;
   border-radius: var(--br-radius-sm);
   color: var(--br-text);
   font-size: 14px;
   text-decoration: none;
+}
+#dashboard > .sidebar ul li a i.fa {
+  width: 16px;
+  text-align: center;
+  flex-shrink: 0;
 }
 #dashboard > .sidebar ul li a:hover {
   background: var(--br-surface-2);
@@ -1210,13 +1224,20 @@ section.page:has(.sidebar-container .sidebar ul li.active) .sidebar-container .s
   margin: 0;
 }
 section.page:has(.sidebar-container .sidebar ul li.active) .sidebar-container .sidebar ul li a {
-  display: block;
+  display: flex;
+  align-items: center;
+  gap: 10px;
   padding: 10px 14px;
   border-radius: var(--br-radius-sm);
   color: var(--br-text);
   font-size: 14px;
   text-decoration: none;
   transition: all 0.2s ease;
+}
+section.page:has(.sidebar-container .sidebar ul li.active) .sidebar-container .sidebar ul li a i.fa {
+  width: 16px;
+  text-align: center;
+  flex-shrink: 0;
 }
 section.page:has(.sidebar-container .sidebar ul li.active) .sidebar-container .sidebar ul li a:hover {
   background: var(--br-surface-2);
