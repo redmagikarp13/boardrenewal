@@ -2244,6 +2244,7 @@ table tr:hover td {
   border-radius: var(--br-radius);
   padding: 20px;
   margin-bottom: 20px;
+  color: #1f2430;
 }
 .task-summary-container .task-summary-columns {
   display: grid;
@@ -2258,18 +2259,18 @@ table tr:hover td {
 .task-summary-container .task-summary-columns .task-summary-column ul.no-bullet li {
   margin-bottom: 12px;
   font-size: 14px;
-  color: var(--br-text);
+  color: #1f2430;
 }
 .task-summary-container .task-summary-columns .task-summary-column ul.no-bullet li strong {
-  color: var(--br-text);
+  color: #1f2430;
   font-weight: 600;
   margin-right: 6px;
 }
 .task-summary-container .task-summary-columns .task-summary-column ul.no-bullet li span {
-  color: var(--br-text);
+  color: #1f2430;
 }
 .task-summary-container .task-summary-columns .task-summary-column ul.no-bullet li a {
-  color: var(--br-accent);
+  color: #0066cc;
   text-decoration: none;
   font-weight: 600;
 }

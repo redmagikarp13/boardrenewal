@@ -1811,7 +1811,10 @@ table {
   padding: 20px;
   margin-bottom: 20px;
 
-  // Ajusta cores para legibilidade no fundo amarelo
+  // Ajusta cores para legibilidade no fundo amarelo/bege (sempre claro)
+  // Usa texto escuro fixo pois o fundo é sempre claro, independente do tema
+  color: #1f2430;
+
   .task-summary-columns {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -1826,20 +1829,20 @@ table {
         li {
           margin-bottom: 12px;
           font-size: 14px;
-          color: var(--br-text);
+          color: #1f2430;
 
           strong {
-            color: var(--br-text);
+            color: #1f2430;
             font-weight: 600;
             margin-right: 6px;
           }
 
           span {
-            color: var(--br-text);
+            color: #1f2430;
           }
 
           a {
-            color: var(--br-accent);
+            color: #0066cc;
             text-decoration: none;
             font-weight: 600;
 
