@@ -1824,7 +1824,7 @@ table {
 // Tela de Tarefa Individual - Card de resumo
 .task-summary-container {
   // Usa fundo do tema (adapta ao light/dark)
-  background: var(--br-surface);
+  background: var(--br-surface) !important;
   border-radius: var(--br-radius);
   padding: 20px;
   margin-bottom: 20px;
