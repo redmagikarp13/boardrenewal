@@ -11,21 +11,19 @@
   // Impede que o scrollable overflow da tabela vaze para o documento
   // (sem isso, o body ganha scroll horizontal e arrasta a sidebar junto)
   contain: layout paint;
-  // Board ocupa toda a largura disponível e rola horizontalmente quando necessário
-  width: 100%;
+  // Board ocupa toda a largura da viewport (sidebar fica por cima com z-index)
+  width: 100vw;
   min-width: 0;
-  // Compensa o padding do section.page para o board encostar nas bordas
-  margin: 0 -28px; // -28px compensa o padding-right do section.page
   
   @media (min-width: 1024px) {
-    margin-left: -84px; // compensa o padding-left quando sidebar recolhida (padrão)
+    // Sidebar recolhida (56px): padding-left = 84px
+    margin-left: -84px;
   }
   
-  // Quando sidebar expandida: compensa padding-left e padding-right maiores
+  // Sidebar expandida (230px): padding-left = 258px
   @media (min-width: 1024px) {
     html:not([data-sidebar='collapsed']) & {
       margin-left: -258px;
-      margin-right: -28px; // garante compensação do padding-right
     }
   }
 
