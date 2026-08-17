@@ -14,6 +14,22 @@
   // Permite que o board se estenda para trás da sidebar durante o scroll
   // (efeito visual: conteúdo rola por baixo da sidebar fixa)
   min-width: 100%;
+  
+  // Compensa o padding-left do section.page para o board ocupar toda a largura
+  // e permitir que as colunas rolem por baixo da sidebar
+  @media (min-width: 1024px) {
+    // Sidebar expandida (padrão): board ocupa largura total menos sidebar
+    width: calc(100vw - 230px);
+    margin-left: -230px; // compensa o padding-left do section.page
+  }
+  
+  [data-sidebar='collapsed'] & {
+    @media (min-width: 1024px) {
+      // Sidebar recolhida: board ocupa mais espaço
+      width: calc(100vw - 56px);
+      margin-left: -56px;
+    }
+  }
 
   table {
     border-collapse: separate;

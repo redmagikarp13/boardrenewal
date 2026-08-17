@@ -502,6 +502,18 @@ section.page {
   contain: layout paint;
   min-width: 100%;
 }
+@media (min-width: 1024px) {
+  #board-container {
+    width: calc(100vw - 230px);
+    margin-left: -230px;
+  }
+}
+@media (min-width: 1024px) {
+  [data-sidebar=collapsed] #board-container {
+    width: calc(100vw - 56px);
+    margin-left: -56px;
+  }
+}
 #board-container table {
   border-collapse: separate;
   border-spacing: 10px 0;
