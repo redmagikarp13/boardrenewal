@@ -79,6 +79,27 @@
 
 ---
 
+## 🎨 Refatoração de Ícones (Fase 2)
+
+### 11. Ícones flat e modernos
+- **Objetivo:** Substituir ícones atuais por estilo flat, minimalista e moderno
+- **Inspiração:** Vikunja, Notion, Linear — ícones limpos sem gradientes ou sombras 3D
+- **Diretrizes:**
+  - Stroke-width consistente (1.5–2px)
+  - Cantos arredondados proporcionais
+  - Escala uniforme (16–20px para UI, 24px para ações principais)
+  - Usar variáveis CSS (`--br-text`, `--br-accent`) para cor
+  - Adaptar automaticamente aos modos claro/escuro/alto contraste
+- **Áreas a revisar:**
+  - Sidebar: navegação (⊞, ▸), busca (🔍), modo (◐), collapse (◀/▶)
+  - Topbar: notificações (🔔), menu (+), avatar, engrenagem
+  - Board: botões de ação nos cards, colunas (+)
+  - Formulários: botões salvar/cancelar, toolbar do editor
+  - Listagens: filtros, ações em massa, checkboxes
+- **Abordagem:** Usar SVG inline ou Font Awesome com overrides CSS para peso/escala
+
+---
+
 ##  Status
 
 
@@ -92,4 +113,5 @@
 - [x] 8. Checkboxes customizados
 - [x] 9. Efeitos de transparência (glassmorphism)
 - [x] 10. Sombras elaboradas nos cards
-- [ ] 11. [Final]Auditoria de modos de cor e consistência dos tokens `--br-*`
+- [ ] 11. Refatorar ícones para estilo flat e moderno
+- [ ] 12. [Final] Auditoria de modos de cor e consistência dos tokens `--br-*`
