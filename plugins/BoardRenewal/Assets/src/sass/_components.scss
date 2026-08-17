@@ -899,41 +899,42 @@ ul.dropdown-submenu-open {
   border-radius: var(--br-radius);
   box-shadow: var(--br-shadow-md);
 
-  li a {
-    display: block;
-    padding: 7px 10px;
-    border-radius: var(--br-radius-sm);
-    color: var(--br-text);
-    font-size: 13px;
-
-    &:hover {
-      background: var(--br-surface-2);
-      text-decoration: none;
-    }
-
-    i {
-      margin-right: 8px;
-      width: 16px;
-      text-align: center;
-      opacity: 0.7;
-    }
-  }
-
-  // Itens cujo ícone fica fora do <a> (ex: Documentação):
-  // flex no li alinha ícone + texto na mesma linha
+  // Itens do menu: flex para alinhar ícone + texto
   li {
     display: flex;
     align-items: center;
+    gap: 10px;
 
-    > i.fa {
-      margin-left: 10px;
+    // Ícone dentro do <a>
+    a i.fa {
       width: 16px;
       text-align: center;
       opacity: 0.7;
+      flex-shrink: 0;
     }
 
-    > a {
+    // Ícone fora do <a> (ex: Documentação)
+    > i.fa {
+      width: 16px;
+      text-align: center;
+      opacity: 0.7;
+      flex-shrink: 0;
+    }
+
+    a {
+      display: flex;
+      align-items: center;
+      gap: 10px;
       flex: 1;
+      padding: 7px 10px;
+      border-radius: var(--br-radius-sm);
+      color: var(--br-text);
+      font-size: 13px;
+
+      &:hover {
+        background: var(--br-surface-2);
+        text-decoration: none;
+      }
     }
   }
 
