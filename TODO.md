@@ -7,6 +7,15 @@
 
 ## 🔴 Alta Prioridade (impacto visual imediato)
 
+### 0. Auditoria de Modos de Cor e Tokens do Tema
+- **Escopo:** Revisar toda a implementação para garantir que light, dark, auto e high contrast funcionem corretamente
+- **Verificar:** Variáveis `--br-*` usadas consistentemente em todas as telas e componentes
+- **Verificar:** Contraste texto/fundo adequado em cada combinação de tema
+- **Verificar:** Nenhum elemento com cores hard-coded (hex, rgb, named colors fora dos tokens)
+- **Páginas a auditar:** Dashboard, Visão Global, Lista de Tarefas, Tarefa Individual, Board, Configurações, Plugins, Usuários, Perfil, Login
+- **Documentar:** Inconsistências encontradas e propor correções antes da entrega final
+- **Referência:** Ver spec `docs/superpowers/specs/2026-08-15-boardrenewal-theme-design.md` para os tokens definidos
+
 ### 1. Listas com bullets pretos (todas as telas)
 - **Telas afetadas:** Dashboard, Configurações, Plugins, Usuários, Perfil, Tarefa, Projeto
 - **Problema:** Todas as listas de navegação e ações estão com bullets pretos do browser default
@@ -72,6 +81,7 @@
 
 ##  Status
 
+
 - [x] 1. Remover bullets de todas as listas
 - [x] 2. Ajustar largura do conteúdo para usar espaço disponível
 - [x] 3. Estilizar menus de navegação (sidebar ou abas)
@@ -82,3 +92,4 @@
 - [ ] 8. Checkboxes customizados
 - [ ] 9. Efeitos de transparência (glassmorphism)
 - [ ] 10. Sombras elaboradas nos cards
+- [ ] 11. [Final]Auditoria de modos de cor e consistência dos tokens `--br-*`

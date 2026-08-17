@@ -994,8 +994,14 @@ table {
     letter-spacing: normal;
   }
 
-  tr:hover td {
+  // Zebra striping: linhas pares com fundo sutil
+  tbody tr:nth-child(even) {
     background: var(--br-surface-2);
+  }
+
+  // Hover mais evidente
+  tr:hover td {
+    background: var(--br-accent-soft);
   }
 }
 

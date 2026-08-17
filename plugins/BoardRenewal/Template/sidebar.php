@@ -40,10 +40,15 @@ $brCurrentProjectId = isset($project['id']) ? $project['id'] : 0;
         </div>
         <?php endif ?>
 
-        <?php foreach ($brProjects as $brProject): ?>
+        <?php foreach ($brProjects as $brProject):
+            $brFirstName = $this->text->e($brProject['name']);
+            $brRawName = $brProject['name'];
+            $brFirstChar = function_exists('grapheme_substr') ? grapheme_substr($brRawName, 0, 1) : mb_substr($brRawName, 0, 1, 'UTF-8');
+            $brInitial = preg_match('/[\p{L}\p{N}]/u', $brFirstChar) ? $brFirstChar : '▸';
+        ?>
             <a class="br-nav-item <?= $brProject['id'] == $brCurrentProjectId ? 'br-nav-item--active' : '' ?>"
                href="<?= $this->url->href('BoardViewController', 'show', array('project_id' => $brProject['id'])) ?>">
-                <span class="br-nav-item__icon">▸</span> <span class="br-nav-item__label"><?= $this->text->e($brProject['name']) ?></span>
+                <span class="br-nav-item__icon" data-br-initial="<?= $this->text->e($brInitial) ?>">▸</span> <span class="br-nav-item__label"><?= $brFirstName ?></span>
             </a>
         <?php endforeach ?>
     </nav>
