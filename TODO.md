@@ -77,7 +77,7 @@
 - [x] 3. Estilizar menus de navegação (sidebar ou abas)
 - [x] 4. Cards de projeto no Dashboard
 - [x] 5. Lista de tarefas estilizada
-- [ ] 6. Formulários com fieldsets suaves
+- [x] 6. Formulários com fieldsets suaves
 - [ ] 7. Tabelas com mais estilo
 - [ ] 8. Checkboxes customizados
 - [ ] 9. Efeitos de transparência (glassmorphism)
