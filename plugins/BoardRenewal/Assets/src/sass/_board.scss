@@ -103,7 +103,8 @@
 
 // Card de tarefa
 // As cores nativas de tarefa do Kanboard (colorCss) são sempre pastéis claros,
-// então o texto do card é SEMPRE escuro, independente do tema.
+// então o texto do card precisa de contraste adequado.
+// Usamos --br-text para adaptar ao tema (light/dark).
 .board-item, .task-board {
   background: var(--br-surface);
   border: 1px solid var(--br-border) !important;
@@ -112,7 +113,7 @@
   padding: 10px;
   margin: 6px 0;
   font-size: 13px;
-  color: #1f2430;
+  color: var(--br-text);
   transition: box-shadow 0.12s ease, transform 0.12s ease;
 
   &:hover {
@@ -120,14 +121,14 @@
   }
 
   a {
-    color: #1f2430;
+    color: var(--br-text);
   }
 
   .task-board-icons, .task-footer {
-    color: rgba(31, 36, 48, 0.65);
+    color: var(--br-text-muted);
 
     a {
-      color: rgba(31, 36, 48, 0.65);
+      color: var(--br-text-muted);
     }
   }
 

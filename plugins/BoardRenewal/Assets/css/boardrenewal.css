@@ -672,20 +672,20 @@ section.page {
   padding: 10px;
   margin: 6px 0;
   font-size: 13px;
-  color: #1f2430;
+  color: var(--br-text);
   transition: box-shadow 0.12s ease, transform 0.12s ease;
 }
 .board-item:hover, .task-board:hover {
   box-shadow: var(--br-shadow-md);
 }
 .board-item a, .task-board a {
-  color: #1f2430;
+  color: var(--br-text);
 }
 .board-item .task-board-icons, .board-item .task-footer, .task-board .task-board-icons, .task-board .task-footer {
-  color: rgba(31, 36, 48, 0.65);
+  color: var(--br-text-muted);
 }
 .board-item .task-board-icons a, .board-item .task-footer a, .task-board .task-board-icons a, .task-board .task-footer a {
-  color: rgba(31, 36, 48, 0.65);
+  color: var(--br-text-muted);
 }
 .board-item[style*=background], .task-board[style*=background] {
   border-left-width: 3px !important;
@@ -2084,18 +2084,18 @@ table tr:hover td {
 .task-summary-container .task-summary-columns .task-summary-column ul.no-bullet li {
   margin-bottom: 12px;
   font-size: 14px;
-  color: #000;
+  color: var(--br-text);
 }
 .task-summary-container .task-summary-columns .task-summary-column ul.no-bullet li strong {
-  color: #000;
+  color: var(--br-text);
   font-weight: 600;
   margin-right: 6px;
 }
 .task-summary-container .task-summary-columns .task-summary-column ul.no-bullet li span {
-  color: #000;
+  color: var(--br-text);
 }
 .task-summary-container .task-summary-columns .task-summary-column ul.no-bullet li a {
-  color: #0066cc;
+  color: var(--br-accent);
   text-decoration: none;
   font-weight: 600;
 }
