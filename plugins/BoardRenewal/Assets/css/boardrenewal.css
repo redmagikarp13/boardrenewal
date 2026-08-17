@@ -1508,7 +1508,6 @@ ul.dropdown-submenu-open li > span {
   display: flex;
   align-items: center;
   flex: 1;
-  padding: 7px 10px;
 }
 ul.dropdown-submenu-open li a {
   display: flex;
