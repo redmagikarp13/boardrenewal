@@ -25,3 +25,63 @@
     stroke: var(--br-icon-color-active);
   }
 }
+
+// Font Awesome icons do core — estilizados para o tema Moderno Rounded
+// Aplica-se a todos os ícones FA usados em: topbar, board, formulários, listagens
+i.fa, i.fas, i.far, i.fab {
+  font-size: 16px;
+  color: var(--br-icon-color);
+  opacity: 0.85;
+  width: var(--br-icon-size);
+  text-align: center;
+  flex-shrink: 0;
+  transition: color 0.15s ease, opacity 0.15s ease;
+
+  // Ícones dentro de links/botões: herdam cor e têm hover
+  a:hover &, button:hover & {
+    color: var(--br-icon-color-active);
+    opacity: 1;
+  }
+
+  // Ícones em estado ativo/selected
+  .active &, .selected & {
+    color: var(--br-icon-color-active);
+    opacity: 1;
+  }
+}
+
+// Tamanhos específicos por contexto
+.page-header i.fa,
+.menus-container i.fa {
+  font-size: 18px;
+}
+
+// Toolbar do editor de texto (markdown)
+.text-editor i.fa {
+  font-size: 14px;
+  opacity: 0.7;
+
+  &:hover {
+    opacity: 1;
+    color: var(--br-icon-color-active);
+  }
+}
+
+// Ícones de ação nos cards do board
+.task-board-icons i.fa,
+.task-footer i.fa {
+  font-size: 13px;
+  opacity: 0.6;
+}
+
+// Ícones de notificação e ações na topbar
+.menus-container .dropdown > a i.fa {
+  font-size: 18px;
+  opacity: 0.9;
+}
+
+// Alto contraste: ícones mais visíveis
+[data-contrast='high'] i.fa {
+  opacity: 1;
+  color: var(--br-text);
+}

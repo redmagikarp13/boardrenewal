@@ -111,6 +111,54 @@
   stroke: var(--br-icon-color-active);
 }
 
+i.fa, i.fas, i.far, i.fab {
+  font-size: 16px;
+  color: var(--br-icon-color);
+  opacity: 0.85;
+  width: var(--br-icon-size);
+  text-align: center;
+  flex-shrink: 0;
+  transition: color 0.15s ease, opacity 0.15s ease;
+}
+a:hover i.fa, button:hover i.fa, a:hover i.fas, button:hover i.fas, a:hover i.far, button:hover i.far, a:hover i.fab, button:hover i.fab {
+  color: var(--br-icon-color-active);
+  opacity: 1;
+}
+.active i.fa, .selected i.fa, .active i.fas, .selected i.fas, .active i.far, .selected i.far, .active i.fab, .selected i.fab {
+  color: var(--br-icon-color-active);
+  opacity: 1;
+}
+
+.page-header i.fa,
+.menus-container i.fa {
+  font-size: 18px;
+}
+
+.text-editor i.fa {
+  font-size: 14px;
+  opacity: 0.7;
+}
+.text-editor i.fa:hover {
+  opacity: 1;
+  color: var(--br-icon-color-active);
+}
+
+.task-board-icons i.fa,
+.task-footer i.fa {
+  font-size: 13px;
+  opacity: 0.6;
+}
+
+.menus-container .dropdown > a i.fa {
+  font-size: 18px;
+  opacity: 0.9;
+}
+
+[data-contrast=high] i.fa {
+  opacity: 1;
+  color: var(--br-text);
+}
+
 * {
   box-sizing: border-box;
 }
