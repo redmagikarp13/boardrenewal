@@ -281,8 +281,19 @@
   top: 0;
   z-index: 50;
   border-bottom: 1px solid var(--br-border);
-  padding: 12px 24px;
+  padding: 12px 24px 12px 24px; // padding padrão (sidebar recolhida)
   min-height: 56px;
+
+  // Sidebar expandida: padding-left maior para o título não ficar atrás da sidebar
+  @media (min-width: 1024px) {
+    padding-left: 258px; // 230px sidebar + 28px padding
+  }
+
+  [data-sidebar='collapsed'] & {
+    @media (min-width: 1024px) {
+      padding-left: 84px; // 56px rail + 28px padding
+    }
+  }
 
   .title-container {
     flex: 1;

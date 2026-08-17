@@ -421,8 +421,18 @@ section.page {
   top: 0;
   z-index: 50;
   border-bottom: 1px solid var(--br-border);
-  padding: 12px 24px;
+  padding: 12px 24px 12px 24px;
   min-height: 56px;
+}
+@media (min-width: 1024px) {
+  .br-main > header {
+    padding-left: 258px;
+  }
+}
+@media (min-width: 1024px) {
+  [data-sidebar=collapsed] .br-main > header {
+    padding-left: 84px;
+  }
 }
 .br-main > header .title-container {
   flex: 1;
