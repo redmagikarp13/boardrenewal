@@ -9,6 +9,8 @@ class Plugin extends Base
     public function initialize()
     {
         $this->template->setTemplateOverride('layout', 'boardRenewal:layout');
+        // Página de criação de tarefa aberta em outra guia: envolve com o layout do tema
+        $this->template->setTemplateOverride('task_creation/show', 'boardRenewal:task_creation/show');
     }
 
     public function getHelpers()
