@@ -114,4 +114,5 @@
 - [x] 9. Efeitos de transparência (glassmorphism)
 - [x] 10. Sombras elaboradas nos cards
 - [ ] 11. Refatorar ícones para estilo flat e moderno
-- [ ] 12. [Final] Auditoria de modos de cor e consistência dos tokens `--br-*`
+- [ ] 12. [Final pt1] Auditoria de menus e páginas, verificar espaçamento dos campos, icones e textos `--br-*`
+- [ ] 12. [Final pt2] Auditoria de modos de cor e consistência dos tokens `--br-*`

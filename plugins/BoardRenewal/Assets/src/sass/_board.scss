@@ -11,6 +11,11 @@
   // Impede que o scrollable overflow da tabela vaze para o documento
   // (sem isso, o body ganha scroll horizontal e arrasta a sidebar junto)
   contain: layout paint;
+  // Garante que o container respeite a largura do pai (.br-main com margin-left)
+  // e não estenda para baixo da sidebar durante o scroll
+  width: 100%;
+  min-width: 0;
+  position: relative;
 
   table {
     border-collapse: separate;
