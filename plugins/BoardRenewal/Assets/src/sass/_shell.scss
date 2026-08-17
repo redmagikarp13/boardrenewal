@@ -256,9 +256,10 @@
     @include sidebar-rail;
   }
 
-  [data-sidebar='collapsed'] .br-main {
-    margin-left: 56px;
-  }
+  // Sem margin-left: conteúdo sempre ocupa toda a largura, sidebar fica por cima
+  // [data-sidebar='collapsed'] .br-main {
+  //   margin-left: 56px;
+  // }
 
   // Esconde o seletor de projetos quando recolhida
   [data-sidebar='collapsed'] .br-sidebar__project-selector {

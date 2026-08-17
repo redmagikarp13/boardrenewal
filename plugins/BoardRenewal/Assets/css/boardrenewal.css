@@ -143,7 +143,6 @@ code, pre {
 }
 
 .br-main {
-  margin-left: 230px;
   min-width: 0;
   display: flex;
   flex-direction: column;
@@ -151,7 +150,7 @@ code, pre {
 }
 
 section.page {
-  padding: 20px 28px;
+  padding: 20px 28px 20px 258px;
   width: 100%;
 }
 
@@ -398,9 +397,6 @@ section.page {
   }
   [data-sidebar=collapsed] .br-sidebar .br-sidebar__footer {
     flex-direction: column;
-  }
-  [data-sidebar=collapsed] .br-main {
-    margin-left: 56px;
   }
   [data-sidebar=collapsed] .br-sidebar__project-selector {
     display: none;
