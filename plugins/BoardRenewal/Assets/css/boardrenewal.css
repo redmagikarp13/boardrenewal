@@ -1484,7 +1484,6 @@ ul.dropdown-submenu-open {
 ul.dropdown-submenu-open li {
   display: flex;
   align-items: center;
-  gap: 10px;
 }
 ul.dropdown-submenu-open li a i.fa {
   width: 16px;
@@ -1503,13 +1502,13 @@ ul.dropdown-submenu-open li > span i.fa {
   text-align: center;
   opacity: 0.7;
   flex-shrink: 0;
-  margin-right: 0;
+  margin-right: 10px;
 }
 ul.dropdown-submenu-open li > span {
   display: flex;
   align-items: center;
-  gap: 10px;
   flex: 1;
+  padding: 7px 10px;
 }
 ul.dropdown-submenu-open li a {
   display: flex;

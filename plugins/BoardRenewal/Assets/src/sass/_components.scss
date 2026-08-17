@@ -903,7 +903,6 @@ ul.dropdown-submenu-open {
   li {
     display: flex;
     align-items: center;
-    gap: 10px;
 
     // Ícone dentro do <a>
     a i.fa {
@@ -927,14 +926,14 @@ ul.dropdown-submenu-open {
       text-align: center;
       opacity: 0.7;
       flex-shrink: 0;
-      margin-right: 0;
+      margin-right: 10px;
     }
 
     > span {
       display: flex;
       align-items: center;
-      gap: 10px;
       flex: 1;
+      padding: 7px 10px;
     }
 
     a {
