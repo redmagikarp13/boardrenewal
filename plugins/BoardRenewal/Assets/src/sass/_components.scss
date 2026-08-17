@@ -298,6 +298,16 @@ ul, ol {
         &:hover {
           border-color: var(--br-accent);
         }
+
+        &:focus-visible {
+          outline: 2px solid var(--br-accent);
+          outline-offset: 2px;
+        }
+
+        &:disabled {
+          opacity: 0.5;
+          cursor: not-allowed;
+        }
       }
 
       .dropdown {
@@ -945,6 +955,51 @@ input[type="number"], input[type="search"], select, textarea {
     outline: none;
     border-color: var(--br-accent);
     box-shadow: 0 0 0 3px var(--br-accent-soft);
+  }
+}
+
+// Checkbox customizado (global)
+input[type="checkbox"] {
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border: 2px solid var(--br-border);
+  border-radius: 4px;
+  background: var(--br-surface);
+  cursor: pointer;
+  position: relative;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+  vertical-align: middle;
+
+  &:checked {
+    background: var(--br-accent);
+    border-color: var(--br-accent);
+
+    &::after {
+      content: '✓';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: #fff;
+      font-size: 12px;
+      font-weight: bold;
+    }
+  }
+
+  &:hover {
+    border-color: var(--br-accent);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--br-accent);
+    outline-offset: 2px;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
   }
 }
 
