@@ -624,7 +624,42 @@ ul, ol {
   padding: 0;
 }
 
-.page-header ul,
+.page-header ul {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 12px 0;
+}
+.page-header ul li a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: var(--br-radius-sm);
+  color: var(--br-accent);
+  font-size: 14px;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.page-header ul li a i {
+  opacity: 0.7;
+  width: 16px;
+  text-align: center;
+}
+.page-header ul li a:hover {
+  background: var(--br-surface-2);
+  text-decoration: none;
+}
+.page-header ul li.active a {
+  background: var(--br-accent);
+  color: #fff;
+  font-weight: 500;
+}
+.page-header ul li.active a i {
+  opacity: 1;
+}
+
 .sidebar-container .sidebar ul,
 #dashboard > .sidebar ul {
   display: flex;
@@ -632,7 +667,6 @@ ul, ol {
   gap: 4px;
   margin: 12px 0;
 }
-.page-header ul li a,
 .sidebar-container .sidebar ul li a,
 #dashboard > .sidebar ul li a {
   display: inline-flex;
@@ -644,27 +678,23 @@ ul, ol {
   font-size: 14px;
   text-decoration: none;
 }
-.page-header ul li a i,
 .sidebar-container .sidebar ul li a i,
 #dashboard > .sidebar ul li a i {
   opacity: 0.7;
   width: 16px;
   text-align: center;
 }
-.page-header ul li a:hover,
 .sidebar-container .sidebar ul li a:hover,
 #dashboard > .sidebar ul li a:hover {
   background: var(--br-surface-2);
   text-decoration: none;
 }
-.page-header ul li.active a,
 .sidebar-container .sidebar ul li.active a,
 #dashboard > .sidebar ul li.active a {
   background: var(--br-accent);
   color: #fff;
   font-weight: 500;
 }
-.page-header ul li.active a i,
 .sidebar-container .sidebar ul li.active a i,
 #dashboard > .sidebar ul li.active a i {
   opacity: 1;

@@ -8,7 +8,49 @@ ul, ol {
 }
 
 // Listas de navegação e ações (Dashboard, Configurações, etc.)
-.page-header ul,
+.page-header ul {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 12px 0;
+
+  li {
+    a {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: var(--br-radius-sm);
+      color: var(--br-accent);
+      font-size: 14px;
+      text-decoration: none;
+      white-space: nowrap;
+
+      i {
+        opacity: 0.7;
+        width: 16px;
+        text-align: center;
+      }
+
+      &:hover {
+        background: var(--br-surface-2);
+        text-decoration: none;
+      }
+    }
+
+    &.active a {
+      background: var(--br-accent);
+      color: #fff;
+      font-weight: 500;
+
+      i {
+        opacity: 1;
+      }
+    }
+  }
+}
+
 .sidebar-container .sidebar ul,
 #dashboard > .sidebar ul {
   display: flex;
