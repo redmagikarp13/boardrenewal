@@ -2253,10 +2253,66 @@ table tr:hover td {
 }
 
 .task-summary-container {
+  background: var(--br-surface);
   border-radius: var(--br-radius);
   padding: 20px;
   margin-bottom: 20px;
-  color: #1f2430;
+  color: var(--br-text);
+  border-left: 4px solid var(--br-border);
+}
+.task-summary-container.color-yellow {
+  border-left-color: #f5d76e;
+}
+.task-summary-container.color-blue {
+  border-left-color: #5dade2;
+}
+.task-summary-container.color-green {
+  border-left-color: #58d68d;
+}
+.task-summary-container.color-red {
+  border-left-color: #ec7063;
+}
+.task-summary-container.color-orange {
+  border-left-color: #f0b27a;
+}
+.task-summary-container.color-purple {
+  border-left-color: #af7ac5;
+}
+.task-summary-container.color-grey {
+  border-left-color: #95a5a6;
+}
+.task-summary-container.color-brown {
+  border-left-color: #a0522d;
+}
+.task-summary-container.color-dark_grey {
+  border-left-color: #34495e;
+}
+.task-summary-container.color-dark_orange {
+  border-left-color: #d35400;
+}
+.task-summary-container.color-dark_blue {
+  border-left-color: #2c3e50;
+}
+.task-summary-container.color-dark_green {
+  border-left-color: #27ae60;
+}
+.task-summary-container.color-dark_red {
+  border-left-color: #c0392b;
+}
+.task-summary-container.color-medium_orange {
+  border-left-color: #e67e22;
+}
+.task-summary-container.color-medium_blue {
+  border-left-color: #2980b9;
+}
+.task-summary-container.color-medium_green {
+  border-left-color: #16a085;
+}
+.task-summary-container.color-medium_red {
+  border-left-color: #c0392b;
+}
+.task-summary-container.color-medium_purple {
+  border-left-color: #8e44ad;
 }
 .task-summary-container .task-summary-columns {
   display: grid;
@@ -2271,18 +2327,18 @@ table tr:hover td {
 .task-summary-container .task-summary-columns .task-summary-column ul.no-bullet li {
   margin-bottom: 12px;
   font-size: 14px;
-  color: #1f2430;
+  color: var(--br-text);
 }
 .task-summary-container .task-summary-columns .task-summary-column ul.no-bullet li strong {
-  color: #1f2430;
+  color: var(--br-text);
   font-weight: 600;
   margin-right: 6px;
 }
 .task-summary-container .task-summary-columns .task-summary-column ul.no-bullet li span {
-  color: #1f2430;
+  color: var(--br-text);
 }
 .task-summary-container .task-summary-columns .task-summary-column ul.no-bullet li a {
-  color: #0066cc;
+  color: var(--br-accent);
   text-decoration: none;
   font-weight: 600;
 }
