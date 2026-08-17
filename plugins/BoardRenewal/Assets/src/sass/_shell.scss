@@ -198,6 +198,11 @@
     text-align: center;
     opacity: 0.85;
   }
+
+  // Inicial do projeto: escondida por padrão (sidebar expandida)
+  &__initial {
+    display: none;
+  }
 }
 
 // Sidebar recolhida (manual ou tablet)
@@ -220,12 +225,19 @@
     padding: 9px 6px;
   }
 
-  // Inicial do projeto no lugar da seta
-  .br-nav-item__icon[data-br-initial] {
+  // Mostra a inicial do projeto e esconde o SVG na sidebar recolhida
+  .br-nav-item__initial {
+    display: inline-block;
     font-size: 14px;
     font-weight: 600;
     line-height: 18px;
-    opacity: 1;
+    width: 18px;
+    text-align: center;
+    color: var(--br-sidebar-fg);
+  }
+
+  .br-nav-item__icon {
+    display: none;
   }
 
   .br-sidebar__brand {

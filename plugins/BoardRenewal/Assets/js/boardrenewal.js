@@ -12,15 +12,6 @@
         root.removeAttribute('data-sidebar');
     }
 
-    // Troca a seta (▸) pela inicial do nome do projeto na sidebar recolhida
-    function updateProjectInitials() {
-        var collapsed = root.getAttribute('data-sidebar') === 'collapsed';
-        var items = document.querySelectorAll('.br-nav-item__icon[data-br-initial]');
-        items.forEach(function (icon) {
-            icon.textContent = collapsed ? icon.getAttribute('data-br-initial') : '\u25B8';
-        });
-    }
-
     // Alto contraste: persistido em localStorage até a Fase 3 (metadado de usuário)
     var savedContrast = null;
     try { savedContrast = localStorage.getItem('boardrenewal.contrast'); } catch (e) {}
@@ -101,7 +92,6 @@
                     root.setAttribute('data-sidebar', 'collapsed');
                 }
                 collapseButton.textContent = collapsed ? '◀' : '▶';
-                updateProjectInitials();
                 try { localStorage.setItem('boardrenewal.sidebar', collapsed ? 'expanded' : 'collapsed'); } catch (e) {}
             });
         }
@@ -122,9 +112,6 @@
                 }
             });
         }
-
-        // Aplica as iniciais dos projetos conforme o estado atual da sidebar
-        updateProjectInitials();
 
         // Feed de atividades: adiciona ícone da ação e transforma o autor em link
         enhanceActivityFeed();

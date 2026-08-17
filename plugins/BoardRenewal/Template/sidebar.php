@@ -60,12 +60,16 @@ $brCurrentProjectId = isset($project['id']) ? $project['id'] : 0;
 
         <?php foreach ($brProjects as $brProject):
             $brFirstName = $this->text->e($brProject['name']);
+            $brRawName = $brProject['name'];
+            $brFirstChar = function_exists('grapheme_substr') ? grapheme_substr($brRawName, 0, 1) : mb_substr($brRawName, 0, 1, 'UTF-8');
+            $brInitial = preg_match('/[\p{L}\p{N}]/u', $brFirstChar) ? mb_strtoupper($brFirstChar, 'UTF-8') : mb_substr($brFirstName, 0, 1, 'UTF-8');
         ?>
             <a class="br-nav-item <?= $brProject['id'] == $brCurrentProjectId ? 'br-nav-item--active' : '' ?>"
                href="<?= $this->url->href('BoardViewController', 'show', array('project_id' => $brProject['id'])) ?>">
                 <svg class="br-icon br-nav-item__icon" viewBox="0 0 24 24" aria-hidden="true">
                     <path d="M9 18l6-6-6-6"/>
                 </svg>
+                <span class="br-nav-item__initial"><?= $this->text->e($brInitial) ?></span>
                 <span class="br-nav-item__label"><?= $brFirstName ?></span>
             </a>
         <?php endforeach ?>
