@@ -684,8 +684,15 @@ section.page:has(.sidebar-container .sidebar ul li.active) {
   }
 
   // Tabela de Subtarefas (plugin TableTask)
+  // Container com scroll horizontal quando necessário
+  .accordion-content:has(table.subtasks-table) {
+    overflow-x: auto;
+    border-radius: var(--br-radius);
+  }
+
   table.subtasks-table {
     width: 100%;
+    min-width: 800px; // Garante largura mínima para scroll horizontal
     border-collapse: collapse;
     margin: 20px 0;
     background: var(--br-surface);

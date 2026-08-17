@@ -1308,8 +1308,13 @@ section.page:has(.sidebar-container .sidebar ul li.active) table.table-striped t
   font-size: 14px;
   color: var(--br-text);
 }
+section.page:has(.sidebar-container .sidebar ul li.active) .accordion-content:has(table.subtasks-table) {
+  overflow-x: auto;
+  border-radius: var(--br-radius);
+}
 section.page:has(.sidebar-container .sidebar ul li.active) table.subtasks-table {
   width: 100%;
+  min-width: 800px;
   border-collapse: collapse;
   margin: 20px 0;
   background: var(--br-surface);
