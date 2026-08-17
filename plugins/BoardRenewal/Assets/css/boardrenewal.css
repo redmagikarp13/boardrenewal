@@ -625,14 +625,16 @@ ul, ol {
 }
 
 .page-header ul,
-.sidebar-container .sidebar ul {
+.sidebar-container .sidebar ul,
+#dashboard > .sidebar ul {
   display: flex;
   flex-direction: column;
   gap: 4px;
   margin: 12px 0;
 }
 .page-header ul li a,
-.sidebar-container .sidebar ul li a {
+.sidebar-container .sidebar ul li a,
+#dashboard > .sidebar ul li a {
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -643,24 +645,28 @@ ul, ol {
   text-decoration: none;
 }
 .page-header ul li a i,
-.sidebar-container .sidebar ul li a i {
+.sidebar-container .sidebar ul li a i,
+#dashboard > .sidebar ul li a i {
   opacity: 0.7;
   width: 16px;
   text-align: center;
 }
 .page-header ul li a:hover,
-.sidebar-container .sidebar ul li a:hover {
+.sidebar-container .sidebar ul li a:hover,
+#dashboard > .sidebar ul li a:hover {
   background: var(--br-surface-2);
   text-decoration: none;
 }
 .page-header ul li.active a,
-.sidebar-container .sidebar ul li.active a {
+.sidebar-container .sidebar ul li.active a,
+#dashboard > .sidebar ul li.active a {
   background: var(--br-accent);
   color: #fff;
   font-weight: 500;
 }
 .page-header ul li.active a i,
-.sidebar-container .sidebar ul li.active a i {
+.sidebar-container .sidebar ul li.active a i,
+#dashboard > .sidebar ul li.active a i {
   opacity: 1;
 }
 
@@ -696,6 +702,42 @@ ul, ol {
   font-weight: 500;
 }
 .sidebar-container .sidebar-content {
+  flex: 1;
+  min-width: 0;
+}
+
+#dashboard {
+  display: flex;
+  gap: 24px;
+  margin: 20px 0;
+}
+#dashboard > .sidebar {
+  flex-shrink: 0;
+  width: 200px;
+}
+#dashboard > .sidebar ul {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+#dashboard > .sidebar ul li a {
+  display: block;
+  padding: 10px 14px;
+  border-radius: var(--br-radius-sm);
+  color: var(--br-text);
+  font-size: 14px;
+  text-decoration: none;
+}
+#dashboard > .sidebar ul li a:hover {
+  background: var(--br-surface-2);
+}
+#dashboard > .sidebar ul li.active a {
+  background: var(--br-accent);
+  color: #fff;
+  font-weight: 500;
+}
+#dashboard > .sidebar-content {
   flex: 1;
   min-width: 0;
 }
