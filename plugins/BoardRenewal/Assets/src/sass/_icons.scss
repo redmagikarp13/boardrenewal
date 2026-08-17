@@ -1,0 +1,27 @@
+// BoardRenewal — Ícones SVG inline (estilo Moderno Rounded)
+// Todos os ícones usam stroke-linecap: round e stroke-linejoin: round
+
+@mixin icon-base {
+  display: inline-block;
+  width: var(--br-icon-size);
+  height: var(--br-icon-size);
+  stroke: var(--br-icon-color);
+  stroke-width: var(--br-icon-stroke);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+  flex-shrink: 0;
+}
+
+.br-icon {
+  @include icon-base;
+
+  &--lg {
+    width: var(--br-icon-size-lg);
+    height: var(--br-icon-size-lg);
+  }
+
+  &--accent {
+    stroke: var(--br-icon-color-active);
+  }
+}

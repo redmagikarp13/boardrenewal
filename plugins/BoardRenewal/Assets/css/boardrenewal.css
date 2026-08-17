@@ -26,6 +26,11 @@
   --br-radius: 10px;
   --br-radius-lg: 14px;
   --br-font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --br-icon-color: var(--br-text-muted);
+  --br-icon-color-active: var(--br-accent);
+  --br-icon-stroke: 2;
+  --br-icon-size: 18px;
+  --br-icon-size-lg: 22px;
   --color-primary: var(--br-text);
   --link-color-primary: var(--br-accent);
   --button-primary-background-color: var(--br-accent);
@@ -85,6 +90,25 @@
 [data-contrast=high] :focus-visible {
   outline: 3px solid var(--br-accent);
   outline-offset: 2px;
+}
+
+.br-icon {
+  display: inline-block;
+  width: var(--br-icon-size);
+  height: var(--br-icon-size);
+  stroke: var(--br-icon-color);
+  stroke-width: var(--br-icon-stroke);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+  flex-shrink: 0;
+}
+.br-icon--lg {
+  width: var(--br-icon-size-lg);
+  height: var(--br-icon-size-lg);
+}
+.br-icon--accent {
+  stroke: var(--br-icon-color-active);
 }
 
 * {

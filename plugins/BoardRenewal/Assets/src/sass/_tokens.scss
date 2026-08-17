@@ -35,6 +35,13 @@
 
   --br-font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
 
+  // Ícones — estilo Moderno Rounded (Linear/Vikunja)
+  --br-icon-color: var(--br-text-muted);
+  --br-icon-color-active: var(--br-accent);
+  --br-icon-stroke: 2;
+  --br-icon-size: 18px;
+  --br-icon-size-lg: 22px;
+
   // Compat com componentes do core que ainda referenciam tokens antigos (vendor, colorCss)
   --color-primary: var(--br-text);
   --link-color-primary: var(--br-accent);
