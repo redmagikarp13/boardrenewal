@@ -682,6 +682,199 @@ section.page:has(.sidebar-container .sidebar ul li.active) {
       }
     }
   }
+
+  // Tabela de Subtarefas (plugin TableTask)
+  table.subtasks-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background: var(--br-surface);
+    border-radius: var(--br-radius);
+    overflow: hidden;
+
+    thead {
+      background: var(--br-surface-2);
+
+      th {
+        padding: 12px 16px;
+        text-align: left;
+        font-size: 12px;
+        font-weight: 600;
+        color: var(--br-text-muted);
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        border-bottom: 2px solid var(--br-border);
+      }
+    }
+
+    tbody {
+      tr {
+        border-bottom: 1px solid var(--br-border);
+        transition: background 0.2s ease;
+
+        &:hover {
+          background: var(--br-surface-2);
+        }
+
+        &:last-child {
+          border-bottom: none;
+        }
+
+        td {
+          padding: 12px 16px;
+          font-size: 14px;
+          color: var(--br-text);
+          vertical-align: middle;
+        }
+      }
+    }
+
+    // Primeira coluna: ícones de ação + título da subtarefa
+    .subtask-table-td {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+
+      // Handle de drag
+      .draggable-row-handle {
+        cursor: grab;
+        opacity: 0.5;
+        flex-shrink: 0;
+
+        &:hover {
+          opacity: 1;
+        }
+      }
+
+      // Dropdown de ações (engrenagem)
+      .dropdown {
+        flex-shrink: 0;
+
+        > a {
+          display: flex;
+          align-items: center;
+          gap: 4px;
+          padding: 4px;
+          border-radius: var(--br-radius-sm);
+
+          &:hover {
+            background: var(--br-surface-2);
+          }
+        }
+      }
+
+      // Título da subtarefa com checkbox
+      .subtask-title {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        flex: 1;
+        min-width: 0;
+
+        a {
+          color: var(--br-text);
+          text-decoration: none;
+
+          &:hover {
+            color: var(--br-accent);
+          }
+        }
+
+        i.fa {
+          flex-shrink: 0;
+        }
+      }
+
+      // Ícones FA gerais
+      i.fa {
+        width: 16px;
+        text-align: center;
+        flex-shrink: 0;
+        color: var(--br-icon-color);
+      }
+    }
+
+    // Inputs inline (TableTask)
+    .tt-inline-input,
+    input[type="text"].tt-inline-input {
+      background: var(--br-surface);
+      border: 1px solid var(--br-border);
+      border-radius: var(--br-radius-sm);
+      padding: 6px 10px;
+      color: var(--br-text);
+      font-size: 14px;
+      font-family: var(--br-font);
+
+      &:focus {
+        outline: none;
+        border-color: var(--br-accent);
+        box-shadow: 0 0 0 2px var(--br-accent-soft);
+      }
+
+      &::placeholder {
+        color: var(--br-text-muted);
+      }
+    }
+
+    // Selects inline
+    .tt-inline-select {
+      background: var(--br-surface);
+      border: 1px solid var(--br-border);
+      border-radius: var(--br-radius-sm);
+      padding: 6px 10px;
+      color: var(--br-text);
+      font-size: 14px;
+      cursor: pointer;
+
+      &:focus {
+        outline: none;
+        border-color: var(--br-accent);
+      }
+    }
+
+    // Dropdown de assignee
+    .tt-assign-dropdown {
+      color: var(--br-text);
+      font-size: 14px;
+
+      &:hover {
+        color: var(--br-accent);
+      }
+    }
+
+    .tt-assign-options {
+      color: var(--br-text);
+    }
+
+    // Links cell
+    .tt-links-cell {
+      a {
+        color: var(--br-accent);
+        text-decoration: none;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+
+    // Textarea inline
+    .tt-inline-textarea {
+      background: var(--br-surface);
+      border: 1px solid var(--br-border);
+      border-radius: var(--br-radius-sm);
+      padding: 8px 10px;
+      color: var(--br-text);
+      font-size: 14px;
+      font-family: var(--br-font);
+      resize: vertical;
+
+      &:focus {
+        outline: none;
+        border-color: var(--br-accent);
+      }
+    }
+  }
 }
 
 // Visão Global real (/project/N/overview): cards de contagem + accordion

@@ -1308,6 +1308,156 @@ section.page:has(.sidebar-container .sidebar ul li.active) table.table-striped t
   font-size: 14px;
   color: var(--br-text);
 }
+section.page:has(.sidebar-container .sidebar ul li.active) table.subtasks-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  background: var(--br-surface);
+  border-radius: var(--br-radius);
+  overflow: hidden;
+}
+section.page:has(.sidebar-container .sidebar ul li.active) table.subtasks-table thead {
+  background: var(--br-surface-2);
+}
+section.page:has(.sidebar-container .sidebar ul li.active) table.subtasks-table thead th {
+  padding: 12px 16px;
+  text-align: left;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--br-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-bottom: 2px solid var(--br-border);
+}
+section.page:has(.sidebar-container .sidebar ul li.active) table.subtasks-table tbody tr {
+  border-bottom: 1px solid var(--br-border);
+  transition: background 0.2s ease;
+}
+section.page:has(.sidebar-container .sidebar ul li.active) table.subtasks-table tbody tr:hover {
+  background: var(--br-surface-2);
+}
+section.page:has(.sidebar-container .sidebar ul li.active) table.subtasks-table tbody tr:last-child {
+  border-bottom: none;
+}
+section.page:has(.sidebar-container .sidebar ul li.active) table.subtasks-table tbody tr td {
+  padding: 12px 16px;
+  font-size: 14px;
+  color: var(--br-text);
+  vertical-align: middle;
+}
+section.page:has(.sidebar-container .sidebar ul li.active) table.subtasks-table .subtask-table-td {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+section.page:has(.sidebar-container .sidebar ul li.active) table.subtasks-table .subtask-table-td .draggable-row-handle {
+  cursor: grab;
+  opacity: 0.5;
+  flex-shrink: 0;
+}
+section.page:has(.sidebar-container .sidebar ul li.active) table.subtasks-table .subtask-table-td .draggable-row-handle:hover {
+  opacity: 1;
+}
+section.page:has(.sidebar-container .sidebar ul li.active) table.subtasks-table .subtask-table-td .dropdown {
+  flex-shrink: 0;
+}
+section.page:has(.sidebar-container .sidebar ul li.active) table.subtasks-table .subtask-table-td .dropdown > a {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px;
+  border-radius: var(--br-radius-sm);
+}
+section.page:has(.sidebar-container .sidebar ul li.active) table.subtasks-table .subtask-table-td .dropdown > a:hover {
+  background: var(--br-surface-2);
+}
+section.page:has(.sidebar-container .sidebar ul li.active) table.subtasks-table .subtask-table-td .subtask-title {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex: 1;
+  min-width: 0;
+}
+section.page:has(.sidebar-container .sidebar ul li.active) table.subtasks-table .subtask-table-td .subtask-title a {
+  color: var(--br-text);
+  text-decoration: none;
+}
+section.page:has(.sidebar-container .sidebar ul li.active) table.subtasks-table .subtask-table-td .subtask-title a:hover {
+  color: var(--br-accent);
+}
+section.page:has(.sidebar-container .sidebar ul li.active) table.subtasks-table .subtask-table-td .subtask-title i.fa {
+  flex-shrink: 0;
+}
+section.page:has(.sidebar-container .sidebar ul li.active) table.subtasks-table .subtask-table-td i.fa {
+  width: 16px;
+  text-align: center;
+  flex-shrink: 0;
+  color: var(--br-icon-color);
+}
+section.page:has(.sidebar-container .sidebar ul li.active) table.subtasks-table .tt-inline-input,
+section.page:has(.sidebar-container .sidebar ul li.active) table.subtasks-table input[type=text].tt-inline-input {
+  background: var(--br-surface);
+  border: 1px solid var(--br-border);
+  border-radius: var(--br-radius-sm);
+  padding: 6px 10px;
+  color: var(--br-text);
+  font-size: 14px;
+  font-family: var(--br-font);
+}
+section.page:has(.sidebar-container .sidebar ul li.active) table.subtasks-table .tt-inline-input:focus,
+section.page:has(.sidebar-container .sidebar ul li.active) table.subtasks-table input[type=text].tt-inline-input:focus {
+  outline: none;
+  border-color: var(--br-accent);
+  box-shadow: 0 0 0 2px var(--br-accent-soft);
+}
+section.page:has(.sidebar-container .sidebar ul li.active) table.subtasks-table .tt-inline-input::placeholder,
+section.page:has(.sidebar-container .sidebar ul li.active) table.subtasks-table input[type=text].tt-inline-input::placeholder {
+  color: var(--br-text-muted);
+}
+section.page:has(.sidebar-container .sidebar ul li.active) table.subtasks-table .tt-inline-select {
+  background: var(--br-surface);
+  border: 1px solid var(--br-border);
+  border-radius: var(--br-radius-sm);
+  padding: 6px 10px;
+  color: var(--br-text);
+  font-size: 14px;
+  cursor: pointer;
+}
+section.page:has(.sidebar-container .sidebar ul li.active) table.subtasks-table .tt-inline-select:focus {
+  outline: none;
+  border-color: var(--br-accent);
+}
+section.page:has(.sidebar-container .sidebar ul li.active) table.subtasks-table .tt-assign-dropdown {
+  color: var(--br-text);
+  font-size: 14px;
+}
+section.page:has(.sidebar-container .sidebar ul li.active) table.subtasks-table .tt-assign-dropdown:hover {
+  color: var(--br-accent);
+}
+section.page:has(.sidebar-container .sidebar ul li.active) table.subtasks-table .tt-assign-options {
+  color: var(--br-text);
+}
+section.page:has(.sidebar-container .sidebar ul li.active) table.subtasks-table .tt-links-cell a {
+  color: var(--br-accent);
+  text-decoration: none;
+}
+section.page:has(.sidebar-container .sidebar ul li.active) table.subtasks-table .tt-links-cell a:hover {
+  text-decoration: underline;
+}
+section.page:has(.sidebar-container .sidebar ul li.active) table.subtasks-table .tt-inline-textarea {
+  background: var(--br-surface);
+  border: 1px solid var(--br-border);
+  border-radius: var(--br-radius-sm);
+  padding: 8px 10px;
+  color: var(--br-text);
+  font-size: 14px;
+  font-family: var(--br-font);
+  resize: vertical;
+}
+section.page:has(.sidebar-container .sidebar ul li.active) table.subtasks-table .tt-inline-textarea:focus {
+  outline: none;
+  border-color: var(--br-accent);
+}
 
 .project-overview-columns {
   display: grid;
