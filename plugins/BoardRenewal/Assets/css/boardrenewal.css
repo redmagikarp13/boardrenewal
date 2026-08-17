@@ -486,9 +486,7 @@ section.page {
   border-radius: var(--br-radius-lg);
   overflow-x: auto;
   contain: layout paint;
-  width: 100%;
-  min-width: 0;
-  position: relative;
+  min-width: 100%;
 }
 #board-container table {
   border-collapse: separate;
