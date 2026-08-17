@@ -894,6 +894,191 @@ section.page:has(.sidebar-container .sidebar ul li.active) {
   }
 }
 
+// Seção de Comentários
+div#comments,
+.comments {
+  // Links de ação (Add a comment, Change sorting, Send by email)
+  .comment-sorting {
+    margin-bottom: 16px;
+
+    a {
+      color: var(--br-accent);
+      text-decoration: none;
+      font-size: 14px;
+      margin-right: 16px;
+
+      i.fa {
+        margin-right: 4px;
+        color: var(--br-icon-color);
+      }
+
+      &:hover {
+        color: var(--br-accent-hover);
+        text-decoration: underline;
+      }
+    }
+
+    small {
+      color: var(--br-text-secondary);
+    }
+  }
+
+  // Toolbar do editor markdown
+  .text-editor {
+    margin: 12px 0;
+
+    a {
+      color: var(--br-text-muted);
+      text-decoration: none;
+      padding: 4px 8px;
+      border-radius: var(--br-radius-sm);
+      font-size: 14px;
+
+      &:hover {
+        color: var(--br-text);
+        background: var(--br-surface-2);
+      }
+    }
+  }
+
+  // Textarea do comentário
+  textarea {
+    background: var(--br-surface);
+    border: 1px solid var(--br-border);
+    border-radius: var(--br-radius-sm);
+    padding: 10px 12px;
+    color: var(--br-text);
+    font-size: 14px;
+    font-family: var(--br-font);
+    resize: vertical;
+    min-height: 80px;
+
+    &:focus {
+      outline: none;
+      border-color: var(--br-accent);
+      box-shadow: 0 0 0 2px var(--br-accent-soft);
+    }
+
+    &::placeholder {
+      color: var(--br-text-muted);
+    }
+  }
+
+  // Label "Visibility:"
+  label {
+    color: var(--br-text);
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 6px;
+    display: block;
+  }
+
+  // Select de visibilidade
+  select {
+    background: var(--br-surface);
+    border: 1px solid var(--br-border);
+    border-radius: var(--br-radius-sm);
+    padding: 8px 12px;
+    color: var(--br-text);
+    font-size: 14px;
+    font-family: var(--br-font);
+    cursor: pointer;
+    min-width: 200px;
+
+    &:focus {
+      outline: none;
+      border-color: var(--br-accent);
+    }
+  }
+
+  // Botão Save
+  button[type="submit"],
+  .btn {
+    background: var(--br-accent);
+    color: #fff;
+    border: none;
+    border-radius: var(--br-radius-sm);
+    padding: 8px 20px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    margin-top: 12px;
+    transition: background 0.15s ease;
+
+    &:hover {
+      background: var(--br-accent-hover);
+    }
+  }
+
+  // Comentários existentes
+  .comment {
+    background: var(--br-surface);
+    border: 1px solid var(--br-border);
+    border-radius: var(--br-radius);
+    padding: 16px;
+    margin-bottom: 12px;
+
+    // Header do comentário (autor, data)
+    .comment-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 8px;
+
+      strong,
+      .comment-author {
+        color: var(--br-text);
+        font-weight: 600;
+        font-size: 14px;
+      }
+
+      small,
+      .comment-date {
+        color: var(--br-text-muted);
+        font-size: 12px;
+      }
+    }
+
+    // Corpo do comentário
+    .comment-body {
+      color: var(--br-text);
+      font-size: 14px;
+      line-height: 1.5;
+
+      p {
+        margin: 0 0 8px 0;
+      }
+
+      a {
+        color: var(--br-accent);
+        text-decoration: none;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+
+    // Ações do comentário (edit, delete)
+    .comment-actions {
+      margin-top: 8px;
+      padding-top: 8px;
+      border-top: 1px solid var(--br-border);
+
+      a {
+        color: var(--br-text-muted);
+        font-size: 13px;
+        margin-right: 12px;
+        text-decoration: none;
+
+        &:hover {
+          color: var(--br-accent);
+        }
+      }
+    }
+  }
+}
+
 // Visão Global real (/project/N/overview): cards de contagem + accordion
 .project-overview-columns {
   display: grid;

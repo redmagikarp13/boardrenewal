@@ -1523,6 +1523,183 @@ section.page:has(.sidebar-container .sidebar ul li.active) table.subtasks-table 
   border-color: var(--br-accent);
 }
 
+div#comments .comment-sorting,
+.comments .comment-sorting {
+  margin-bottom: 16px;
+}
+div#comments .comment-sorting a,
+.comments .comment-sorting a {
+  color: var(--br-accent);
+  text-decoration: none;
+  font-size: 14px;
+  margin-right: 16px;
+}
+div#comments .comment-sorting a i.fa,
+.comments .comment-sorting a i.fa {
+  margin-right: 4px;
+  color: var(--br-icon-color);
+}
+div#comments .comment-sorting a:hover,
+.comments .comment-sorting a:hover {
+  color: var(--br-accent-hover);
+  text-decoration: underline;
+}
+div#comments .comment-sorting small,
+.comments .comment-sorting small {
+  color: var(--br-text-secondary);
+}
+div#comments .text-editor,
+.comments .text-editor {
+  margin: 12px 0;
+}
+div#comments .text-editor a,
+.comments .text-editor a {
+  color: var(--br-text-muted);
+  text-decoration: none;
+  padding: 4px 8px;
+  border-radius: var(--br-radius-sm);
+  font-size: 14px;
+}
+div#comments .text-editor a:hover,
+.comments .text-editor a:hover {
+  color: var(--br-text);
+  background: var(--br-surface-2);
+}
+div#comments textarea,
+.comments textarea {
+  background: var(--br-surface);
+  border: 1px solid var(--br-border);
+  border-radius: var(--br-radius-sm);
+  padding: 10px 12px;
+  color: var(--br-text);
+  font-size: 14px;
+  font-family: var(--br-font);
+  resize: vertical;
+  min-height: 80px;
+}
+div#comments textarea:focus,
+.comments textarea:focus {
+  outline: none;
+  border-color: var(--br-accent);
+  box-shadow: 0 0 0 2px var(--br-accent-soft);
+}
+div#comments textarea::placeholder,
+.comments textarea::placeholder {
+  color: var(--br-text-muted);
+}
+div#comments label,
+.comments label {
+  color: var(--br-text);
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 6px;
+  display: block;
+}
+div#comments select,
+.comments select {
+  background: var(--br-surface);
+  border: 1px solid var(--br-border);
+  border-radius: var(--br-radius-sm);
+  padding: 8px 12px;
+  color: var(--br-text);
+  font-size: 14px;
+  font-family: var(--br-font);
+  cursor: pointer;
+  min-width: 200px;
+}
+div#comments select:focus,
+.comments select:focus {
+  outline: none;
+  border-color: var(--br-accent);
+}
+div#comments button[type=submit],
+div#comments .btn,
+.comments button[type=submit],
+.comments .btn {
+  background: var(--br-accent);
+  color: #fff;
+  border: none;
+  border-radius: var(--br-radius-sm);
+  padding: 8px 20px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  margin-top: 12px;
+  transition: background 0.15s ease;
+}
+div#comments button[type=submit]:hover,
+div#comments .btn:hover,
+.comments button[type=submit]:hover,
+.comments .btn:hover {
+  background: var(--br-accent-hover);
+}
+div#comments .comment,
+.comments .comment {
+  background: var(--br-surface);
+  border: 1px solid var(--br-border);
+  border-radius: var(--br-radius);
+  padding: 16px;
+  margin-bottom: 12px;
+}
+div#comments .comment .comment-header,
+.comments .comment .comment-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+div#comments .comment .comment-header strong,
+div#comments .comment .comment-header .comment-author,
+.comments .comment .comment-header strong,
+.comments .comment .comment-header .comment-author {
+  color: var(--br-text);
+  font-weight: 600;
+  font-size: 14px;
+}
+div#comments .comment .comment-header small,
+div#comments .comment .comment-header .comment-date,
+.comments .comment .comment-header small,
+.comments .comment .comment-header .comment-date {
+  color: var(--br-text-muted);
+  font-size: 12px;
+}
+div#comments .comment .comment-body,
+.comments .comment .comment-body {
+  color: var(--br-text);
+  font-size: 14px;
+  line-height: 1.5;
+}
+div#comments .comment .comment-body p,
+.comments .comment .comment-body p {
+  margin: 0 0 8px 0;
+}
+div#comments .comment .comment-body a,
+.comments .comment .comment-body a {
+  color: var(--br-accent);
+  text-decoration: none;
+}
+div#comments .comment .comment-body a:hover,
+.comments .comment .comment-body a:hover {
+  text-decoration: underline;
+}
+div#comments .comment .comment-actions,
+.comments .comment .comment-actions {
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px solid var(--br-border);
+}
+div#comments .comment .comment-actions a,
+.comments .comment .comment-actions a {
+  color: var(--br-text-muted);
+  font-size: 13px;
+  margin-right: 12px;
+  text-decoration: none;
+}
+div#comments .comment .comment-actions a:hover,
+.comments .comment .comment-actions a:hover {
+  color: var(--br-accent);
+}
+
 .project-overview-columns {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
