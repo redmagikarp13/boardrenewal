@@ -51,7 +51,7 @@
     border-radius: var(--br-radius-sm);
 
     &:hover {
-      background: rgba(255, 255, 255, 0.1);
+      background: var(--br-sidebar-hover-strong);
       color: #fff;
     }
   }
@@ -60,7 +60,7 @@
     display: flex;
     align-items: center;
     gap: 8px;
-    background: rgba(255, 255, 255, 0.08);
+    background: var(--br-sidebar-hover);
     color: var(--br-sidebar-fg);
     border: 1px solid transparent;
     border-radius: var(--br-radius);
@@ -70,7 +70,7 @@
     margin-bottom: 10px;
 
     &:hover {
-      background: rgba(255, 255, 255, 0.14);
+      background: var(--br-sidebar-hover-strong);
     }
 
     kbd {
@@ -93,7 +93,7 @@
       position: relative;
       display: flex;
       align-items: center;
-      background: rgba(255, 255, 255, 0.08);
+      background: var(--br-sidebar-hover);
       border: 1px solid transparent;
       border-radius: var(--br-radius);
 
@@ -143,7 +143,7 @@
   &__footer {
     margin-top: auto;
     padding-top: 10px;
-    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    border-top: 1px solid var(--br-sidebar-border);
     display: flex;
     align-items: center;
     gap: 4px;
@@ -164,7 +164,7 @@
     border-radius: var(--br-radius-sm);
 
     &:hover {
-      background: rgba(255, 255, 255, 0.1);
+      background: var(--br-sidebar-hover-strong);
     }
   }
 }
@@ -179,7 +179,7 @@
   font-size: 13px;
 
   &:hover {
-    background: rgba(255, 255, 255, 0.08);
+    background: var(--br-sidebar-hover);
     color: #fff;
     text-decoration: none;
   }

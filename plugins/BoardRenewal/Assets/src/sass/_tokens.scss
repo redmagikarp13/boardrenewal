@@ -15,6 +15,11 @@
   --br-sidebar-fg-muted: #6b7194;
   --br-sidebar-active: #6366f1;
 
+  // Transparências da sidebar (usadas em hover, borders, etc.)
+  --br-sidebar-hover: rgba(255, 255, 255, 0.08);
+  --br-sidebar-hover-strong: rgba(255, 255, 255, 0.14);
+  --br-sidebar-border: rgba(255, 255, 255, 0.08);
+
   --br-text: #0f172a;
   --br-text-secondary: #475569;
   --br-text-muted: #94a3b8;
