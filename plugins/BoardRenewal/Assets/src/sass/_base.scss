@@ -59,6 +59,17 @@ code, pre {
 }
 
 section.page {
-  padding: 20px 28px 20px 258px; // padding-left extra para não ficar atrás da sidebar (230px + 28px)
+  padding: 20px 28px 20px 28px; // padding padrão (sidebar recolhida ou mobile)
   width: 100%;
+}
+
+// Sidebar expandida: adiciona padding-left para o conteúdo não ficar atrás da sidebar
+@media (min-width: 1024px) {
+  section.page {
+    padding-left: 258px; // 230px sidebar + 28px padding
+  }
+
+  [data-sidebar='collapsed'] section.page {
+    padding-left: 84px; // 56px rail + 28px padding
+  }
 }

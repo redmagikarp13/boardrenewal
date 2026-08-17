@@ -150,10 +150,18 @@ code, pre {
 }
 
 section.page {
-  padding: 20px 28px 20px 258px;
+  padding: 20px 28px 20px 28px;
   width: 100%;
 }
 
+@media (min-width: 1024px) {
+  section.page {
+    padding-left: 258px;
+  }
+  [data-sidebar=collapsed] section.page {
+    padding-left: 84px;
+  }
+}
 .br-sidebar {
   width: 230px;
   flex-shrink: 0;
