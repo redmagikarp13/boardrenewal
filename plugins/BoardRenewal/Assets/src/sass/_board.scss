@@ -21,10 +21,11 @@
     margin-left: -84px; // compensa o padding-left quando sidebar recolhida (padrão)
   }
   
-  // Quando sidebar expandida: compensa padding-left maior
+  // Quando sidebar expandida: compensa padding-left e padding-right maiores
   @media (min-width: 1024px) {
     html:not([data-sidebar='collapsed']) & {
       margin-left: -258px;
+      margin-right: -28px; // garante compensação do padding-right
     }
   }
 

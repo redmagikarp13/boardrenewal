@@ -551,6 +551,7 @@ section.page {
 @media (min-width: 1024px) {
   html:not([data-sidebar=collapsed]) #board-container {
     margin-left: -258px;
+    margin-right: -28px;
   }
 }
 #board-container table {
