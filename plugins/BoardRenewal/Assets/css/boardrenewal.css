@@ -539,19 +539,8 @@ section.page {
   border-radius: var(--br-radius-lg);
   overflow-x: auto;
   contain: layout paint;
-  min-width: 100%;
-}
-@media (min-width: 1024px) {
-  #board-container {
-    width: calc(100vw - 230px);
-    margin-left: -230px;
-  }
-}
-@media (min-width: 1024px) {
-  [data-sidebar=collapsed] #board-container {
-    width: calc(100vw - 56px);
-    margin-left: -56px;
-  }
+  width: 100%;
+  min-width: 0;
 }
 #board-container table {
   border-collapse: separate;
