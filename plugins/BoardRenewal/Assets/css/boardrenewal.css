@@ -159,6 +159,8 @@ section.page {
   width: 230px;
   flex-shrink: 0;
   background: var(--br-sidebar-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   color: var(--br-sidebar-fg);
   display: flex;
   flex-direction: column;
@@ -409,6 +411,8 @@ section.page {
   align-items: center;
   gap: 16px;
   background: var(--br-surface);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--br-border);
   padding: 12px 24px;
   min-height: 56px;
@@ -1547,6 +1551,8 @@ table tr:hover td {
   max-height: calc(100% - 30px);
   overflow: auto;
   background: var(--br-surface);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   color: var(--br-text);
   border: 1px solid var(--br-border);
   border-radius: var(--br-radius);

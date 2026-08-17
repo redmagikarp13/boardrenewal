@@ -1100,6 +1100,9 @@ table {
   max-height: calc(100% - 30px);
   overflow: auto;
   background: var(--br-surface);
+  // Glassmorphism no modal
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   color: var(--br-text);
   border: 1px solid var(--br-border);
   border-radius: var(--br-radius);

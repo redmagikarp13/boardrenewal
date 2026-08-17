@@ -4,6 +4,9 @@
   width: 230px;
   flex-shrink: 0;
   background: var(--br-sidebar-bg);
+  // Glassmorphism: transparência sutil com blur
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   color: var(--br-sidebar-fg);
   display: flex;
   flex-direction: column;
@@ -269,6 +272,9 @@
   align-items: center;
   gap: 16px;
   background: var(--br-surface);
+  // Glassmorphism na topbar
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--br-border);
   padding: 12px 24px;
   min-height: 56px;
