@@ -668,14 +668,15 @@ section.page {
 }
 
 .board-item, .task-board {
-  background: var(--br-surface);
+  background: var(--br-surface) !important;
   border: 1px solid var(--br-border) !important;
+  border-left: 3px solid var(--br-border) !important;
   border-radius: var(--br-radius);
   box-shadow: var(--br-shadow-sm);
   padding: 10px;
   margin: 6px 0;
   font-size: 13px;
-  color: var(--br-text);
+  color: var(--br-text) !important;
   transition: box-shadow 0.12s ease, transform 0.12s ease;
 }
 .board-item:hover, .task-board:hover {
@@ -690,8 +691,59 @@ section.page {
 .board-item .task-board-icons a, .board-item .task-footer a, .task-board .task-board-icons a, .task-board .task-footer a {
   color: var(--br-text-muted);
 }
-.board-item[style*=background], .task-board[style*=background] {
-  border-left-width: 3px !important;
+.board-item.color-yellow, .task-board.color-yellow {
+  border-left-color: #f5d76e !important;
+}
+.board-item.color-blue, .task-board.color-blue {
+  border-left-color: #5dade2 !important;
+}
+.board-item.color-green, .task-board.color-green {
+  border-left-color: #58d68d !important;
+}
+.board-item.color-red, .task-board.color-red {
+  border-left-color: #ec7063 !important;
+}
+.board-item.color-orange, .task-board.color-orange {
+  border-left-color: #f0b27a !important;
+}
+.board-item.color-purple, .task-board.color-purple {
+  border-left-color: #af7ac5 !important;
+}
+.board-item.color-grey, .task-board.color-grey {
+  border-left-color: #95a5a6 !important;
+}
+.board-item.color-brown, .task-board.color-brown {
+  border-left-color: #a0522d !important;
+}
+.board-item.color-dark_grey, .task-board.color-dark_grey {
+  border-left-color: #34495e !important;
+}
+.board-item.color-dark_orange, .task-board.color-dark_orange {
+  border-left-color: #d35400 !important;
+}
+.board-item.color-dark_blue, .task-board.color-dark_blue {
+  border-left-color: #2c3e50 !important;
+}
+.board-item.color-dark_green, .task-board.color-dark_green {
+  border-left-color: #27ae60 !important;
+}
+.board-item.color-dark_red, .task-board.color-dark_red {
+  border-left-color: #c0392b !important;
+}
+.board-item.color-medium_orange, .task-board.color-medium_orange {
+  border-left-color: #e67e22 !important;
+}
+.board-item.color-medium_blue, .task-board.color-medium_blue {
+  border-left-color: #2980b9 !important;
+}
+.board-item.color-medium_green, .task-board.color-medium_green {
+  border-left-color: #16a085 !important;
+}
+.board-item.color-medium_red, .task-board.color-medium_red {
+  border-left-color: #c0392b !important;
+}
+.board-item.color-medium_purple, .task-board.color-medium_purple {
+  border-left-color: #8e44ad !important;
 }
 
 .task-board-title {

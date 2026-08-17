@@ -106,14 +106,15 @@
 // então o texto do card precisa de contraste adequado.
 // Usamos --br-text para adaptar ao tema (light/dark).
 .board-item, .task-board {
-  background: var(--br-surface);
+  background: var(--br-surface) !important;
   border: 1px solid var(--br-border) !important;
+  border-left: 3px solid var(--br-border) !important;
   border-radius: var(--br-radius);
   box-shadow: var(--br-shadow-sm);
   padding: 10px;
   margin: 6px 0;
   font-size: 13px;
-  color: var(--br-text);
+  color: var(--br-text) !important;
   transition: box-shadow 0.12s ease, transform 0.12s ease;
 
   &:hover {
@@ -132,11 +133,25 @@
     }
   }
 
-  // Cores nativas aplicam background inline/por classe no card;
-  // mantém a faixa lateral em vez do fundo chapado:
-  &[style*="background"] {
-    border-left-width: 3px !important;
-  }
+  // Cores das categorias do Kanboard - apenas borda lateral
+  &.color-yellow { border-left-color: #f5d76e !important; }
+  &.color-blue { border-left-color: #5dade2 !important; }
+  &.color-green { border-left-color: #58d68d !important; }
+  &.color-red { border-left-color: #ec7063 !important; }
+  &.color-orange { border-left-color: #f0b27a !important; }
+  &.color-purple { border-left-color: #af7ac5 !important; }
+  &.color-grey { border-left-color: #95a5a6 !important; }
+  &.color-brown { border-left-color: #a0522d !important; }
+  &.color-dark_grey { border-left-color: #34495e !important; }
+  &.color-dark_orange { border-left-color: #d35400 !important; }
+  &.color-dark_blue { border-left-color: #2c3e50 !important; }
+  &.color-dark_green { border-left-color: #27ae60 !important; }
+  &.color-dark_red { border-left-color: #c0392b !important; }
+  &.color-medium_orange { border-left-color: #e67e22 !important; }
+  &.color-medium_blue { border-left-color: #2980b9 !important; }
+  &.color-medium_green { border-left-color: #16a085 !important; }
+  &.color-medium_red { border-left-color: #c0392b !important; }
+  &.color-medium_purple { border-left-color: #8e44ad !important; }
 }
 
 .task-board-title {
