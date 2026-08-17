@@ -849,6 +849,16 @@ section.page:has(.sidebar-container .sidebar ul li.active) {
       }
     }
 
+    // Toggle de assignee (texto do usuário atribuído)
+    .tt-assign-toggle {
+      color: var(--br-text);
+      font-size: 14px;
+
+      &:hover {
+        color: var(--br-accent);
+      }
+    }
+
     .tt-assign-options {
       color: var(--br-text);
     }

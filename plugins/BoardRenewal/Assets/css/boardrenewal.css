@@ -1439,6 +1439,13 @@ section.page:has(.sidebar-container .sidebar ul li.active) table.subtasks-table 
 section.page:has(.sidebar-container .sidebar ul li.active) table.subtasks-table .tt-assign-dropdown:hover {
   color: var(--br-accent);
 }
+section.page:has(.sidebar-container .sidebar ul li.active) table.subtasks-table .tt-assign-toggle {
+  color: var(--br-text);
+  font-size: 14px;
+}
+section.page:has(.sidebar-container .sidebar ul li.active) table.subtasks-table .tt-assign-toggle:hover {
+  color: var(--br-accent);
+}
 section.page:has(.sidebar-container .sidebar ul li.active) table.subtasks-table .tt-assign-options {
   color: var(--br-text);
 }
