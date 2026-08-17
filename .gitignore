@@ -1,2 +1,29 @@
-.superpowers/
+# Dependencies
 node_modules/
+
+# Build output
+plugins/BoardRenewal/Assets/css/*.css
+!plugins/BoardRenewal/Assets/css/boardrenewal.css
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Logs
+*.log
+npm-debug.log*
+
+# Environment
+.env
+.env.local
+
+# Temporary files
+*.tmp
+*.temp
