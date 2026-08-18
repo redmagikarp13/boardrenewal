@@ -239,8 +239,14 @@ If you encounter any issues or have questions:
 ### Board View (Dark Mode)
 ![Board View Dark](docs/screenshot-board-dark.png)
 
-### Task View (Dark Mode)
+### Modal Dialogs & Forms (Dark Mode)
+![Modal Form Dark](docs/screenshot-modal-dark.png)
+
+### Task Details View (Dark Mode)
 ![Task View Dark](docs/screenshot-task-dark.png)
+
+### Dashboard Overview (Dark Mode)
+![Dashboard Dark](docs/screenshot-dashboard-dark.png)
 
 ### Board View (Light Mode)
 ![Board View Light](docs/screenshot-board-light.png)
