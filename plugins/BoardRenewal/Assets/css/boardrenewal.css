@@ -1523,181 +1523,327 @@ section.page:has(.sidebar-container .sidebar ul li.active) table.subtasks-table 
   border-color: var(--br-accent);
 }
 
+div#comments,
+.comments {
+  padding: 8px 0 16px;
+}
 div#comments .comment-sorting,
 .comments .comment-sorting {
-  margin-bottom: 16px;
-}
-div#comments .comment-sorting a,
-.comments .comment-sorting a {
-  color: var(--br-accent);
-  text-decoration: none;
-  font-size: 14px;
-  margin-right: 16px;
-}
-div#comments .comment-sorting a i.fa,
-.comments .comment-sorting a i.fa {
-  margin-right: 4px;
-  color: var(--br-icon-color);
-}
-div#comments .comment-sorting a:hover,
-.comments .comment-sorting a:hover {
-  color: var(--br-accent-hover);
-  text-decoration: underline;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
 }
 div#comments .comment-sorting small,
 .comments .comment-sorting small {
-  color: var(--br-text-secondary);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  font-size: 13px;
+}
+div#comments .comment-sorting a,
+.comments .comment-sorting a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  background: var(--br-surface-2);
+  border: 1px solid var(--br-border);
+  border-radius: 999px;
+  color: var(--br-text);
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none !important;
+  transition: all 0.15s ease;
+}
+div#comments .comment-sorting a i.fa,
+.comments .comment-sorting a i.fa {
+  color: var(--br-icon-color);
+  font-size: 13px;
+  opacity: 0.8;
+}
+div#comments .comment-sorting a:hover,
+.comments .comment-sorting a:hover {
+  background: var(--br-accent-soft);
+  border-color: var(--br-accent);
+  color: var(--br-accent);
+}
+div#comments .comment-sorting a:hover i.fa,
+.comments .comment-sorting a:hover i.fa {
+  color: var(--br-accent);
+  opacity: 1;
+}
+div#comments form,
+.comments form {
+  width: 100%;
+  margin-top: 16px;
+}
+div#comments form label,
+.comments form label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--br-text);
+  margin-top: 14px;
+  margin-bottom: 6px;
+}
+div#comments form select,
+.comments form select {
+  width: 100%;
+  max-width: 320px;
+  background: var(--br-surface);
+  border: 1px solid var(--br-border-strong);
+  border-radius: var(--br-radius-sm);
+  padding: 9px 12px;
+  color: var(--br-text);
+  font-size: 14px;
+  cursor: pointer;
+}
+div#comments form select:focus,
+.comments form select:focus {
+  outline: none;
+  border-color: var(--br-accent);
+  box-shadow: 0 0 0 3px var(--br-accent-soft);
+}
+div#comments form .form-actions,
+.comments form .form-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid var(--br-border);
 }
 div#comments .text-editor,
-.comments .text-editor {
-  margin: 12px 0;
+div#comments .js-text-editor,
+.comments .text-editor,
+.comments .js-text-editor {
+  width: 100%;
+  box-sizing: border-box;
+  margin: 8px 0;
 }
-div#comments .text-editor a,
-.comments .text-editor a {
-  color: var(--br-text-muted);
-  text-decoration: none;
-  padding: 4px 8px;
-  border-radius: var(--br-radius-sm);
-  font-size: 14px;
+div#comments .text-editor .text-editor-write-mode,
+div#comments .text-editor .text-editor-view-mode,
+div#comments .js-text-editor .text-editor-write-mode,
+div#comments .js-text-editor .text-editor-view-mode,
+.comments .text-editor .text-editor-write-mode,
+.comments .text-editor .text-editor-view-mode,
+.comments .js-text-editor .text-editor-write-mode,
+.comments .js-text-editor .text-editor-view-mode {
+  width: 100%;
+  box-sizing: border-box;
 }
-div#comments .text-editor a:hover,
-.comments .text-editor a:hover {
-  color: var(--br-text);
+div#comments .text-editor .text-editor-toolbar,
+div#comments .js-text-editor .text-editor-toolbar,
+.comments .text-editor .text-editor-toolbar,
+.comments .js-text-editor .text-editor-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  padding: 6px 10px;
   background: var(--br-surface-2);
+  border: 1px solid var(--br-border-strong);
+  border-bottom: none;
+  border-radius: var(--br-radius-sm) var(--br-radius-sm) 0 0;
+  flex-wrap: wrap;
 }
-div#comments textarea,
-.comments textarea {
+div#comments .text-editor .text-editor-toolbar a,
+div#comments .js-text-editor .text-editor-toolbar a,
+.comments .text-editor .text-editor-toolbar a,
+.comments .js-text-editor .text-editor-toolbar a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 28px;
+  height: 28px;
+  padding: 2px 8px;
+  border-radius: 4px;
+  color: var(--br-text-secondary);
+  font-size: 13px;
+  text-decoration: none !important;
+  transition: all 0.15s ease;
+}
+div#comments .text-editor .text-editor-toolbar a i.fa,
+div#comments .js-text-editor .text-editor-toolbar a i.fa,
+.comments .text-editor .text-editor-toolbar a i.fa,
+.comments .js-text-editor .text-editor-toolbar a i.fa {
+  font-size: 13px;
+  opacity: 0.85;
+  text-align: center;
+}
+div#comments .text-editor .text-editor-toolbar a:hover,
+div#comments .js-text-editor .text-editor-toolbar a:hover,
+.comments .text-editor .text-editor-toolbar a:hover,
+.comments .js-text-editor .text-editor-toolbar a:hover {
+  background: var(--br-surface-3);
+  color: var(--br-text);
+}
+div#comments .text-editor .text-editor-toolbar a:hover i.fa,
+div#comments .js-text-editor .text-editor-toolbar a:hover i.fa,
+.comments .text-editor .text-editor-toolbar a:hover i.fa,
+.comments .js-text-editor .text-editor-toolbar a:hover i.fa {
+  opacity: 1;
+  color: var(--br-text);
+}
+div#comments .text-editor textarea,
+div#comments .js-text-editor textarea,
+.comments .text-editor textarea,
+.comments .js-text-editor textarea {
+  width: 100% !important;
+  min-width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box;
+  display: block;
   background: var(--br-surface);
-  border: 1px solid var(--br-border);
-  border-radius: var(--br-radius-sm);
-  padding: 10px 12px;
+  border: 1px solid var(--br-border-strong);
+  border-radius: 0 0 var(--br-radius-sm) var(--br-radius-sm);
+  padding: 12px 14px;
   color: var(--br-text);
   font-size: 14px;
   font-family: var(--br-font);
+  line-height: 1.6;
   resize: vertical;
-  min-height: 80px;
+  min-height: 110px;
+  margin: 0;
 }
-div#comments textarea:focus,
-.comments textarea:focus {
+div#comments .text-editor textarea:focus,
+div#comments .js-text-editor textarea:focus,
+.comments .text-editor textarea:focus,
+.comments .js-text-editor textarea:focus {
   outline: none;
   border-color: var(--br-accent);
-  box-shadow: 0 0 0 2px var(--br-accent-soft);
+  box-shadow: 0 0 0 3px var(--br-accent-soft);
+  position: relative;
+  z-index: 1;
 }
-div#comments textarea::placeholder,
-.comments textarea::placeholder {
+div#comments .text-editor textarea::placeholder,
+div#comments .js-text-editor textarea::placeholder,
+.comments .text-editor textarea::placeholder,
+.comments .js-text-editor textarea::placeholder {
   color: var(--br-text-muted);
 }
-div#comments label,
-.comments label {
-  color: var(--br-text);
-  font-size: 14px;
-  font-weight: 500;
-  margin-bottom: 6px;
-  display: block;
-}
-div#comments select,
-.comments select {
+div#comments .text-editor .text-editor-preview-area,
+div#comments .js-text-editor .text-editor-preview-area,
+.comments .text-editor .text-editor-preview-area,
+.comments .js-text-editor .text-editor-preview-area {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 14px 16px;
   background: var(--br-surface);
-  border: 1px solid var(--br-border);
-  border-radius: var(--br-radius-sm);
-  padding: 8px 12px;
+  border: 1px solid var(--br-border-strong);
+  border-radius: 0 0 var(--br-radius-sm) var(--br-radius-sm);
+  min-height: 110px;
   color: var(--br-text);
   font-size: 14px;
-  font-family: var(--br-font);
-  cursor: pointer;
-  min-width: 200px;
-}
-div#comments select:focus,
-.comments select:focus {
-  outline: none;
-  border-color: var(--br-accent);
-}
-div#comments button[type=submit],
-div#comments .btn,
-.comments button[type=submit],
-.comments .btn {
-  background: var(--br-accent);
-  color: #fff;
-  border: none;
-  border-radius: var(--br-radius-sm);
-  padding: 8px 20px;
-  font-size: 14px;
-  font-weight: 500;
-  cursor: pointer;
-  margin-top: 12px;
-  transition: background 0.15s ease;
-}
-div#comments button[type=submit]:hover,
-div#comments .btn:hover,
-.comments button[type=submit]:hover,
-.comments .btn:hover {
-  background: var(--br-accent-hover);
+  line-height: 1.6;
 }
 div#comments .comment,
 .comments .comment {
   background: var(--br-surface);
   border: 1px solid var(--br-border);
   border-radius: var(--br-radius);
-  padding: 16px;
-  margin-bottom: 12px;
+  padding: 18px 20px;
+  margin-bottom: 16px;
+  box-shadow: var(--br-shadow-sm);
+  position: relative;
+  transition: all 0.2s ease;
 }
-div#comments .comment .comment-header,
-.comments .comment .comment-header {
+div#comments .comment:hover,
+.comments .comment:hover {
+  border-color: var(--br-accent);
+  box-shadow: var(--br-shadow-md);
+}
+div#comments .comment .avatar,
+.comments .comment .avatar {
+  margin-right: 12px;
+  float: left;
+}
+div#comments .comment .comment-title,
+.comments .comment .comment-title {
   display: flex;
   align-items: center;
-  gap: 8px;
-  margin-bottom: 8px;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
 }
-div#comments .comment .comment-header strong,
-div#comments .comment .comment-header .comment-author,
-.comments .comment .comment-header strong,
-.comments .comment .comment-header .comment-author {
+div#comments .comment .comment-title strong.comment-username,
+.comments .comment .comment-title strong.comment-username {
   color: var(--br-text);
   font-weight: 600;
   font-size: 14px;
 }
-div#comments .comment .comment-header small,
-div#comments .comment .comment-header .comment-date,
-.comments .comment .comment-header small,
-.comments .comment .comment-header .comment-date {
+div#comments .comment .comment-title small.comment-date,
+div#comments .comment .comment-title small.comment-visibility,
+.comments .comment .comment-title small.comment-date,
+.comments .comment .comment-title small.comment-visibility {
   color: var(--br-text-muted);
   font-size: 12px;
 }
-div#comments .comment .comment-body,
-.comments .comment .comment-body {
-  color: var(--br-text);
-  font-size: 14px;
-  line-height: 1.5;
-}
-div#comments .comment .comment-body p,
-.comments .comment .comment-body p {
-  margin: 0 0 8px 0;
-}
-div#comments .comment .comment-body a,
-.comments .comment .comment-body a {
-  color: var(--br-accent);
-  text-decoration: none;
-}
-div#comments .comment .comment-body a:hover,
-.comments .comment .comment-body a:hover {
-  text-decoration: underline;
-}
 div#comments .comment .comment-actions,
 .comments .comment .comment-actions {
-  margin-top: 8px;
-  padding-top: 8px;
-  border-top: 1px solid var(--br-border);
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  margin: 0;
+  padding: 0;
+  border: none;
 }
-div#comments .comment .comment-actions a,
-.comments .comment .comment-actions a {
+div#comments .comment .comment-actions .dropdown > a,
+.comments .comment .comment-actions .dropdown > a {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 8px;
+  background: var(--br-surface-2);
+  border-radius: var(--br-radius-sm);
   color: var(--br-text-muted);
-  font-size: 13px;
-  margin-right: 12px;
   text-decoration: none;
 }
-div#comments .comment .comment-actions a:hover,
-.comments .comment .comment-actions a:hover {
+div#comments .comment .comment-actions .dropdown > a:hover,
+.comments .comment .comment-actions .dropdown > a:hover {
+  background: var(--br-surface-3);
+  color: var(--br-text);
+}
+div#comments .comment .comment-content,
+.comments .comment .comment-content {
+  clear: both;
+  margin-top: 10px;
+}
+div#comments .comment .comment-content .markdown,
+.comments .comment .comment-content .markdown {
+  color: var(--br-text);
+  font-size: 14px;
+  line-height: 1.6;
+}
+div#comments .comment .comment-content .markdown p,
+.comments .comment .comment-content .markdown p {
+  margin: 0 0 10px 0;
+}
+div#comments .comment .comment-content .markdown p:last-child,
+.comments .comment .comment-content .markdown p:last-child {
+  margin-bottom: 0;
+}
+div#comments .comment .comment-content .markdown a,
+.comments .comment .comment-content .markdown a {
   color: var(--br-accent);
+  text-decoration: none;
+}
+div#comments .comment .comment-content .markdown a:hover,
+.comments .comment .comment-content .markdown a:hover {
+  text-decoration: underline;
+}
+div#comments .comment .comment-content .markdown code, div#comments .comment .comment-content .markdown pre,
+.comments .comment .comment-content .markdown code,
+.comments .comment .comment-content .markdown pre {
+  background: var(--br-surface-2);
+  border-radius: var(--br-radius-sm);
+  padding: 2px 6px;
+}
+div#comments .comment .comment-content .markdown pre,
+.comments .comment .comment-content .markdown pre {
+  padding: 10px 14px;
+  overflow-x: auto;
 }
 
 .project-overview-columns {
@@ -2034,22 +2180,69 @@ ul.dropdown-submenu-open li strong::before {
   color: #fff;
 }
 
-input[type=text], input[type=password], input[type=email],
-input[type=number], input[type=search], select, textarea {
+input[type=text],
+input[type=password],
+input[type=email],
+input[type=number],
+input[type=search],
+input[type=url],
+input[type=date],
+select,
+textarea {
+  width: 100%;
+  box-sizing: border-box;
+  display: block;
   background: var(--br-surface);
   color: var(--br-text);
   border: 1px solid var(--br-border-strong);
   border-radius: var(--br-radius-sm);
-  padding: 8px 10px;
+  padding: 9px 12px;
   font-size: 14px;
   font-family: var(--br-font);
-  max-width: 100%;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
 }
-input[type=text]:focus, input[type=password]:focus, input[type=email]:focus,
-input[type=number]:focus, input[type=search]:focus, select:focus, textarea:focus {
+input[type=text]:focus,
+input[type=password]:focus,
+input[type=email]:focus,
+input[type=number]:focus,
+input[type=search]:focus,
+input[type=url]:focus,
+input[type=date]:focus,
+select:focus,
+textarea:focus {
   outline: none;
   border-color: var(--br-accent);
   box-shadow: 0 0 0 3px var(--br-accent-soft);
+}
+input[type=text]::placeholder,
+input[type=password]::placeholder,
+input[type=email]::placeholder,
+input[type=number]::placeholder,
+input[type=search]::placeholder,
+input[type=url]::placeholder,
+input[type=date]::placeholder,
+select::placeholder,
+textarea::placeholder {
+  color: var(--br-text-muted);
+}
+
+textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+
+fieldset {
+  border: 1px solid var(--br-border);
+  border-radius: var(--br-radius);
+  padding: 16px 20px;
+  margin: 16px 0;
+  background: var(--br-surface);
+}
+fieldset legend {
+  font-weight: 650;
+  font-size: 14px;
+  color: var(--br-text);
+  padding: 0 8px;
 }
 
 input[type=checkbox] {
@@ -2093,20 +2286,79 @@ input[type=checkbox]:disabled {
 
 label {
   display: block;
-  margin-top: 10px;
-  color: var(--br-text-secondary);
-  font-weight: 500;
+  margin-top: 14px;
+  margin-bottom: 6px;
+  color: var(--br-text);
+  font-weight: 600;
   font-size: 13px;
   cursor: pointer;
+}
+
+label:has(input[type=checkbox]),
+label:has(input[type=radio]),
+.form-checkbox {
+  display: flex !important;
+  align-items: center;
+  gap: 10px;
+  font-weight: 500;
+  color: var(--br-text);
+  margin: 12px 0 8px 0;
+  cursor: pointer;
+}
+label:has(input[type=checkbox]) input[type=checkbox],
+label:has(input[type=checkbox]) input[type=radio],
+label:has(input[type=radio]) input[type=checkbox],
+label:has(input[type=radio]) input[type=radio],
+.form-checkbox input[type=checkbox],
+.form-checkbox input[type=radio] {
+  margin: 0;
+  flex-shrink: 0;
+  display: inline-block;
 }
 
 .form-help {
   color: var(--br-text-muted);
   font-size: 12px;
+  margin-top: 4px;
+  margin-bottom: 12px;
+  line-height: 1.4;
 }
 
 .form-required {
   color: var(--br-danger);
+}
+
+.form-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 24px;
+  padding-top: 16px;
+  border-top: 1px solid var(--br-border);
+}
+.form-actions a {
+  color: var(--br-text-muted);
+  font-size: 13px;
+  text-decoration: none;
+}
+.form-actions a:hover {
+  color: var(--br-text);
+  text-decoration: underline;
+}
+
+.js-project-creation-options {
+  margin-top: 16px;
+  padding: 14px 18px;
+  background: var(--br-surface-2);
+  border: 1px solid var(--br-border);
+  border-radius: var(--br-radius);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.js-project-creation-options p.alert {
+  margin: 0 0 8px 0;
+  font-weight: 600;
 }
 
 table {
@@ -2162,82 +2414,104 @@ table tr:hover td {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.6);
-  overflow: auto;
-  z-index: 100;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  overflow-y: auto;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 40px 16px;
 }
 
 #modal-box {
-  position: fixed;
-  top: 2%;
-  left: 50%;
-  transform: translateX(-50%);
-  max-width: 600px;
-  width: calc(100% - 40px);
-  max-height: calc(100% - 30px);
-  overflow: auto;
-  background: color-mix(in srgb, var(--br-surface) 85%, transparent);
-  backdrop-filter: blur(20px) saturate(180%);
-  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  position: relative;
+  max-width: 620px;
+  width: 100%;
+  max-height: calc(100vh - 80px);
+  overflow-y: auto;
+  background: color-mix(in srgb, var(--br-surface) 92%, transparent);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
   color: var(--br-text);
   border: 1px solid var(--br-border);
-  border-radius: var(--br-radius);
-  box-shadow: var(--br-shadow-md);
+  border-radius: var(--br-radius-lg);
+  box-shadow: 0 20px 40px -8px rgba(0, 0, 0, 0.4), 0 0 0 1px var(--br-border);
+  padding: 0;
+  margin: auto;
 }
 
 #modal-box #modal-header {
-  position: relative;
-  border-bottom: 1px solid var(--br-border);
-  padding: 14px 18px;
-  font-weight: 650;
-}
-#modal-box #modal-header #modal-close-button {
-  position: absolute;
-  top: 12px;
-  right: 14px;
-  background: none;
-  border: none;
-  color: var(--br-text-muted);
-  font-size: 18px;
-  cursor: pointer;
-  padding: 4px;
-  line-height: 1;
-}
-#modal-box #modal-header #modal-close-button:hover {
-  color: var(--br-text);
-}
-
-#modal-box #modal-content {
-  padding: 18px;
-}
-
-#modal-box #modal-header:not(:has(*:not(#modal-close-button))) {
   position: absolute;
   top: 0;
   right: 0;
   left: 0;
-  border-bottom: none;
-  padding: 10px 12px 0 0;
+  height: 0;
+  padding: 0;
+  margin: 0;
+  border: none !important;
   background: transparent;
   pointer-events: none;
+  z-index: 50;
 }
-#modal-box #modal-header:not(:has(*:not(#modal-close-button))) #modal-close-button {
+#modal-box #modal-header #modal-close-button {
   pointer-events: auto;
-  top: 10px;
-  right: 12px;
-  width: 30px;
-  height: 30px;
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 36px;
+  height: 36px;
   display: flex;
   align-items: center;
   justify-content: center;
   background: var(--br-surface-2);
+  border: 1px solid var(--br-border);
   border-radius: var(--br-radius-sm);
-  color: var(--br-text-muted);
-  text-decoration: none;
+  color: var(--br-text-secondary);
+  font-size: 16px;
+  cursor: pointer;
+  text-decoration: none !important;
+  transition: all 0.15s ease;
+  box-shadow: var(--br-shadow-sm);
 }
-#modal-box #modal-header:not(:has(*:not(#modal-close-button))) #modal-close-button:hover {
-  background: var(--br-surface-3);
+#modal-box #modal-header #modal-close-button i.fa, #modal-box #modal-header #modal-close-button i.fa-times {
+  font-size: 16px;
+  line-height: 1;
+  width: 16px;
+  text-align: center;
+  opacity: 0.9;
+}
+#modal-box #modal-header #modal-close-button:hover {
+  background: var(--br-accent);
+  border-color: var(--br-accent);
+  color: #ffffff;
+  transform: scale(1.05);
+}
+#modal-box #modal-header #modal-close-button:hover i.fa, #modal-box #modal-header #modal-close-button:hover i.fa-times {
+  color: #ffffff;
+  opacity: 1;
+}
+#modal-box #modal-header #modal-close-button:focus-visible {
+  outline: 2px solid var(--br-accent);
+  outline-offset: 2px;
+}
+
+#modal-box #modal-content {
+  padding: 24px 28px;
+}
+#modal-box #modal-content .page-header,
+#modal-box #modal-content > h2:first-child,
+#modal-box #modal-content > h3:first-child,
+#modal-box #modal-content > form > h2:first-child {
+  padding-right: 48px;
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-size: 18px;
+  font-weight: 700;
   color: var(--br-text);
+  border-bottom: 1px solid var(--br-border);
+  padding-bottom: 12px;
 }
 
 .task-form-container {

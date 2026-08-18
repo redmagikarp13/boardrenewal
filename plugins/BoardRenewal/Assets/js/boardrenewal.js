@@ -113,6 +113,19 @@
             });
         }
 
+        // Fecha o modal ao clicar no fundo escuro (fora do #modal-box)
+        document.addEventListener('click', function (e) {
+            var overlay = document.getElementById('modal-overlay');
+            if (overlay && e.target === overlay) {
+                var closeBtn = document.getElementById('modal-close-button');
+                if (closeBtn) {
+                    closeBtn.click();
+                } else if (window.KB && window.KB.modal && typeof window.KB.modal.close === 'function') {
+                    window.KB.modal.close();
+                }
+            }
+        });
+
         // Feed de atividades: adiciona ícone da ação e transforma o autor em link
         enhanceActivityFeed();
     });

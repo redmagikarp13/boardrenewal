@@ -9,7 +9,7 @@ plugins/BoardRenewal/Assets/css/*.css
 .DS_Store
 Thumbs.db
 
-# IDE
+# IDE & Editors
 .vscode/
 .idea/
 *.swp
@@ -20,10 +20,22 @@ Thumbs.db
 *.log
 npm-debug.log*
 
-# Environment
+# Environment & Local Configs
 .env
 .env.local
+deploy.sh
+GIT_IDENTITY.md
+
+# Internal & Scratch Artifacts
+.superpowers/
+docs/superpowers/
+scratch/
+release/
+*.zip
+TODO.md
+RELATORIO_AVALIACAO.md
 
 # Temporary files
 *.tmp
 *.temp
+

@@ -66,8 +66,8 @@ npm run build
 # Watch for SCSS changes
 npm run watch
 
-# Deploy to test environment
-./deploy.sh
+# Copy to your Kanboard installation
+cp -r plugins/BoardRenewal /path/to/kanboard/plugins/
 ```
 
 ## Coding Standards

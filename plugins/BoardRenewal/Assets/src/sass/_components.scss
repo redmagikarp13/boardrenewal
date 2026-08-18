@@ -897,182 +897,306 @@ section.page:has(.sidebar-container .sidebar ul li.active) {
 // Seção de Comentários
 div#comments,
 .comments {
-  // Links de ação (Add a comment, Change sorting, Send by email)
+  padding: 8px 0 16px;
+
+  // Links de ação superiores (Add a comment, Change sorting, Send by email)
   .comment-sorting {
-    margin-bottom: 16px;
-
-    a {
-      color: var(--br-accent);
-      text-decoration: none;
-      font-size: 14px;
-      margin-right: 16px;
-
-      i.fa {
-        margin-right: 4px;
-        color: var(--br-icon-color);
-      }
-
-      &:hover {
-        color: var(--br-accent-hover);
-        text-decoration: underline;
-      }
-    }
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
 
     small {
-      color: var(--br-text-secondary);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      font-size: 13px;
     }
-  }
-
-  // Toolbar do editor markdown
-  .text-editor {
-    margin: 12px 0;
 
     a {
-      color: var(--br-text-muted);
-      text-decoration: none;
-      padding: 4px 8px;
-      border-radius: var(--br-radius-sm);
-      font-size: 14px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      background: var(--br-surface-2);
+      border: 1px solid var(--br-border);
+      border-radius: 999px;
+      color: var(--br-text);
+      font-size: 13px;
+      font-weight: 500;
+      text-decoration: none !important;
+      transition: all 0.15s ease;
+
+      i.fa {
+        color: var(--br-icon-color);
+        font-size: 13px;
+        opacity: 0.8;
+      }
 
       &:hover {
-        color: var(--br-text);
-        background: var(--br-surface-2);
+        background: var(--br-accent-soft);
+        border-color: var(--br-accent);
+        color: var(--br-accent);
+
+        i.fa {
+          color: var(--br-accent);
+          opacity: 1;
+        }
       }
     }
   }
 
-  // Textarea do comentário
-  textarea {
-    background: var(--br-surface);
-    border: 1px solid var(--br-border);
-    border-radius: var(--br-radius-sm);
-    padding: 10px 12px;
-    color: var(--br-text);
-    font-size: 14px;
-    font-family: var(--br-font);
-    resize: vertical;
-    min-height: 80px;
+  // Formulário de novo comentário
+  form {
+    width: 100%;
+    margin-top: 16px;
 
-    &:focus {
-      outline: none;
-      border-color: var(--br-accent);
-      box-shadow: 0 0 0 2px var(--br-accent-soft);
+    label {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--br-text);
+      margin-top: 14px;
+      margin-bottom: 6px;
     }
 
-    &::placeholder {
-      color: var(--br-text-muted);
+    select {
+      width: 100%;
+      max-width: 320px;
+      background: var(--br-surface);
+      border: 1px solid var(--br-border-strong);
+      border-radius: var(--br-radius-sm);
+      padding: 9px 12px;
+      color: var(--br-text);
+      font-size: 14px;
+      cursor: pointer;
+
+      &:focus {
+        outline: none;
+        border-color: var(--br-accent);
+        box-shadow: 0 0 0 3px var(--br-accent-soft);
+      }
     }
-  }
 
-  // Label "Visibility:"
-  label {
-    color: var(--br-text);
-    font-size: 14px;
-    font-weight: 500;
-    margin-bottom: 6px;
-    display: block;
-  }
-
-  // Select de visibilidade
-  select {
-    background: var(--br-surface);
-    border: 1px solid var(--br-border);
-    border-radius: var(--br-radius-sm);
-    padding: 8px 12px;
-    color: var(--br-text);
-    font-size: 14px;
-    font-family: var(--br-font);
-    cursor: pointer;
-    min-width: 200px;
-
-    &:focus {
-      outline: none;
-      border-color: var(--br-accent);
+    .form-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 20px;
+      padding-top: 16px;
+      border-top: 1px solid var(--br-border);
     }
   }
 
-  // Botão Save
-  button[type="submit"],
-  .btn {
-    background: var(--br-accent);
-    color: #fff;
-    border: none;
-    border-radius: var(--br-radius-sm);
-    padding: 8px 20px;
-    font-size: 14px;
-    font-weight: 500;
-    cursor: pointer;
-    margin-top: 12px;
-    transition: background 0.15s ease;
+  // Editor de texto Markdown unificado
+  .text-editor,
+  .js-text-editor {
+    width: 100%;
+    box-sizing: border-box;
+    margin: 8px 0;
 
-    &:hover {
-      background: var(--br-accent-hover);
+    .text-editor-write-mode,
+    .text-editor-view-mode {
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    // Barra de ferramentas do editor
+    .text-editor-toolbar {
+      display: flex;
+      align-items: center;
+      gap: 3px;
+      padding: 6px 10px;
+      background: var(--br-surface-2);
+      border: 1px solid var(--br-border-strong);
+      border-bottom: none;
+      border-radius: var(--br-radius-sm) var(--br-radius-sm) 0 0;
+      flex-wrap: wrap;
+
+      a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 28px;
+        height: 28px;
+        padding: 2px 8px;
+        border-radius: 4px;
+        color: var(--br-text-secondary);
+        font-size: 13px;
+        text-decoration: none !important;
+        transition: all 0.15s ease;
+
+        i.fa {
+          font-size: 13px;
+          opacity: 0.85;
+          text-align: center;
+        }
+
+        &:hover {
+          background: var(--br-surface-3);
+          color: var(--br-text);
+
+          i.fa {
+            opacity: 1;
+            color: var(--br-text);
+          }
+        }
+      }
+    }
+
+    // Textarea do editor
+    textarea {
+      width: 100% !important;
+      min-width: 100% !important;
+      max-width: 100% !important;
+      box-sizing: border-box;
+      display: block;
+      background: var(--br-surface);
+      border: 1px solid var(--br-border-strong);
+      border-radius: 0 0 var(--br-radius-sm) var(--br-radius-sm);
+      padding: 12px 14px;
+      color: var(--br-text);
+      font-size: 14px;
+      font-family: var(--br-font);
+      line-height: 1.6;
+      resize: vertical;
+      min-height: 110px;
+      margin: 0;
+
+      &:focus {
+        outline: none;
+        border-color: var(--br-accent);
+        box-shadow: 0 0 0 3px var(--br-accent-soft);
+        position: relative;
+        z-index: 1;
+      }
+
+      &::placeholder {
+        color: var(--br-text-muted);
+      }
+    }
+
+    // Área de preview do Markdown
+    .text-editor-preview-area {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 14px 16px;
+      background: var(--br-surface);
+      border: 1px solid var(--br-border-strong);
+      border-radius: 0 0 var(--br-radius-sm) var(--br-radius-sm);
+      min-height: 110px;
+      color: var(--br-text);
+      font-size: 14px;
+      line-height: 1.6;
     }
   }
 
-  // Comentários existentes
+  // Cards de comentários existentes
   .comment {
     background: var(--br-surface);
     border: 1px solid var(--br-border);
     border-radius: var(--br-radius);
-    padding: 16px;
-    margin-bottom: 12px;
+    padding: 18px 20px;
+    margin-bottom: 16px;
+    box-shadow: var(--br-shadow-sm);
+    position: relative;
+    transition: all 0.2s ease;
 
-    // Header do comentário (autor, data)
-    .comment-header {
+    &:hover {
+      border-color: var(--br-accent);
+      box-shadow: var(--br-shadow-md);
+    }
+
+    // Avatar do autor
+    .avatar {
+      margin-right: 12px;
+      float: left;
+    }
+
+    // Cabeçalho do comentário (autor, data, visibilidade)
+    .comment-title {
       display: flex;
       align-items: center;
-      gap: 8px;
-      margin-bottom: 8px;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 10px;
 
-      strong,
-      .comment-author {
+      strong.comment-username {
         color: var(--br-text);
         font-weight: 600;
         font-size: 14px;
       }
 
-      small,
-      .comment-date {
+      small.comment-date,
+      small.comment-visibility {
         color: var(--br-text-muted);
         font-size: 12px;
       }
     }
 
-    // Corpo do comentário
-    .comment-body {
-      color: var(--br-text);
-      font-size: 14px;
-      line-height: 1.5;
+    // Menu de ações (engrenagem no canto superior direito)
+    .comment-actions {
+      position: absolute;
+      top: 14px;
+      right: 16px;
+      margin: 0;
+      padding: 0;
+      border: none;
 
-      p {
-        margin: 0 0 8px 0;
-      }
-
-      a {
-        color: var(--br-accent);
+      .dropdown > a {
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+        padding: 4px 8px;
+        background: var(--br-surface-2);
+        border-radius: var(--br-radius-sm);
+        color: var(--br-text-muted);
         text-decoration: none;
 
         &:hover {
-          text-decoration: underline;
+          background: var(--br-surface-3);
+          color: var(--br-text);
         }
       }
     }
 
-    // Ações do comentário (edit, delete)
-    .comment-actions {
-      margin-top: 8px;
-      padding-top: 8px;
-      border-top: 1px solid var(--br-border);
+    // Conteúdo Markdown do comentário
+    .comment-content {
+      clear: both;
+      margin-top: 10px;
 
-      a {
-        color: var(--br-text-muted);
-        font-size: 13px;
-        margin-right: 12px;
-        text-decoration: none;
+      .markdown {
+        color: var(--br-text);
+        font-size: 14px;
+        line-height: 1.6;
 
-        &:hover {
+        p {
+          margin: 0 0 10px 0;
+
+          &:last-child {
+            margin-bottom: 0;
+          }
+        }
+
+        a {
           color: var(--br-accent);
+          text-decoration: none;
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+
+        code, pre {
+          background: var(--br-surface-2);
+          border-radius: var(--br-radius-sm);
+          padding: 2px 6px;
+        }
+
+        pre {
+          padding: 10px 14px;
+          overflow-x: auto;
         }
       }
     }
@@ -1479,21 +1603,56 @@ ul.dropdown-submenu-open {
 }
 
 // Formulários
-input[type="text"], input[type="password"], input[type="email"],
-input[type="number"], input[type="search"], select, textarea {
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="number"],
+input[type="search"],
+input[type="url"],
+input[type="date"],
+select,
+textarea {
+  width: 100%;
+  box-sizing: border-box;
+  display: block;
   background: var(--br-surface);
   color: var(--br-text);
   border: 1px solid var(--br-border-strong);
   border-radius: var(--br-radius-sm);
-  padding: 8px 10px;
+  padding: 9px 12px;
   font-size: 14px;
   font-family: var(--br-font);
-  max-width: 100%;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
 
   &:focus {
     outline: none;
     border-color: var(--br-accent);
     box-shadow: 0 0 0 3px var(--br-accent-soft);
+  }
+
+  &::placeholder {
+    color: var(--br-text-muted);
+  }
+}
+
+textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+
+// Fieldsets e Legends
+fieldset {
+  border: 1px solid var(--br-border);
+  border-radius: var(--br-radius);
+  padding: 16px 20px;
+  margin: 16px 0;
+  background: var(--br-surface);
+
+  legend {
+    font-weight: 650;
+    font-size: 14px;
+    color: var(--br-text);
+    padding: 0 8px;
   }
 }
 
@@ -1542,22 +1701,84 @@ input[type="checkbox"] {
   }
 }
 
+// Labels gerais
 label {
   display: block;
-  margin-top: 10px;
-  color: var(--br-text-secondary);
-  font-weight: 500;
+  margin-top: 14px;
+  margin-bottom: 6px;
+  color: var(--br-text);
+  font-weight: 600;
   font-size: 13px;
   cursor: pointer;
+}
+
+// Labels que contêm checkbox ou radio: flex horizontal alinhado
+label:has(input[type="checkbox"]),
+label:has(input[type="radio"]),
+.form-checkbox {
+  display: flex !important;
+  align-items: center;
+  gap: 10px;
+  font-weight: 500;
+  color: var(--br-text);
+  margin: 12px 0 8px 0;
+  cursor: pointer;
+
+  input[type="checkbox"],
+  input[type="radio"] {
+    margin: 0;
+    flex-shrink: 0;
+    display: inline-block;
+  }
 }
 
 .form-help {
   color: var(--br-text-muted);
   font-size: 12px;
+  margin-top: 4px;
+  margin-bottom: 12px;
+  line-height: 1.4;
 }
 
 .form-required {
   color: var(--br-danger);
+}
+
+.form-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 24px;
+  padding-top: 16px;
+  border-top: 1px solid var(--br-border);
+
+  a {
+    color: var(--br-text-muted);
+    font-size: 13px;
+    text-decoration: none;
+
+    &:hover {
+      color: var(--br-text);
+      text-decoration: underline;
+    }
+  }
+}
+
+// Opções de duplicação do projeto no modal de criação
+.js-project-creation-options {
+  margin-top: 16px;
+  padding: 14px 18px;
+  background: var(--br-surface-2);
+  border: 1px solid var(--br-border);
+  border-radius: var(--br-radius);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+
+  p.alert {
+    margin: 0 0 8px 0;
+    font-weight: 600;
+  }
 }
 
 // Tabelas
@@ -1624,88 +1845,113 @@ table {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.6);
-  overflow: auto;
-  z-index: 100;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  overflow-y: auto;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 40px 16px;
 }
 
 #modal-box {
-  position: fixed;
-  top: 2%;
-  left: 50%;
-  transform: translateX(-50%);
-  max-width: 600px;
-  width: calc(100% - 40px);
-  max-height: calc(100% - 30px);
-  overflow: auto;
+  position: relative;
+  max-width: 620px;
+  width: 100%;
+  max-height: calc(100vh - 80px);
+  overflow-y: auto;
   // Glassmorphism no modal: fundo semi-transparente com blur
-  background: color-mix(in srgb, var(--br-surface) 85%, transparent);
-  backdrop-filter: blur(20px) saturate(180%);
-  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  background: color-mix(in srgb, var(--br-surface) 92%, transparent);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
   color: var(--br-text);
   border: 1px solid var(--br-border);
-  border-radius: var(--br-radius);
-  box-shadow: var(--br-shadow-md);
+  border-radius: var(--br-radius-lg);
+  box-shadow: 0 20px 40px -8px rgba(0, 0, 0, 0.4), 0 0 0 1px var(--br-border);
+  padding: 0;
+  margin: auto;
 }
 
+// O Kanboard cria #modal-header apenas como contêiner do botão fechar.
+// Removemos a linha vazia e posicionamos o botão X com destaque no canto superior direito.
 #modal-box #modal-header {
-  position: relative;
-  border-bottom: 1px solid var(--br-border);
-  padding: 14px 18px;
-  font-weight: 650;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 0;
+  padding: 0;
+  margin: 0;
+  border: none !important;
+  background: transparent;
+  pointer-events: none;
+  z-index: 50;
 
   #modal-close-button {
+    pointer-events: auto;
     position: absolute;
-    top: 12px;
+    top: 14px;
     right: 14px;
-    background: none;
-    border: none;
-    color: var(--br-text-muted);
-    font-size: 18px;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--br-surface-2);
+    border: 1px solid var(--br-border);
+    border-radius: var(--br-radius-sm);
+    color: var(--br-text-secondary);
+    font-size: 16px;
     cursor: pointer;
-    padding: 4px;
-    line-height: 1;
+    text-decoration: none !important;
+    transition: all 0.15s ease;
+    box-shadow: var(--br-shadow-sm);
+
+    i.fa, i.fa-times {
+      font-size: 16px;
+      line-height: 1;
+      width: 16px;
+      text-align: center;
+      opacity: 0.9;
+    }
 
     &:hover {
-      color: var(--br-text);
+      background: var(--br-accent);
+      border-color: var(--br-accent);
+      color: #ffffff;
+      transform: scale(1.05);
+
+      i.fa, i.fa-times {
+        color: #ffffff;
+        opacity: 1;
+      }
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--br-accent);
+      outline-offset: 2px;
     }
   }
 }
 
 #modal-box #modal-content {
-  padding: 18px;
-}
+  padding: 24px 28px;
 
-// Header do modal sem título (ex: criação de tarefa): vira uma faixa
-// transparente ancorada no topo, com o X no canto superior direito
-#modal-box #modal-header:not(:has(*:not(#modal-close-button))) {
-  position: absolute;
-  top: 0;
-  right: 0;
-  left: 0;
-  border-bottom: none;
-  padding: 10px 12px 0 0;
-  background: transparent;
-  pointer-events: none;
-
-  #modal-close-button {
-    pointer-events: auto;
-    top: 10px;
-    right: 12px;
-    width: 30px;
-    height: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: var(--br-surface-2);
-    border-radius: var(--br-radius-sm);
-    color: var(--br-text-muted);
-    text-decoration: none;
-
-    &:hover {
-      background: var(--br-surface-3);
-      color: var(--br-text);
-    }
+  // Títulos dentro do modal ganham espaçamento à direita para não sobrepor o botão X
+  .page-header,
+  > h2:first-child,
+  > h3:first-child,
+  > form > h2:first-child {
+    padding-right: 48px;
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--br-text);
+    border-bottom: 1px solid var(--br-border);
+    padding-bottom: 12px;
   }
 }
 
