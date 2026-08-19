@@ -56,6 +56,11 @@
 
   // Board mobile: scroll horizontal com snap por coluna
   #board-container {
+    margin-left: -12px;
+    margin-right: -12px;
+    padding-left: 4px; // 4px + 8px border-spacing = 12px alinhamento
+    padding-right: 4px;
+
     table {
       border-spacing: 8px 0;
     }

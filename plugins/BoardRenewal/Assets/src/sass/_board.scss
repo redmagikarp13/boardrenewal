@@ -11,19 +11,30 @@
   // Impede que o scrollable overflow da tabela vaze para o documento
   // (sem isso, o body ganha scroll horizontal e arrasta a sidebar junto)
   contain: layout paint;
-  // Board ocupa toda a largura da viewport (sidebar fica por cima com z-index)
-  width: 100vw;
   min-width: 0;
+  width: auto;
   
+  // Mobile / tablet padrão (< 1024px) onde a sidebar é drawer
+  margin-left: -28px;
+  margin-right: -28px;
+  padding-left: 18px; // 18px + 10px border-spacing = 28px alinhamento
+  padding-right: 18px;
+
+  // Desktop com sidebar recolhida (56px rail):
   @media (min-width: 1024px) {
-    // Sidebar recolhida (56px): padding-left = 84px
     margin-left: -84px;
+    margin-right: -28px;
+    padding-left: 74px; // 74px + 10px border-spacing = 84px (56px sidebar + 28px padding)
+    padding-right: 18px;
   }
   
-  // Sidebar expandida (230px): padding-left = 258px
+  // Desktop com sidebar expandida (230px):
   @media (min-width: 1024px) {
     html:not([data-sidebar='collapsed']) & {
       margin-left: -258px;
+      margin-right: -28px;
+      padding-left: 248px; // 248px + 10px border-spacing = 258px (230px sidebar + 28px padding)
+      padding-right: 18px;
     }
   }
 

@@ -590,17 +590,27 @@ section.page {
   border-radius: var(--br-radius-lg);
   overflow-x: auto;
   contain: layout paint;
-  width: 100vw;
   min-width: 0;
+  width: auto;
+  margin-left: -28px;
+  margin-right: -28px;
+  padding-left: 18px;
+  padding-right: 18px;
 }
 @media (min-width: 1024px) {
   #board-container {
     margin-left: -84px;
+    margin-right: -28px;
+    padding-left: 74px;
+    padding-right: 18px;
   }
 }
 @media (min-width: 1024px) {
   html:not([data-sidebar=collapsed]) #board-container {
     margin-left: -258px;
+    margin-right: -28px;
+    padding-left: 248px;
+    padding-right: 18px;
   }
 }
 #board-container table {
@@ -1436,6 +1446,9 @@ section.page:has(.sidebar-container .sidebar ul li.active) table.subtasks-table 
   min-width: 0;
 }
 section.page:has(.sidebar-container .sidebar ul li.active) table.subtasks-table .subtask-table-td .subtask-title a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
   color: var(--br-text);
   text-decoration: none;
 }
@@ -3031,6 +3044,12 @@ table tr:hover td {
   }
   section.page {
     padding: 12px;
+  }
+  #board-container {
+    margin-left: -12px;
+    margin-right: -12px;
+    padding-left: 4px;
+    padding-right: 4px;
   }
   #board-container table {
     border-spacing: 8px 0;

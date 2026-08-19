@@ -24,6 +24,7 @@ npm-debug.log*
 .env
 .env.local
 deploy.sh
+start_local.sh
 GIT_IDENTITY.md
 
 # Internal & Scratch Artifacts

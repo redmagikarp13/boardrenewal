@@ -779,6 +779,9 @@ section.page:has(.sidebar-container .sidebar ul li.active) {
         min-width: 0;
 
         a {
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
           color: var(--br-text);
           text-decoration: none;
 
