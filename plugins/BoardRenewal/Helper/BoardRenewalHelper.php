@@ -121,8 +121,8 @@ class BoardRenewalHelper extends Base
                 'description' => 'Defina sua própria cor de destaque hexadecimal',
                 'primary' => $this->getCustomAccentColor(),
                 'hover' => $this->getCustomAccentColor(),
-                'soft' => '#f1f5f9',
-                'soft_dark' => '#1e293b',
+                'soft' => 'color-mix(in srgb, ' . $this->getCustomAccentColor() . ' 12%, #ffffff)',
+                'soft_dark' => 'color-mix(in srgb, ' . $this->getCustomAccentColor() . ' 22%, #1e2030)',
                 'contrast' => '#ffffff',
                 'sidebar_active' => $this->getCustomAccentColor(),
                 'preview' => array($this->getCustomAccentColor(), '#475569', '#0f172a'),
@@ -144,6 +144,10 @@ class BoardRenewalHelper extends Base
                 'name' => 'Polígonos Esmeralda (Low-Poly)',
                 'description' => 'Mosaico poligonal em tons de verde esmeralda e floresta',
             ),
+            'subtle_gradient' => array(
+                'name' => 'Gradiente Suave (Segue a Paleta)',
+                'description' => 'Aura de gradientes radiais orgânicos gerados a partir da cor de destaque da paleta',
+            ),
             'dots' => array(
                 'name' => 'Micropontos (Dots)',
                 'description' => 'Padrão sutil de pontos em grade',
@@ -151,10 +155,6 @@ class BoardRenewalHelper extends Base
             'grid' => array(
                 'name' => 'Malha (Grid sutil)',
                 'description' => 'Linhas geométricas discretas',
-            ),
-            'subtle_gradient' => array(
-                'name' => 'Gradiente Suave',
-                'description' => 'Gradientes radiais orgânicos de cantos',
             ),
             'custom_image' => array(
                 'name' => 'Imagem Personalizada (URL)',
@@ -332,8 +332,29 @@ class BoardRenewalHelper extends Base
             $css .= "}\n";
         } elseif ($texture === 'subtle_gradient') {
             $css .= "body {\n";
-            $css .= "  background-image: radial-gradient(at 100% 0%, var(--br-accent-soft) 0px, transparent 45%), radial-gradient(at 0% 100%, var(--br-surface-2) 0px, transparent 45%);\n";
+            $css .= "  position: relative;\n";
+            $css .= "}\n";
+            $css .= "body::before {\n";
+            $css .= "  content: '';\n";
+            $css .= "  position: fixed;\n";
+            $css .= "  inset: 0;\n";
+            $css .= "  background-image: \n";
+            $css .= "    radial-gradient(ellipse 75% 60% at 90% 5%, color-mix(in srgb, var(--br-accent) 16%, transparent) 0%, transparent 65%),\n";
+            $css .= "    radial-gradient(ellipse 70% 55% at 10% 95%, color-mix(in srgb, var(--br-accent) 11%, transparent) 0%, transparent 60%),\n";
+            $css .= "    radial-gradient(ellipse 55% 45% at 50% 50%, color-mix(in srgb, var(--br-accent) 5%, transparent) 0%, transparent 70%);\n";
             $css .= "  background-attachment: fixed;\n";
+            $css .= "  pointer-events: none;\n";
+            $css .= "  z-index: -1;\n";
+            $css .= "}\n";
+            $css .= "[data-theme='dark'] body::before {\n";
+            $css .= "  background-image: \n";
+            $css .= "    radial-gradient(ellipse 80% 65% at 90% 5%, color-mix(in srgb, var(--br-accent) 24%, transparent) 0%, transparent 70%),\n";
+            $css .= "    radial-gradient(ellipse 75% 60% at 10% 95%, color-mix(in srgb, var(--br-accent) 16%, transparent) 0%, transparent 65%),\n";
+            $css .= "    radial-gradient(ellipse 60% 50% at 50% 50%, color-mix(in srgb, var(--br-accent) 8%, transparent) 0%, transparent 75%);\n";
+            $css .= "}\n";
+            $css .= ".form-login {\n";
+            $css .= "  backdrop-filter: blur(14px);\n";
+            $css .= "  background: color-mix(in srgb, var(--br-surface) 90%, transparent);\n";
             $css .= "}\n";
         } elseif ($texture === 'custom_image' && !empty($customBgUrl)) {
             $safeUrl = htmlspecialchars($customBgUrl, ENT_QUOTES, 'UTF-8');
