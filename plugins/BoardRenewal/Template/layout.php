@@ -30,6 +30,7 @@
         <?= $this->asset->css('plugins/BoardRenewal/Assets/css/boardrenewal.css') ?>
         <?= $this->asset->css('assets/css/print.min.css', true, 'print') ?>
         <?= $this->asset->customCss() ?>
+        <?= $this->BoardRenewalHelper->renderDynamicCss() ?>
 
         <?php if (! isset($not_editable)): ?>
             <?= $this->asset->js('assets/js/vendor.min.js') ?>

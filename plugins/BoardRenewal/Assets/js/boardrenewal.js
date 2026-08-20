@@ -128,7 +128,76 @@
 
         // Feed de atividades: adiciona ícone da ação e transforma o autor em link
         enhanceActivityFeed();
+
+        // Formata chips de colunas nos cards de projeto do Dashboard
+        formatProjectStatChips();
+
+        // Remove linhas de ícones vazias nos cards do board
+        cleanEmptyIconRows();
+
+        // Clique em qualquer ponto da coluna/cabeçalho recolhido para expandi-la
+        document.addEventListener('click', function (e) {
+            var collapsedTarget = e.target.closest('th.board-column-header-collapsed, td.board-column-task-collapsed');
+            if (!collapsedTarget) return;
+
+            // Se o clique já foi no próprio botão/link de toggle, deixa o evento seguir
+            if (e.target.closest('.board-toggle-column-view')) return;
+
+            var columnMatch = collapsedTarget.className.match(/board-column(?:-header)?-(\d+)/);
+            var columnId = collapsedTarget.getAttribute('data-column-id') || (columnMatch ? columnMatch[1] : null);
+            if (columnId) {
+                var toggleLink = document.querySelector('td.board-column-' + columnId + ' .board-toggle-column-view, th.board-column-header-' + columnId + ' .board-toggle-column-view');
+                if (toggleLink) {
+                    toggleLink.dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true, view: window }));
+                }
+            }
+        });
     });
+
+    // Remove nós de linhas de ícones que não contêm nenhum elemento filho nem texto
+    function cleanEmptyIconRows() {
+        var rows = document.querySelectorAll('.task-board-icons-row');
+        rows.forEach(function (row) {
+            if (!row.children.length && !row.textContent.trim()) {
+                row.remove();
+            }
+        });
+    }
+
+    // Formata chips de colunas nos cards de projeto do Dashboard
+    function formatProjectStatChips() {
+        var containers = document.querySelectorAll('#dashboard .table-list-row .table-list-details, .table-list .table-list-details');
+        containers.forEach(function (container) {
+            if (container.getAttribute('data-formatted') === 'true') return;
+            var smalls = container.querySelectorAll('small');
+            if (smalls.length === 0) return;
+
+            var chips = [];
+            var nodes = Array.from(container.childNodes);
+            var currentNumber = '';
+
+            nodes.forEach(function (node) {
+                if (node.nodeType === Node.TEXT_NODE) {
+                    var text = node.textContent.trim();
+                    if (text) currentNumber = text;
+                } else if (node.nodeName === 'SMALL') {
+                    var label = node.textContent.trim();
+                    var count = parseInt(currentNumber, 10) || 0;
+                    var chip = document.createElement('span');
+                    chip.className = 'br-stat-chip' + (count > 0 ? ' br-stat-chip--active' : '');
+                    chip.innerHTML = '<span class="br-stat-chip__count">' + (currentNumber || '0') + '</span><span class="br-stat-chip__label">' + label + '</span>';
+                    chips.push(chip);
+                    currentNumber = '';
+                }
+            });
+
+            if (chips.length > 0) {
+                container.innerHTML = '';
+                chips.forEach(function (chip) { container.appendChild(chip); });
+                container.setAttribute('data-formatted', 'true');
+            }
+        });
+    }
 
     // Reestrutura o feed de atividades: cada card ganha um ícone de ação
     // (detectado por palavras-chave) e o nome do autor vira link de perfil.

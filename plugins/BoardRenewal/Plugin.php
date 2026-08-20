@@ -11,6 +11,11 @@ class Plugin extends Base
         $this->template->setTemplateOverride('layout', 'boardRenewal:layout');
         // Página de criação de tarefa aberta em outra guia: envolve com o layout do tema
         $this->template->setTemplateOverride('task_creation/show', 'boardRenewal:task_creation/show');
+        // Página de login moderna com suporte a logo e identidade visual
+        $this->template->setTemplateOverride('auth/index', 'boardRenewal:auth/index');
+
+        // Hook na barra lateral de Configurações
+        $this->template->hook->attach('template:config:sidebar', 'boardRenewal:config/sidebar');
     }
 
     public function getHelpers()
@@ -37,7 +42,7 @@ class Plugin extends Base
 
     public function getPluginVersion()
     {
-        return '0.1.0';
+        return '0.2.0';
     }
 
     public function getPluginHomepage()

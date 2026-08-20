@@ -1,16 +1,22 @@
 <?php
 $brProjects = $this->BoardRenewalHelper->getUserProjects();
 $brCurrentProjectId = isset($project['id']) ? $project['id'] : 0;
+$brBrandName = $this->BoardRenewalHelper->getBrandName();
+$brLogoUrl = $this->BoardRenewalHelper->getCustomLogoUrl();
 ?>
 <aside class="br-sidebar" id="br-sidebar">
     <div class="br-sidebar__brand">
         <a href="<?= $this->url->dir() ?>" title="Dashboard">
-            <svg class="br-icon br-icon--lg" viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M12 2L2 7l10 5 10-5-10-5z"/>
-                <path d="M2 17l10 5 10-5"/>
-                <path d="M2 12l10 5 10-5"/>
-            </svg>
-            <span class="br-sidebar__name">Kanboard</span>
+            <?php if (!empty($brLogoUrl)): ?>
+                <img src="<?= $this->text->e($brLogoUrl) ?>" alt="<?= $this->text->e($brBrandName) ?>" class="br-sidebar__logo">
+            <?php else: ?>
+                <svg class="br-icon br-icon--lg" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                    <path d="M2 17l10 5 10-5"/>
+                    <path d="M2 12l10 5 10-5"/>
+                </svg>
+            <?php endif ?>
+            <span class="br-sidebar__name"><?= $this->text->e($brBrandName) ?></span>
         </a>
         <button type="button" class="br-sidebar__collapse" id="br-sidebar-collapse" title="Recolher menu" aria-label="Recolher menu">
             <svg class="br-icon" viewBox="0 0 24 24" aria-hidden="true">

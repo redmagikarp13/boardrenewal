@@ -469,43 +469,297 @@ ul, ol {
     }
 
     .table-list-details {
-      font-size: 12px;
+      font-size: 11.5px;
       color: var(--br-text-muted);
-      margin-bottom: 12px;
-      padding-left: 30px;
+      margin-bottom: 10px;
+      padding-left: 0;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 6px;
+
+      a {
+        color: var(--br-text-secondary);
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.15s ease;
+
+        &:hover {
+          color: var(--br-accent);
+        }
+      }
     }
 
     .task-list-icons {
       display: flex;
       flex-wrap: wrap;
-      gap: 12px;
-      font-size: 12px;
-      color: var(--br-text-muted);
-      padding-left: 30px;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      color: var(--br-text-secondary);
+      padding-left: 0;
+      margin: 8px 0;
 
       > span, > div {
         display: inline-flex;
         align-items: center;
-        gap: 4px;
+        gap: 5px;
+        padding: 3px 8px;
+        background: var(--br-surface-2);
+        border: 1px solid var(--br-border);
+        border-radius: var(--br-radius-sm, 4px);
+        line-height: 1.3;
+        white-space: nowrap;
 
-        i {
-          opacity: 0.7;
+        i.fa {
+          font-size: 11px;
+          color: var(--br-text-muted);
         }
       }
 
       .task-priority {
-        font-weight: 600;
-        color: var(--br-text);
+        font-weight: 700;
+        letter-spacing: 0.3px;
+        background: var(--br-surface-3);
+
+        &[title*="0"], &[title*="P0"] {
+          background: rgba(239, 68, 68, 0.12);
+          color: #ef4444;
+          border-color: rgba(239, 68, 68, 0.3);
+        }
+
+        &[title*="1"], &[title*="P1"] {
+          background: rgba(249, 115, 22, 0.12);
+          color: #f97316;
+          border-color: rgba(249, 115, 22, 0.3);
+        }
       }
 
       .task-icon-age {
         display: inline-flex;
-        gap: 4px;
+        gap: 6px;
 
         span {
+          display: inline-flex;
+          align-items: center;
+          gap: 3px;
           white-space: nowrap;
         }
       }
+    }
+
+    // Lista de Subtarefas em cards (Dashboard / Overview) - Tabela Zebrada sem bordas
+    .task-list-subtasks {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      margin: 12px 0 8px;
+      padding-top: 10px;
+      border-top: 1px solid var(--br-border);
+      border-radius: var(--br-radius-sm, 6px);
+      overflow: hidden;
+
+      .task-list-subtask {
+        display: grid;
+        grid-template-columns: 1fr auto auto;
+        align-items: center;
+        gap: 12px;
+        padding: 6px 10px;
+        border: 0 !important;
+        border-radius: 4px;
+        font-size: 12px;
+        line-height: 1.4;
+        transition: background 0.15s ease;
+
+        // Efeito zebrado alternado sem linhas
+        &:nth-child(odd) {
+          background: color-mix(in srgb, var(--br-surface-2) 90%, transparent);
+        }
+
+        &:nth-child(even) {
+          background: color-mix(in srgb, var(--br-surface) 40%, transparent);
+        }
+
+        &:hover {
+          background: var(--br-surface-3) !important;
+        }
+
+        .subtask-cell {
+          display: inline-flex;
+          align-items: center;
+          float: none !important;
+          width: auto !important;
+
+          &.column-50 {
+            min-width: 0;
+            overflow: hidden;
+          }
+
+          &.column-20, &.subtask-assignee {
+            flex-shrink: 0;
+            justify-content: flex-end;
+          }
+
+          &.subtask-time-tracking-cell {
+            flex-shrink: 0;
+            justify-content: flex-end;
+          }
+        }
+
+        .subtask-title {
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
+          min-width: 0;
+          width: 100%;
+          overflow: hidden;
+
+          a {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--br-text);
+            text-decoration: none;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+
+            &:hover {
+              color: var(--br-accent);
+            }
+
+            i.fa {
+              flex-shrink: 0;
+              font-size: 13px;
+              width: 16px;
+              text-align: center;
+            }
+
+            // Ícones de status com cores expressivas
+            i.fa-check-square-o, i.fa-check-square, i.fa-check-circle {
+              color: #16a34a !important;
+            }
+
+            i.fa-gears, i.fa-gear, i.fa-cog, i.fa-spinner {
+              color: #f59e0b !important;
+            }
+
+            i.fa-square-o, i.fa-circle-o {
+              color: var(--br-text-muted) !important;
+            }
+          }
+        }
+
+        .subtask-assignee {
+          display: inline-flex;
+          align-items: center;
+          gap: 4px;
+          padding: 2px 7px;
+          background: color-mix(in srgb, var(--br-surface) 85%, transparent);
+          border: 1px solid var(--br-border);
+          border-radius: 4px;
+          font-size: 11px;
+          font-weight: 500;
+          color: var(--br-text-secondary);
+          white-space: nowrap;
+
+          &::before {
+            content: '👤';
+            font-size: 9px;
+            opacity: 0.7;
+          }
+        }
+
+        .subtask-time-tracking {
+          display: inline-flex;
+          align-items: center;
+          gap: 6px;
+        }
+
+        .subtask-timer-toggle a {
+          display: inline-flex;
+          align-items: center;
+          gap: 5px;
+          padding: 3px 8px;
+          border-radius: 4px;
+          background: var(--br-accent-soft);
+          border: 1px solid color-mix(in srgb, var(--br-accent) 25%, transparent);
+          color: var(--br-accent);
+          font-size: 11px;
+          font-weight: 600;
+          text-decoration: none;
+          transition: all 0.15s ease;
+
+          &:hover {
+            background: var(--br-accent);
+            color: #ffffff;
+          }
+
+          i.fa {
+            font-size: 10px;
+          }
+        }
+      }
+    }
+
+    // Badges de Projeto & TableTask
+    .tt-badges {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 6px;
+      margin: 8px 0 4px;
+
+      .tt-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+        padding: 3px 8px;
+        border-radius: 4px;
+        font-size: 10.5px;
+        font-weight: 600;
+        letter-spacing: 0.3px;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+      }
+    }
+  }
+}
+
+// Chips de Estatísticas do Projeto (Dashboard Overview)
+.br-stat-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 9px;
+  background: var(--br-surface-2);
+  border: 1px solid var(--br-border);
+  border-radius: var(--br-radius-sm, 6px);
+  font-size: 11px;
+  transition: all 0.15s ease;
+
+  .br-stat-chip__count {
+    font-weight: 700;
+    font-size: 12px;
+    color: var(--br-text-secondary);
+  }
+
+  .br-stat-chip__label {
+    color: var(--br-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    font-weight: 500;
+  }
+
+  &.br-stat-chip--active {
+    background: var(--br-accent-soft);
+    border-color: color-mix(in srgb, var(--br-accent) 35%, transparent);
+
+    .br-stat-chip__count {
+      color: var(--br-accent);
+    }
+
+    .br-stat-chip__label {
+      color: var(--br-text);
     }
   }
 }
@@ -536,22 +790,11 @@ ul, ol {
     .table-list-details {
       display: flex;
       flex-wrap: wrap;
-      gap: 16px;
-      line-height: 1.6;
+      align-items: center;
+      gap: 8px;
+      line-height: 1.4;
       padding-left: 0;
-
-      strong {
-        color: var(--br-text);
-        font-weight: 600;
-        margin-right: 4px;
-      }
-
-      small {
-        color: var(--br-text-muted);
-        font-size: 11px;
-        text-transform: uppercase;
-        letter-spacing: 0.3px;
-      }
+      margin-top: 10px;
     }
   }
 }
@@ -2289,19 +2532,22 @@ table {
 
   .task-summary-columns {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 16px;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
 
     .task-summary-column {
+      min-width: 0;
+
       ul.no-bullet {
         list-style: none;
         padding: 0;
         margin: 0;
 
         li {
-          margin-bottom: 12px;
-          font-size: 14px;
+          margin-bottom: 10px;
+          font-size: 13.5px;
           color: var(--br-text);
+          word-break: break-word;
 
           strong {
             color: var(--br-text);
@@ -2321,6 +2567,29 @@ table {
             &:hover {
               text-decoration: underline;
             }
+          }
+        }
+
+        // Suporte para badges injetados por plugins (TableTask / TableTask tags)
+        .tt-badges {
+          display: flex;
+          flex-wrap: wrap;
+          align-items: center;
+          gap: 6px;
+          margin-top: 10px;
+          width: 100%;
+
+          .tt-badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 600;
+            line-height: 1.3;
+            max-width: 100%;
+            white-space: normal;
+            word-break: break-word;
           }
         }
       }
@@ -2504,3 +2773,324 @@ table {
     }
   }
 }
+
+// ==========================================================================
+// BoardRenewal — Painel de Configurações do Tema (Theme Customization)
+// ==========================================================================
+
+.br-settings-form {
+  max-width: 920px;
+
+  .br-settings-section {
+    background: var(--br-surface);
+    border: 1px solid var(--br-border);
+    border-radius: var(--br-radius-lg);
+    padding: 24px;
+    margin-bottom: 24px;
+    box-shadow: var(--br-shadow-sm);
+
+    &__header {
+      margin-bottom: 18px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--br-border);
+
+      h3 {
+        margin: 0 0 6px 0;
+        font-size: 16px;
+        font-weight: 650;
+        color: var(--br-text);
+      }
+
+      .form-help {
+        margin: 0;
+        color: var(--br-text-secondary);
+        font-size: 13px;
+      }
+    }
+  }
+
+  // Grid de Paletas
+  .br-palette-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 14px;
+    margin-bottom: 18px;
+  }
+
+  .br-palette-card {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    background: var(--br-surface-2);
+    border: 2px solid var(--br-border);
+    border-radius: var(--br-radius);
+    padding: 14px;
+    cursor: pointer;
+    transition: all 0.18s ease;
+
+    &:hover {
+      border-color: var(--br-border-strong);
+      transform: translateY(-2px);
+      box-shadow: var(--br-shadow-sm);
+    }
+
+    &--selected {
+      border-color: var(--br-accent) !important;
+      background: var(--br-surface);
+      box-shadow: 0 0 0 1px var(--br-accent), var(--br-shadow-sm);
+    }
+
+    &__radio {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      margin: 0;
+      cursor: pointer;
+      accent-color: var(--br-accent);
+    }
+
+    &__title {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--br-text);
+      margin-bottom: 4px;
+      padding-right: 24px;
+    }
+
+    &__desc {
+      font-size: 12px;
+      color: var(--br-text-secondary);
+      line-height: 1.4;
+      margin-bottom: 12px;
+      flex: 1;
+    }
+
+    &__colors {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: auto;
+    }
+
+    &__swatch {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      border: 1px solid rgba(0, 0, 0, 0.12);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    }
+  }
+
+  // Color picker customizado
+  .br-custom-color-picker {
+    background: var(--br-surface-2);
+    border: 1px dashed var(--br-accent);
+    border-radius: var(--br-radius);
+    padding: 16px;
+    margin-top: 14px;
+
+    .br-color-input-group {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 8px 0;
+
+      .br-color-picker-input {
+        width: 44px;
+        height: 38px;
+        padding: 2px;
+        border: 1px solid var(--br-border-strong);
+        border-radius: var(--br-radius-sm);
+        cursor: pointer;
+        background: transparent;
+      }
+
+      .br-color-text-input {
+        width: 120px;
+        font-family: monospace;
+        font-weight: 600;
+      }
+    }
+  }
+
+  // Form groups e inputs
+  .br-form-group {
+    margin-bottom: 16px;
+
+    label {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 13px;
+      color: var(--br-text);
+    }
+
+    .br-select {
+      width: 100%;
+      max-width: 400px;
+    }
+
+    .br-input-full {
+      width: 100%;
+      max-width: 580px;
+    }
+  }
+
+  .br-help-box {
+    background: var(--br-surface-2);
+    border-left: 3px solid var(--br-accent);
+    border-radius: var(--br-radius-sm);
+    padding: 12px 16px;
+    margin-top: 10px;
+    font-size: 12px;
+    line-height: 1.5;
+    color: var(--br-text-secondary);
+
+    p {
+      margin: 0 0 6px 0;
+      font-weight: 600;
+      color: var(--br-text);
+    }
+
+    ul {
+      margin: 0;
+      padding-left: 18px;
+
+      li {
+        margin-bottom: 4px;
+      }
+    }
+  }
+
+  .br-logo-preview-box {
+    background: var(--br-surface-2);
+    border: 1px solid var(--br-border);
+    border-radius: var(--br-radius);
+    padding: 16px;
+    margin-top: 16px;
+
+    strong {
+      display: block;
+      font-size: 13px;
+      margin-bottom: 10px;
+      color: var(--br-text);
+    }
+
+    .br-logo-preview-display {
+      background: var(--br-sidebar-bg);
+      border-radius: var(--br-radius-sm);
+      padding: 12px 18px;
+      display: inline-flex;
+      align-items: center;
+
+      .br-preview-brand {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        color: #fff;
+      }
+    }
+  }
+}
+
+// ==========================================================================
+// Tela de Login Customizada & Moderna
+// ==========================================================================
+
+.br-login-container {
+  max-width: 420px;
+  margin: 6vh auto 4vh;
+  background: var(--br-surface);
+  border: 1px solid var(--br-border);
+  border-radius: var(--br-radius-lg);
+  box-shadow: var(--br-shadow-md);
+  padding: 36px 32px;
+
+  .br-login-header {
+    text-align: center;
+    margin-bottom: 24px;
+
+    .br-login-logo {
+      max-height: 48px;
+      max-width: 200px;
+      object-fit: contain;
+      margin: 0 auto 12px;
+      display: block;
+    }
+
+    .br-login-default-icon {
+      width: 48px;
+      height: 48px;
+      background: var(--br-accent);
+      color: #fff;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 12px;
+      box-shadow: var(--br-shadow-sm);
+
+      svg {
+        width: 26px;
+        height: 26px;
+      }
+    }
+
+    .br-login-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--br-text);
+      margin: 0 0 6px 0;
+    }
+
+    .br-login-subtitle {
+      font-size: 13px;
+      color: var(--br-text-secondary);
+      margin: 0;
+    }
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    label {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--br-text);
+      margin-bottom: -4px;
+    }
+
+    input[type="text"], input[type="password"] {
+      width: 100%;
+      min-height: 40px;
+    }
+
+    .br-login-options {
+      display: flex;
+      align-items: center;
+      margin: 4px 0;
+    }
+
+    .form-actions {
+      margin-top: 8px;
+
+      .btn-full {
+        width: 100%;
+        min-height: 42px;
+        font-size: 14px;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+
+    .reset-password {
+      text-align: center;
+      margin-top: 10px;
+      font-size: 13px;
+    }
+  }
+}
+
