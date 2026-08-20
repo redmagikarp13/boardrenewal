@@ -8,6 +8,8 @@
     <?php
     $currentPalette = isset($values['boardrenewal_palette']) ? $values['boardrenewal_palette'] : 'default';
     $customAccent = isset($values['boardrenewal_custom_accent']) ? $values['boardrenewal_custom_accent'] : '#6366f1';
+    $cardBgLight = isset($values['boardrenewal_card_bg_light']) ? $values['boardrenewal_card_bg_light'] : '';
+    $cardBgDark = isset($values['boardrenewal_card_bg_dark']) ? $values['boardrenewal_card_bg_dark'] : '';
     $currentTexture = isset($values['boardrenewal_bg_texture']) ? $values['boardrenewal_bg_texture'] : 'none';
     $bgImageUrl = isset($values['boardrenewal_bg_image_url']) ? $values['boardrenewal_bg_image_url'] : '';
     $bgOpacity = isset($values['boardrenewal_bg_opacity']) ? $values['boardrenewal_bg_opacity'] : '0.08';
@@ -53,6 +55,82 @@
                 <input type="text" name="boardrenewal_custom_accent" id="boardrenewal_custom_accent" value="<?= $this->text->e($customAccent) ?>" placeholder="#6366f1" class="br-color-text-input">
             </div>
             <p class="form-help"><?= t('Defina a cor primária de destaque. O tema gerará automaticamente variações de hover e fundos suaves.') ?></p>
+        </div>
+    </div>
+
+    <!-- SEÇÃO 2: COR DE FUNDO DOS CARDS -->
+    <div class="br-settings-section">
+        <div class="br-settings-section__header">
+            <h3>🃏 <?= t('Fundo dos Cards de Tarefas') ?></h3>
+            <p class="form-help"><?= t('Personalize a cor de fundo dos cartões de tarefas no quadro para os modos Claro e Escuro.') ?></p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px;">
+            <!-- Modo Claro -->
+            <div style="background: var(--br-surface-2); border: 1px solid var(--br-border); border-radius: var(--br-radius); padding: 16px;">
+                <label for="boardrenewal_card_bg_light"><strong>☀️ <?= t('Modo Claro (Light Mode):') ?></strong></label>
+                <div class="br-color-input-group" style="display: flex; align-items: center; gap: 8px; margin: 8px 0 10px;">
+                    <input type="color" id="br-card-bg-light-picker" value="<?= !empty($cardBgLight) ? $this->text->e($cardBgLight) : '#ffffff' ?>" class="br-color-picker-input">
+                    <input type="text" name="boardrenewal_card_bg_light" id="boardrenewal_card_bg_light" value="<?= $this->text->e($cardBgLight) ?>" placeholder="#ffffff (Padrão)" class="br-color-text-input">
+                    <button type="button" class="btn btn-sm" id="br-reset-card-light" title="Restaurar padrão">↺</button>
+                </div>
+                <p class="form-help" style="margin: 0; font-size: 12px;"><?= t('Deixe em branco para usar o fundo padrão (#ffffff).') ?></p>
+            </div>
+
+            <!-- Modo Escuro -->
+            <div style="background: var(--br-surface-2); border: 1px solid var(--br-border); border-radius: var(--br-radius); padding: 16px;">
+                <label for="boardrenewal_card_bg_dark"><strong>🌙 <?= t('Modo Escuro (Dark Mode):') ?></strong></label>
+                <div class="br-color-input-group" style="display: flex; align-items: center; gap: 8px; margin: 8px 0 10px;">
+                    <input type="color" id="br-card-bg-dark-picker" value="<?= !empty($cardBgDark) ? $this->text->e($cardBgDark) : '#1e2030' ?>" class="br-color-picker-input">
+                    <input type="text" name="boardrenewal_card_bg_dark" id="boardrenewal_card_bg_dark" value="<?= $this->text->e($cardBgDark) ?>" placeholder="#1e2030 (Padrão)" class="br-color-text-input">
+                    <button type="button" class="btn btn-sm" id="br-reset-card-dark" title="Restaurar padrão">↺</button>
+                </div>
+                <p class="form-help" style="margin: 0; font-size: 12px;"><?= t('Deixe em branco para usar o fundo padrão (#1e2030).') ?></p>
+            </div>
+        </div>
+
+        <!-- Presets Rápidos de Fundo de Card -->
+        <div style="margin-top: 16px;">
+            <label><strong>⚡ <?= t('Sugestões Rápidas:') ?></strong></label>
+            <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 6px;">
+                <button type="button" class="btn btn-sm br-card-preset-btn" data-light="#ffffff" data-dark="#1e2030">⚪ Padrão Neutro</button>
+                <button type="button" class="btn btn-sm br-card-preset-btn" data-light="#f3faf6" data-dark="#16291f">🌲 Verde / Esmeralda Suave</button>
+                <button type="button" class="btn btn-sm br-card-preset-btn" data-light="#f0f7ff" data-dark="#142336">🌊 Azul Oceano Suave</button>
+                <button type="button" class="btn btn-sm br-card-preset-btn" data-light="#fdf4f5" data-dark="#29141c">🌹 Carmim / Rosé Suave</button>
+                <button type="button" class="btn btn-sm br-card-preset-btn" data-light="#ffffff" data-dark="#111218">🌑 Noturno Profundo (OLED)</button>
+            </div>
+        </div>
+
+        <!-- Prévia do Card ao Vivo -->
+        <div style="margin-top: 20px; padding: 16px; background: var(--br-surface-2); border: 1px solid var(--br-border); border-radius: var(--br-radius);">
+            <strong><?= t('Prévia em Tempo Real:') ?></strong>
+            <div style="display: flex; gap: 16px; flex-wrap: wrap; margin-top: 12px;">
+                <!-- Prévia Modo Claro -->
+                <div style="flex: 1; min-width: 240px; background: #eef1f6; padding: 12px; border-radius: var(--br-radius);">
+                    <span style="font-size: 11px; font-weight: 700; color: #475569; text-transform: uppercase;">☀️ Modo Claro</span>
+                    <div id="br-card-preview-light" style="background: <?= !empty($cardBgLight) ? $this->text->e($cardBgLight) : '#ffffff' ?>; border: 1px solid #e5e7ef; border-left: 3px solid #008833; border-radius: 6px; padding: 12px; margin-top: 8px; box-shadow: 0 1px 2px rgba(0,0,0,0.06); color: #0f172a;">
+                        <div style="font-size: 11px; font-weight: 700; color: #64748b; margin-bottom: 4px;">#101</div>
+                        <div style="font-weight: 600; font-size: 13.5px; margin-bottom: 8px;">Desenvolvimento de Recurso</div>
+                        <div style="display: inline-flex; align-items: center; gap: 4px; padding: 2px 7px; background: rgba(0,0,0,0.04); border-radius: 4px; font-size: 11px; color: #475569;">
+                            <span>✓ 100% (3/3)</span>
+                            <span style="margin-left: 4px; font-weight: 700; color: #008833;">P0</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Prévia Modo Escuro -->
+                <div style="flex: 1; min-width: 240px; background: #13141f; padding: 12px; border-radius: var(--br-radius);">
+                    <span style="font-size: 11px; font-weight: 700; color: #94a3b8; text-transform: uppercase;">🌙 Modo Escuro</span>
+                    <div id="br-card-preview-dark" style="background: <?= !empty($cardBgDark) ? $this->text->e($cardBgDark) : '#1e2030' ?>; border: 1px solid #2f3249; border-left: 3px solid #10b981; border-radius: 6px; padding: 12px; margin-top: 8px; box-shadow: 0 1px 2px rgba(0,0,0,0.2); color: #f1f5f9;">
+                        <div style="font-size: 11px; font-weight: 700; color: #94a3b8; margin-bottom: 4px;">#101</div>
+                        <div style="font-weight: 600; font-size: 13.5px; margin-bottom: 8px;">Desenvolvimento de Recurso</div>
+                        <div style="display: inline-flex; align-items: center; gap: 4px; padding: 2px 7px; background: rgba(255,255,255,0.06); border-radius: 4px; font-size: 11px; color: #94a3b8;">
+                            <span>✓ 100% (3/3)</span>
+                            <span style="margin-left: 4px; font-weight: 700; color: #10b981;">P0</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -166,7 +244,89 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // 2. Texturas / Imagem
+    // 2. Cores de Fundo dos Cards
+    var cardLightPicker = document.getElementById('br-card-bg-light-picker');
+    var cardLightText = document.getElementById('boardrenewal_card_bg_light');
+    var cardDarkPicker = document.getElementById('br-card-bg-dark-picker');
+    var cardDarkText = document.getElementById('boardrenewal_card_bg_dark');
+    var previewCardLight = document.getElementById('br-card-preview-light');
+    var previewCardDark = document.getElementById('br-card-preview-dark');
+    var resetLightBtn = document.getElementById('br-reset-card-light');
+    var resetDarkBtn = document.getElementById('br-reset-card-dark');
+
+    function updateCardPreviews() {
+        var lightVal = cardLightText ? cardLightText.value.trim() : '';
+        var darkVal = cardDarkText ? cardDarkText.value.trim() : '';
+
+        if (previewCardLight) {
+            previewCardLight.style.backgroundColor = lightVal || '#ffffff';
+        }
+        if (previewCardDark) {
+            previewCardDark.style.backgroundColor = darkVal || '#1e2030';
+        }
+    }
+
+    if (cardLightPicker && cardLightText) {
+        cardLightPicker.addEventListener('input', function() {
+            cardLightText.value = this.value;
+            updateCardPreviews();
+        });
+        cardLightText.addEventListener('input', function() {
+            if (/^#[0-9a-fA-F]{6}$/.test(this.value)) {
+                cardLightPicker.value = this.value;
+            }
+            updateCardPreviews();
+        });
+    }
+
+    if (cardDarkPicker && cardDarkText) {
+        cardDarkPicker.addEventListener('input', function() {
+            cardDarkText.value = this.value;
+            updateCardPreviews();
+        });
+        cardDarkText.addEventListener('input', function() {
+            if (/^#[0-9a-fA-F]{6}$/.test(this.value)) {
+                cardDarkPicker.value = this.value;
+            }
+            updateCardPreviews();
+        });
+    }
+
+    if (resetLightBtn && cardLightText && cardLightPicker) {
+        resetLightBtn.addEventListener('click', function() {
+            cardLightText.value = '';
+            cardLightPicker.value = '#ffffff';
+            updateCardPreviews();
+        });
+    }
+
+    if (resetDarkBtn && cardDarkText && cardDarkPicker) {
+        resetDarkBtn.addEventListener('click', function() {
+            cardDarkText.value = '';
+            cardDarkPicker.value = '#1e2030';
+            updateCardPreviews();
+        });
+    }
+
+    // Presets rápidos
+    var presetButtons = document.querySelectorAll('.br-card-preset-btn');
+    presetButtons.forEach(function(btn) {
+        btn.addEventListener('click', function() {
+            var light = this.getAttribute('data-light');
+            var dark = this.getAttribute('data-dark');
+            if (light && cardLightText && cardLightPicker) {
+                cardLightText.value = light;
+                cardLightPicker.value = light;
+            }
+            if (dark && cardDarkText && cardDarkPicker) {
+                cardDarkText.value = dark;
+                cardDarkPicker.value = dark;
+            }
+            updateCardPreviews();
+        });
+    });
+
+    // 3. Texturas / Imagem
     var textureSelect = document.getElementById('boardrenewal_bg_texture');
     var bgGroup = document.getElementById('br-bg-image-group');
     var opacityRange = document.getElementById('boardrenewal_bg_opacity_range');
@@ -187,7 +347,7 @@ document.addEventListener('DOMContentLoaded', function() {
         opacityText.addEventListener('input', function() { opacityRange.value = this.value; });
     }
 
-    // 3. Prévia de Logo e Nome
+    // 4. Prévia de Logo e Nome
     var logoInput = document.getElementById('boardrenewal_logo_url');
     var brandInput = document.getElementById('boardrenewal_brand_name');
     var previewImg = document.getElementById('br-preview-logo-img');

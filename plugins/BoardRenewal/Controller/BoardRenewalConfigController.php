@@ -31,6 +31,8 @@ class BoardRenewalConfigController extends BaseController
         $keys = array(
             'boardrenewal_palette',
             'boardrenewal_custom_accent',
+            'boardrenewal_card_bg_light',
+            'boardrenewal_card_bg_dark',
             'boardrenewal_bg_texture',
             'boardrenewal_bg_image_url',
             'boardrenewal_bg_opacity',

@@ -227,6 +227,24 @@ class BoardRenewalHelper extends Base
     }
 
     /**
+     * Cor de fundo dos cards no modo claro
+     */
+    public function getCardBgLight()
+    {
+        $val = $this->configModel->get('boardrenewal_card_bg_light', '');
+        return preg_match('/^#[0-9a-fA-F]{3,8}$/', $val) ? $val : '';
+    }
+
+    /**
+     * Cor de fundo dos cards no modo escuro
+     */
+    public function getCardBgDark()
+    {
+        $val = $this->configModel->get('boardrenewal_card_bg_dark', '');
+        return preg_match('/^#[0-9a-fA-F]{3,8}$/', $val) ? $val : '';
+    }
+
+    /**
      * Gera o bloco <style> com CSS Custom Properties dinâmicas
      */
     public function renderDynamicCss()
@@ -240,6 +258,9 @@ class BoardRenewalHelper extends Base
         $soft = isset($palette['soft']) ? $palette['soft'] : '#eef2ff';
         $softDark = isset($palette['soft_dark']) ? $palette['soft_dark'] : '#2a2c3f';
         $sidebarActive = isset($palette['sidebar_active']) ? $palette['sidebar_active'] : $primary;
+
+        $cardBgLight = $this->getCardBgLight();
+        $cardBgDark = $this->getCardBgDark();
 
         $texture = $this->getBackgroundTexture();
         $customBgUrl = $this->getCustomBackgroundUrl();
@@ -256,6 +277,9 @@ class BoardRenewalHelper extends Base
         $css .= "  --link-color-primary: {$primary};\n";
         $css .= "  --button-primary-background-color: {$primary};\n";
         $css .= "  --button-primary-border-color: {$primary};\n";
+        if (!empty($cardBgLight)) {
+            $css .= "  --br-card-bg: {$cardBgLight};\n";
+        }
         $css .= "}\n";
 
         $css .= "[data-theme='dark'] {\n";
@@ -266,6 +290,9 @@ class BoardRenewalHelper extends Base
         $css .= "  --link-color-primary: {$primary};\n";
         $css .= "  --button-primary-background-color: {$primary};\n";
         $css .= "  --button-primary-border-color: {$primary};\n";
+        if (!empty($cardBgDark)) {
+            $css .= "  --br-card-bg: {$cardBgDark};\n";
+        }
         $css .= "}\n";
 
         // Texturas e planos de fundo
