@@ -443,8 +443,16 @@
 }
 
 // Coluna Recolhida / Oculta (Slim Rail Vertical)
+.board-column-collapsed {
+  display: none !important;
+}
+
 th.board-column-header-collapsed {
   cursor: pointer;
+
+  .board-column-expanded {
+    display: none !important;
+  }
 
   .board-column-collapsed {
     display: flex !important;
@@ -470,6 +478,10 @@ th.board-column-header-collapsed {
 }
 
 td.board-column-task-collapsed {
+  .board-column-expanded {
+    display: none !important;
+  }
+
   .board-column-collapsed {
     display: flex !important;
     flex-direction: column;
