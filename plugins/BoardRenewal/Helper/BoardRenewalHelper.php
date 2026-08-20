@@ -178,7 +178,10 @@ class BoardRenewalHelper extends Base
      */
     public function getCustomAccentColor()
     {
-        $val = $this->configModel->get('boardrenewal_custom_accent', '#6366f1');
+        $val = trim($this->configModel->get('boardrenewal_custom_accent', '#6366f1'));
+        if (!empty($val) && $val[0] !== '#') {
+            $val = '#' . $val;
+        }
         return preg_match('/^#[0-9a-fA-F]{3,8}$/', $val) ? $val : '#6366f1';
     }
 
@@ -218,11 +221,19 @@ class BoardRenewalHelper extends Base
     }
 
     /**
+     * Nome customizado da aplicação / instituição
+     */
+    public function getCustomBrandName()
+    {
+        return $this->configModel->get('boardrenewal_brand_name', '');
+    }
+
+    /**
      * Nome da marca / aplicação
      */
     public function getBrandName()
     {
-        $val = $this->configModel->get('boardrenewal_brand_name', '');
+        $val = $this->getCustomBrandName();
         return !empty($val) ? $val : 'Kanboard';
     }
 
@@ -231,7 +242,10 @@ class BoardRenewalHelper extends Base
      */
     public function getCardBgLight()
     {
-        $val = $this->configModel->get('boardrenewal_card_bg_light', '');
+        $val = trim($this->configModel->get('boardrenewal_card_bg_light', ''));
+        if (!empty($val) && $val[0] !== '#') {
+            $val = '#' . $val;
+        }
         return preg_match('/^#[0-9a-fA-F]{3,8}$/', $val) ? $val : '';
     }
 
@@ -240,7 +254,10 @@ class BoardRenewalHelper extends Base
      */
     public function getCardBgDark()
     {
-        $val = $this->configModel->get('boardrenewal_card_bg_dark', '');
+        $val = trim($this->configModel->get('boardrenewal_card_bg_dark', ''));
+        if (!empty($val) && $val[0] !== '#') {
+            $val = '#' . $val;
+        }
         return preg_match('/^#[0-9a-fA-F]{3,8}$/', $val) ? $val : '';
     }
 

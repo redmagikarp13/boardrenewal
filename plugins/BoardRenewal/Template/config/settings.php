@@ -26,7 +26,7 @@
 
         <div class="br-palette-grid">
             <?php foreach ($palettes as $key => $palette): ?>
-                <label class="br-palette-card <?= $currentPalette === $key ? 'br-palette-card--selected' : '' ?>">
+                <label class="br-palette-card <?= $currentPalette === $key ? 'br-palette-card--selected' : '' ?>" data-palette-key="<?= $key ?>">
                     <input type="radio" name="boardrenewal_palette" value="<?= $key ?>" <?= $currentPalette === $key ? 'checked' : '' ?> class="br-palette-card__radio">
                     <div class="br-palette-card__content">
                         <div class="br-palette-card__title">
@@ -37,8 +37,8 @@
                         <?php endif ?>
                         <div class="br-palette-card__colors">
                             <?php if (isset($palette['preview'])): ?>
-                                <?php foreach ($palette['preview'] as $col): ?>
-                                    <span class="br-palette-card__swatch" style="background-color: <?= $col ?>;" title="<?= $col ?>"></span>
+                                <?php foreach ($palette['preview'] as $colIndex => $col): ?>
+                                    <span class="br-palette-card__swatch <?= ($key === 'custom' && $colIndex === 0) ? 'br-custom-primary-swatch' : '' ?>" style="background-color: <?= $col ?>;" title="<?= $col ?>"></span>
                                 <?php endforeach ?>
                             <?php endif ?>
                         </div>
@@ -50,11 +50,26 @@
         <!-- Seletor de cor personalizada (ativo se custom for escolhido) -->
         <div class="br-custom-color-picker" id="br-custom-color-container" style="<?= $currentPalette === 'custom' ? '' : 'display: none;' ?>">
             <label for="boardrenewal_custom_accent"><strong><?= t('Cor de Destaque Personalizada (Hexadecimal):') ?></strong></label>
-            <div class="br-color-input-group">
+            <div class="br-color-input-group" style="margin-bottom: 10px;">
                 <input type="color" id="br-custom-accent-picker" value="<?= $this->text->e($customAccent) ?>" class="br-color-picker-input">
                 <input type="text" name="boardrenewal_custom_accent" id="boardrenewal_custom_accent" value="<?= $this->text->e($customAccent) ?>" placeholder="#6366f1" class="br-color-text-input">
             </div>
-            <p class="form-help"><?= t('Defina a cor primária de destaque. O tema gerará automaticamente variações de hover e fundos suaves.') ?></p>
+            <!-- Sugestões de Cores Rápidas -->
+            <div style="display: flex; align-items: center; gap: 6px; flex-wrap: wrap; margin-bottom: 8px;">
+                <span style="font-size: 12px; color: var(--br-text-secondary); margin-right: 4px;"><?= t('Cores sugeridas:') ?></span>
+                <button type="button" class="br-accent-chip-btn" data-color="#8b5cf6" style="background: #8b5cf6;" title="Roxo Violeta (#8b5cf6)"></button>
+                <button type="button" class="br-accent-chip-btn" data-color="#6366f1" style="background: #6366f1;" title="Indigo (#6366f1)"></button>
+                <button type="button" class="br-accent-chip-btn" data-color="#3b82f6" style="background: #3b82f6;" title="Azul Royal (#3b82f6)"></button>
+                <button type="button" class="br-accent-chip-btn" data-color="#06b6d4" style="background: #06b6d4;" title="Ciano (#06b6d4)"></button>
+                <button type="button" class="br-accent-chip-btn" data-color="#10b981" style="background: #10b981;" title="Esmeralda (#10b981)"></button>
+                <button type="button" class="br-accent-chip-btn" data-color="#84cc16" style="background: #84cc16;" title="Lima (#84cc16)"></button>
+                <button type="button" class="br-accent-chip-btn" data-color="#f59e0b" style="background: #f59e0b;" title="Âmbar (#f59e0b)"></button>
+                <button type="button" class="br-accent-chip-btn" data-color="#f97316" style="background: #f97316;" title="Laranja (#f97316)"></button>
+                <button type="button" class="br-accent-chip-btn" data-color="#ef4444" style="background: #ef4444;" title="Vermelho (#ef4444)"></button>
+                <button type="button" class="br-accent-chip-btn" data-color="#ec4899" style="background: #ec4899;" title="Rosa Pink (#ec4899)"></button>
+                <button type="button" class="br-accent-chip-btn" data-color="#d946ef" style="background: #d946ef;" title="Fúcsia (#d946ef)"></button>
+            </div>
+            <p class="form-help" style="margin: 0;"><?= t('Defina a cor primária de destaque. O tema gerará automaticamente variações de hover, fundos suaves e gradientes correspondentes.') ?></p>
         </div>
     </div>
 
@@ -217,32 +232,94 @@
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     // 1. Alternância de cards de paleta
+    var paletteCards = document.querySelectorAll('.br-palette-card');
     var paletteRadios = document.querySelectorAll('.br-palette-card__radio');
     var customContainer = document.getElementById('br-custom-color-container');
+    var customSwatch = document.querySelector('.br-custom-primary-swatch');
+    var picker = document.getElementById('br-custom-accent-picker');
+    var textInput = document.getElementById('boardrenewal_custom_accent');
 
-    paletteRadios.forEach(function(radio) {
-        radio.addEventListener('change', function() {
-            document.querySelectorAll('.br-palette-card').forEach(function(c) { c.classList.remove('br-palette-card--selected'); });
-            if (this.checked) {
-                this.closest('.br-palette-card').classList.add('br-palette-card--selected');
-                if (this.value === 'custom') {
-                    customContainer.style.display = 'block';
-                } else {
-                    customContainer.style.display = 'none';
-                }
+    function updatePaletteSelection(selectedVal) {
+        paletteCards.forEach(function(c) {
+            var r = c.querySelector('.br-palette-card__radio');
+            if (r && r.value === selectedVal) {
+                r.checked = true;
+                c.classList.add('br-palette-card--selected');
+            } else {
+                c.classList.remove('br-palette-card--selected');
+            }
+        });
+
+        if (customContainer) {
+            customContainer.style.display = (selectedVal === 'custom') ? 'block' : 'none';
+        }
+    }
+
+    function selectCustomPalette() {
+        updatePaletteSelection('custom');
+    }
+
+    function updateCustomAccent(val) {
+        if (!val) return;
+        var cleanHex = val.trim();
+        if (cleanHex.charAt(0) !== '#') cleanHex = '#' + cleanHex;
+
+        if (/^#[0-9a-fA-F]{6}$/.test(cleanHex)) {
+            if (picker) picker.value = cleanHex;
+            if (customSwatch) customSwatch.style.backgroundColor = cleanHex;
+        }
+        if (textInput && textInput.value !== cleanHex) {
+            textInput.value = cleanHex;
+        }
+    }
+
+    paletteCards.forEach(function(card) {
+        card.addEventListener('click', function(e) {
+            var radio = this.querySelector('.br-palette-card__radio');
+            if (radio) {
+                updatePaletteSelection(radio.value);
             }
         });
     });
 
-    // Sincronização do color picker
-    var picker = document.getElementById('br-custom-accent-picker');
-    var textInput = document.getElementById('boardrenewal_custom_accent');
+    paletteRadios.forEach(function(radio) {
+        radio.addEventListener('change', function() {
+            if (this.checked) {
+                updatePaletteSelection(this.value);
+            }
+        });
+    });
+
     if (picker && textInput) {
-        picker.addEventListener('input', function() { textInput.value = this.value; });
+        picker.addEventListener('input', function() {
+            textInput.value = this.value;
+            if (customSwatch) customSwatch.style.backgroundColor = this.value;
+            selectCustomPalette();
+        });
         textInput.addEventListener('input', function() {
-            if (/^#[0-9a-fA-F]{6}$/.test(this.value)) { picker.value = this.value; }
+            var v = this.value.trim();
+            if (v.charAt(0) !== '#') v = '#' + v;
+            if (/^#[0-9a-fA-F]{6}$/.test(v)) {
+                picker.value = v;
+                if (customSwatch) customSwatch.style.backgroundColor = v;
+            }
+            selectCustomPalette();
         });
     }
+
+    // Chips de cores sugeridas
+    var accentChips = document.querySelectorAll('.br-accent-chip-btn');
+    accentChips.forEach(function(chip) {
+        chip.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            var color = this.getAttribute('data-color');
+            if (color) {
+                updateCustomAccent(color);
+                selectCustomPalette();
+            }
+        });
+    });
 
     // 2. Cores de Fundo dos Cards
     var cardLightPicker = document.getElementById('br-card-bg-light-picker');

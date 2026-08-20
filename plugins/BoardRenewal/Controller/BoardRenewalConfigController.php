@@ -43,7 +43,13 @@ class BoardRenewalConfigController extends BaseController
         $toSave = array();
         foreach ($keys as $key) {
             if (isset($values[$key])) {
-                $toSave[$key] = trim($values[$key]);
+                $val = trim($values[$key]);
+                if (in_array($key, array('boardrenewal_custom_accent', 'boardrenewal_card_bg_light', 'boardrenewal_card_bg_dark'), true)) {
+                    if (!empty($val) && $val[0] !== '#') {
+                        $val = '#' . $val;
+                    }
+                }
+                $toSave[$key] = $val;
             }
         }
 
