@@ -807,19 +807,15 @@ section.page {
 .board-item .task-board-icons .task-board-icons-row > span,
 .board-item .task-board-icons .task-board-icons-row > a,
 .board-item .task-board-icons .task-board-icons-row > div.task-icon-age,
-.board-item .task-board-icons .task-board-icons-row > div.task-tags,
 .board-item .task-board-icons .task-board-icons-row > div.task-date, .board-item .task-footer .task-board-icons-row > span,
 .board-item .task-footer .task-board-icons-row > a,
 .board-item .task-footer .task-board-icons-row > div.task-icon-age,
-.board-item .task-footer .task-board-icons-row > div.task-tags,
 .board-item .task-footer .task-board-icons-row > div.task-date, .task-board .task-board-icons .task-board-icons-row > span,
 .task-board .task-board-icons .task-board-icons-row > a,
 .task-board .task-board-icons .task-board-icons-row > div.task-icon-age,
-.task-board .task-board-icons .task-board-icons-row > div.task-tags,
 .task-board .task-board-icons .task-board-icons-row > div.task-date, .task-board .task-footer .task-board-icons-row > span,
 .task-board .task-footer .task-board-icons-row > a,
 .task-board .task-footer .task-board-icons-row > div.task-icon-age,
-.task-board .task-footer .task-board-icons-row > div.task-tags,
 .task-board .task-footer .task-board-icons-row > div.task-date {
   display: inline-flex;
   align-items: center;
@@ -835,19 +831,15 @@ section.page {
 .board-item .task-board-icons .task-board-icons-row > span i.fa,
 .board-item .task-board-icons .task-board-icons-row > a i.fa,
 .board-item .task-board-icons .task-board-icons-row > div.task-icon-age i.fa,
-.board-item .task-board-icons .task-board-icons-row > div.task-tags i.fa,
 .board-item .task-board-icons .task-board-icons-row > div.task-date i.fa, .board-item .task-footer .task-board-icons-row > span i.fa,
 .board-item .task-footer .task-board-icons-row > a i.fa,
 .board-item .task-footer .task-board-icons-row > div.task-icon-age i.fa,
-.board-item .task-footer .task-board-icons-row > div.task-tags i.fa,
 .board-item .task-footer .task-board-icons-row > div.task-date i.fa, .task-board .task-board-icons .task-board-icons-row > span i.fa,
 .task-board .task-board-icons .task-board-icons-row > a i.fa,
 .task-board .task-board-icons .task-board-icons-row > div.task-icon-age i.fa,
-.task-board .task-board-icons .task-board-icons-row > div.task-tags i.fa,
 .task-board .task-board-icons .task-board-icons-row > div.task-date i.fa, .task-board .task-footer .task-board-icons-row > span i.fa,
 .task-board .task-footer .task-board-icons-row > a i.fa,
 .task-board .task-footer .task-board-icons-row > div.task-icon-age i.fa,
-.task-board .task-footer .task-board-icons-row > div.task-tags i.fa,
 .task-board .task-footer .task-board-icons-row > div.task-date i.fa {
   font-size: 10.5px;
   color: var(--br-text-muted);
@@ -855,19 +847,15 @@ section.page {
 .board-item .task-board-icons .task-board-icons-row > span a,
 .board-item .task-board-icons .task-board-icons-row > a a,
 .board-item .task-board-icons .task-board-icons-row > div.task-icon-age a,
-.board-item .task-board-icons .task-board-icons-row > div.task-tags a,
 .board-item .task-board-icons .task-board-icons-row > div.task-date a, .board-item .task-footer .task-board-icons-row > span a,
 .board-item .task-footer .task-board-icons-row > a a,
 .board-item .task-footer .task-board-icons-row > div.task-icon-age a,
-.board-item .task-footer .task-board-icons-row > div.task-tags a,
 .board-item .task-footer .task-board-icons-row > div.task-date a, .task-board .task-board-icons .task-board-icons-row > span a,
 .task-board .task-board-icons .task-board-icons-row > a a,
 .task-board .task-board-icons .task-board-icons-row > div.task-icon-age a,
-.task-board .task-board-icons .task-board-icons-row > div.task-tags a,
 .task-board .task-board-icons .task-board-icons-row > div.task-date a, .task-board .task-footer .task-board-icons-row > span a,
 .task-board .task-footer .task-board-icons-row > a a,
 .task-board .task-footer .task-board-icons-row > div.task-icon-age a,
-.task-board .task-footer .task-board-icons-row > div.task-tags a,
 .task-board .task-footer .task-board-icons-row > div.task-date a {
   color: var(--br-text-secondary);
   text-decoration: none;
@@ -875,19 +863,15 @@ section.page {
 .board-item .task-board-icons .task-board-icons-row > span a:hover,
 .board-item .task-board-icons .task-board-icons-row > a a:hover,
 .board-item .task-board-icons .task-board-icons-row > div.task-icon-age a:hover,
-.board-item .task-board-icons .task-board-icons-row > div.task-tags a:hover,
 .board-item .task-board-icons .task-board-icons-row > div.task-date a:hover, .board-item .task-footer .task-board-icons-row > span a:hover,
 .board-item .task-footer .task-board-icons-row > a a:hover,
 .board-item .task-footer .task-board-icons-row > div.task-icon-age a:hover,
-.board-item .task-footer .task-board-icons-row > div.task-tags a:hover,
 .board-item .task-footer .task-board-icons-row > div.task-date a:hover, .task-board .task-board-icons .task-board-icons-row > span a:hover,
 .task-board .task-board-icons .task-board-icons-row > a a:hover,
 .task-board .task-board-icons .task-board-icons-row > div.task-icon-age a:hover,
-.task-board .task-board-icons .task-board-icons-row > div.task-tags a:hover,
 .task-board .task-board-icons .task-board-icons-row > div.task-date a:hover, .task-board .task-footer .task-board-icons-row > span a:hover,
 .task-board .task-footer .task-board-icons-row > a a:hover,
 .task-board .task-footer .task-board-icons-row > div.task-icon-age a:hover,
-.task-board .task-footer .task-board-icons-row > div.task-tags a:hover,
 .task-board .task-footer .task-board-icons-row > div.task-date a:hover {
   color: var(--br-accent);
 }
@@ -4103,26 +4087,27 @@ table tr:hover td {
   white-space: normal;
   word-break: break-word;
 }
-.task-summary-container .task-tags {
-  margin-top: 16px;
+
+.task-tags {
+  margin: 6px 0 4px;
 }
-.task-summary-container .task-tags ul {
+.task-tags ul {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
   padding: 0;
   margin: 0;
   list-style: none;
 }
-.task-summary-container .task-tags ul li.task-tag,
-.task-summary-container .task-tags ul li {
+.task-tags ul li.task-tag,
+.task-tags ul li {
   display: inline-flex;
   align-items: center;
-  gap: 4px;
-  padding: 4px 11px;
+  gap: 3px;
+  padding: 2.5px 9px;
   border-radius: 999px;
-  font-size: 12px;
+  font-size: 11.5px;
   font-weight: 500;
   line-height: 1.2;
   background: var(--br-surface-2);
@@ -4130,53 +4115,58 @@ table tr:hover td {
   border: 1px solid var(--br-border);
   transition: all 0.12s ease;
 }
-.task-summary-container .task-tags ul li.task-tag::before,
-.task-summary-container .task-tags ul li::before {
+.task-tags ul li.task-tag::before,
+.task-tags ul li::before {
   content: "#";
   font-weight: 600;
-  opacity: 0.6;
+  opacity: 0.65;
   color: var(--br-accent);
 }
-.task-summary-container .task-tags ul li.task-tag:hover,
-.task-summary-container .task-tags ul li:hover {
+.task-tags ul li.task-tag:hover,
+.task-tags ul li:hover {
   border-color: var(--br-accent);
   background: var(--br-surface-3);
 }
-.task-summary-container .task-tags ul li.task-tag.color-yellow,
-.task-summary-container .task-tags ul li.color-yellow {
+.task-tags ul li.task-tag.color-yellow,
+.task-tags ul li.color-yellow {
   background: rgba(234, 179, 8, 0.12);
   color: #ca8a04;
   border-color: rgba(234, 179, 8, 0.3);
 }
-.task-summary-container .task-tags ul li.task-tag.color-blue,
-.task-summary-container .task-tags ul li.color-blue {
+.task-tags ul li.task-tag.color-blue,
+.task-tags ul li.color-blue {
   background: rgba(14, 165, 233, 0.12);
   color: #0284c7;
   border-color: rgba(14, 165, 233, 0.3);
 }
-.task-summary-container .task-tags ul li.task-tag.color-green,
-.task-summary-container .task-tags ul li.color-green {
+.task-tags ul li.task-tag.color-green,
+.task-tags ul li.color-green {
   background: rgba(34, 197, 94, 0.12);
   color: #16a34a;
   border-color: rgba(34, 197, 94, 0.3);
 }
-.task-summary-container .task-tags ul li.task-tag.color-red,
-.task-summary-container .task-tags ul li.color-red {
+.task-tags ul li.task-tag.color-red,
+.task-tags ul li.color-red {
   background: rgba(239, 68, 68, 0.12);
   color: #dc2626;
   border-color: rgba(239, 68, 68, 0.3);
 }
-.task-summary-container .task-tags ul li.task-tag.color-purple,
-.task-summary-container .task-tags ul li.color-purple {
+.task-tags ul li.task-tag.color-purple,
+.task-tags ul li.color-purple {
   background: rgba(168, 85, 247, 0.12);
   color: #9333ea;
   border-color: rgba(168, 85, 247, 0.3);
 }
-.task-summary-container .task-tags ul li.task-tag.color-orange,
-.task-summary-container .task-tags ul li.color-orange {
+.task-tags ul li.task-tag.color-orange,
+.task-tags ul li.color-orange {
   background: rgba(249, 115, 22, 0.12);
   color: #ea580c;
   border-color: rgba(249, 115, 22, 0.3);
+}
+
+.task-summary-container .task-tags,
+#task-summary .task-tags {
+  margin-top: 14px;
 }
 
 .task-links-table .task-links-table-td,

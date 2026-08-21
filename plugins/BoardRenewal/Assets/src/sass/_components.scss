@@ -3236,56 +3236,62 @@ table {
       }
     }
   }
+}
 
-  // Tags/Badges na tela da tarefa
-  .task-tags {
-    margin-top: 16px;
+// Tags / Badges Universais (Cards do Board, Visão de Tarefa, Listas e Tabelas)
+.task-tags {
+  margin: 6px 0 4px;
 
-    ul {
-      display: flex;
-      flex-wrap: wrap;
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+
+    li.task-tag,
+    li {
+      display: inline-flex;
       align-items: center;
-      gap: 8px;
-      padding: 0;
-      margin: 0;
-      list-style: none;
+      gap: 3px;
+      padding: 2.5px 9px;
+      border-radius: 999px;
+      font-size: 11.5px;
+      font-weight: 500;
+      line-height: 1.2;
+      background: var(--br-surface-2);
+      color: var(--br-text);
+      border: 1px solid var(--br-border);
+      transition: all 0.12s ease;
 
-      li.task-tag,
-      li {
-        display: inline-flex;
-        align-items: center;
-        gap: 4px;
-        padding: 4px 11px;
-        border-radius: 999px;
-        font-size: 12px;
-        font-weight: 500;
-        line-height: 1.2;
-        background: var(--br-surface-2);
-        color: var(--br-text);
-        border: 1px solid var(--br-border);
-        transition: all 0.12s ease;
-
-        &::before {
-          content: '#';
-          font-weight: 600;
-          opacity: 0.6;
-          color: var(--br-accent);
-        }
-
-        &:hover {
-          border-color: var(--br-accent);
-          background: var(--br-surface-3);
-        }
-
-        &.color-yellow { background: rgba(234, 179, 8, 0.12); color: #ca8a04; border-color: rgba(234, 179, 8, 0.3); }
-        &.color-blue { background: rgba(14, 165, 233, 0.12); color: #0284c7; border-color: rgba(14, 165, 233, 0.3); }
-        &.color-green { background: rgba(34, 197, 94, 0.12); color: #16a34a; border-color: rgba(34, 197, 94, 0.3); }
-        &.color-red { background: rgba(239, 68, 68, 0.12); color: #dc2626; border-color: rgba(239, 68, 68, 0.3); }
-        &.color-purple { background: rgba(168, 85, 247, 0.12); color: #9333ea; border-color: rgba(168, 85, 247, 0.3); }
-        &.color-orange { background: rgba(249, 115, 22, 0.12); color: #ea580c; border-color: rgba(249, 115, 22, 0.3); }
+      &::before {
+        content: '#';
+        font-weight: 600;
+        opacity: 0.65;
+        color: var(--br-accent);
       }
+
+      &:hover {
+        border-color: var(--br-accent);
+        background: var(--br-surface-3);
+      }
+
+      &.color-yellow { background: rgba(234, 179, 8, 0.12); color: #ca8a04; border-color: rgba(234, 179, 8, 0.3); }
+      &.color-blue { background: rgba(14, 165, 233, 0.12); color: #0284c7; border-color: rgba(14, 165, 233, 0.3); }
+      &.color-green { background: rgba(34, 197, 94, 0.12); color: #16a34a; border-color: rgba(34, 197, 94, 0.3); }
+      &.color-red { background: rgba(239, 68, 68, 0.12); color: #dc2626; border-color: rgba(239, 68, 68, 0.3); }
+      &.color-purple { background: rgba(168, 85, 247, 0.12); color: #9333ea; border-color: rgba(168, 85, 247, 0.3); }
+      &.color-orange { background: rgba(249, 115, 22, 0.12); color: #ea580c; border-color: rgba(249, 115, 22, 0.3); }
     }
   }
+}
+
+// Espaçamento específico na tela da tarefa
+.task-summary-container .task-tags,
+#task-summary .task-tags {
+  margin-top: 14px;
 }
 
 // Tabelas de links internos e externos na tarefa
