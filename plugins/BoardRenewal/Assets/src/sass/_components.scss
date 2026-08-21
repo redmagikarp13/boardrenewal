@@ -1179,220 +1179,6 @@ section.page:has(.sidebar-container .sidebar ul li.active) {
   }
 }
 
-// Seção de Comentários
-div#comments,
-.comments {
-  padding: 8px 0 16px;
-
-  // Links de ação superiores (Add a comment, Change sorting, Send by email)
-  .comment-sorting {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    margin-bottom: 20px;
-    flex-wrap: wrap;
-
-    small {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      flex-wrap: wrap;
-      font-size: 13px;
-    }
-
-    a {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 6px 14px;
-      background: var(--br-surface-2);
-      border: 1px solid var(--br-border);
-      border-radius: 999px;
-      color: var(--br-text);
-      font-size: 13px;
-      font-weight: 500;
-      text-decoration: none !important;
-      transition: all 0.15s ease;
-
-      i.fa {
-        color: var(--br-icon-color);
-        font-size: 13px;
-        opacity: 0.8;
-      }
-
-      &:hover {
-        background: var(--br-accent-soft);
-        border-color: var(--br-accent);
-        color: var(--br-accent);
-
-        i.fa {
-          color: var(--br-accent);
-          opacity: 1;
-        }
-      }
-    }
-  }
-
-  // Formulário de novo comentário
-  form {
-    width: 100%;
-    margin-top: 16px;
-
-    label {
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--br-text);
-      margin-top: 14px;
-      margin-bottom: 6px;
-    }
-
-    select {
-      width: 100%;
-      max-width: 320px;
-      background: var(--br-surface);
-      border: 1px solid var(--br-border-strong);
-      border-radius: var(--br-radius-sm);
-      padding: 9px 12px;
-      color: var(--br-text);
-      font-size: 14px;
-      cursor: pointer;
-
-      &:focus {
-        outline: none;
-        border-color: var(--br-accent);
-        box-shadow: 0 0 0 3px var(--br-accent-soft);
-      }
-    }
-
-    .form-actions {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-top: 20px;
-      padding-top: 16px;
-      border-top: 1px solid var(--br-border);
-    }
-  }
-
-  // Editor de texto Markdown unificado
-  .text-editor,
-  .js-text-editor {
-    width: 100%;
-    box-sizing: border-box;
-    margin: 8px 0;
-
-    .text-editor-write-mode,
-    .text-editor-view-mode {
-      width: 100%;
-      box-sizing: border-box;
-    }
-
-    // Barra de ferramentas do editor
-    .text-editor-toolbar {
-      display: flex;
-      align-items: center;
-      gap: 3px;
-      padding: 6px 10px;
-      background: var(--br-surface-2);
-      border: 1px solid var(--br-border-strong);
-      border-bottom: none;
-      border-radius: var(--br-radius-sm) var(--br-radius-sm) 0 0;
-      flex-wrap: wrap;
-
-      a {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        min-width: 28px;
-        height: 28px;
-        padding: 2px 8px;
-        border-radius: 4px;
-        color: var(--br-text-secondary);
-        font-size: 13px;
-        text-decoration: none !important;
-        transition: all 0.15s ease;
-
-        i.fa {
-          font-size: 13px;
-          opacity: 0.85;
-          text-align: center;
-        }
-
-        &:hover {
-          background: var(--br-surface-3);
-          color: var(--br-text);
-
-          i.fa {
-            opacity: 1;
-            color: var(--br-text);
-          }
-        }
-      }
-    }
-
-    // Textarea do editor
-    textarea {
-      width: 100% !important;
-      min-width: 100% !important;
-      max-width: 100% !important;
-      box-sizing: border-box;
-      display: block;
-      background: var(--br-surface);
-      border: 1px solid var(--br-border-strong);
-      border-radius: 0 0 var(--br-radius-sm) var(--br-radius-sm);
-      padding: 12px 14px;
-      color: var(--br-text);
-      font-size: 14px;
-      font-family: var(--br-font);
-      line-height: 1.6;
-      resize: vertical;
-      min-height: 110px;
-      margin: 0;
-
-      &:focus {
-        outline: none;
-        border-color: var(--br-accent);
-        box-shadow: 0 0 0 3px var(--br-accent-soft);
-        position: relative;
-        z-index: 1;
-      }
-
-      &::placeholder {
-        color: var(--br-text-muted);
-      }
-    }
-
-    // Área de preview do Markdown
-    .text-editor-preview-area {
-      width: 100%;
-      box-sizing: border-box;
-      padding: 14px 16px;
-      background: var(--br-surface);
-      border: 1px solid var(--br-border-strong);
-      border-radius: 0 0 var(--br-radius-sm) var(--br-radius-sm);
-      min-height: 110px;
-      color: var(--br-text);
-      font-size: 14px;
-      line-height: 1.6;
-    }
-  }
-
-  // Cards de comentários existentes
-  .comment {
-    background: var(--br-surface);
-    border: 1px solid var(--br-border);
-    border-radius: var(--br-radius);
-    padding: 18px 20px;
-    margin-bottom: 16px;
-    box-shadow: var(--br-shadow-sm);
-    position: relative;
-    transition: all 0.2s ease;
-
-    &:hover {
-      border-color: var(--br-accent);
-      box-shadow: var(--br-shadow-md);
-    }
-
 // Avatares Universais (Kanboard + BoardRenewal)
 .avatar,
 .avatar-inline,
@@ -1406,14 +1192,14 @@ div#comments,
   border-radius: 50% !important;
   overflow: hidden !important;
   flex-shrink: 0;
-  width: 24px;
-  height: 24px;
+  width: 28px;
+  height: 28px;
 
   &.avatar-20 {
-    width: 24px !important;
-    height: 24px !important;
-    min-width: 24px !important;
-    min-height: 24px !important;
+    width: 22px !important;
+    height: 22px !important;
+    min-width: 22px !important;
+    min-height: 22px !important;
   }
   &.avatar-32 {
     width: 32px !important;
@@ -1422,10 +1208,10 @@ div#comments,
     min-height: 32px !important;
   }
   &.avatar-48 {
-    width: 48px !important;
-    height: 48px !important;
-    min-width: 48px !important;
-    min-height: 48px !important;
+    width: 38px !important;
+    height: 38px !important;
+    min-width: 38px !important;
+    min-height: 38px !important;
   }
 
   .avatar-letter,
@@ -1439,10 +1225,11 @@ div#comments,
     justify-content: center !important;
     border-radius: 50% !important;
     font-weight: 600;
-    font-size: 11px;
+    font-size: 13px;
     line-height: 1;
     color: #fff;
     text-transform: uppercase;
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.15);
   }
 
   img {
@@ -1453,19 +1240,237 @@ div#comments,
   }
 }
 
-    // Avatar do autor
-    .avatar {
-      margin-right: 12px;
-      float: left;
+// Editor de Texto Markdown Universal
+.text-editor,
+.js-text-editor {
+  width: 100%;
+  box-sizing: border-box;
+  margin: 10px 0;
+  border: 1px solid var(--br-border);
+  border-radius: var(--br-radius);
+  background: var(--br-surface);
+  overflow: hidden;
+  box-shadow: var(--br-shadow-xs);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+
+  &:focus-within {
+    border-color: var(--br-accent) !important;
+    box-shadow: 0 0 0 3px var(--br-accent-soft) !important;
+  }
+
+  .text-editor-write-mode,
+  .text-editor-view-mode {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  // Barra de ferramentas do editor
+  .text-editor-toolbar {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 7px 12px;
+    background: var(--br-surface-2);
+    border: none;
+    border-bottom: 1px solid var(--br-border);
+    border-radius: 0;
+    flex-wrap: wrap;
+
+    a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 28px;
+      height: 28px;
+      padding: 0 8px;
+      border-radius: var(--br-radius-sm);
+      color: var(--br-text-secondary);
+      font-size: 12px;
+      text-decoration: none !important;
+      transition: all 0.12s ease;
+      cursor: pointer;
+
+      i.fa {
+        font-size: 12.5px;
+        color: inherit;
+      }
+
+      // Botão de Preview / Write destacado com divisor
+      &:first-child {
+        background: var(--br-surface);
+        border: 1px solid var(--br-border);
+        color: var(--br-text);
+        font-weight: 600;
+        gap: 6px;
+        margin-right: 6px;
+        padding: 0 10px;
+
+        &:hover {
+          background: var(--br-accent-soft);
+          border-color: var(--br-accent);
+          color: var(--br-accent);
+        }
+      }
+
+      &:not(:first-child):hover {
+        background: var(--br-surface-3);
+        color: var(--br-accent);
+      }
+    }
+  }
+
+  // Textarea do editor
+  textarea,
+  textarea:focus {
+    width: 100% !important;
+    min-width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box;
+    display: block;
+    background: transparent !important;
+    border: none !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    padding: 12px 14px !important;
+    color: var(--br-text) !important;
+    font-size: 13.5px !important;
+    font-family: var(--br-font) !important;
+    line-height: 1.6 !important;
+    resize: vertical;
+    min-height: 120px;
+    margin: 0;
+    outline: none !important;
+
+    &::placeholder {
+      color: var(--br-text-muted);
+    }
+  }
+
+  // Área de preview do Markdown
+  .text-editor-preview-area {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 14px 16px;
+    background: transparent;
+    border: none !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    min-height: 120px;
+    color: var(--br-text);
+    font-size: 13.5px;
+    line-height: 1.6;
+  }
+}
+
+// Seção de Comentários
+div#comments,
+.comments {
+  padding: 10px 0 20px;
+
+  // Botões de ação superiores (Add a comment, Change sorting, Send by email)
+  .comment-sorting {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+
+    small {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      font-size: 13px;
+      width: 100%;
     }
 
-    // Cabeçalho do comentário (autor, data, visibilidade)
+    a {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 14px;
+      background: var(--br-surface-2);
+      border: 1px solid var(--br-border);
+      border-radius: 999px;
+      color: var(--br-text);
+      font-size: 12.5px;
+      font-weight: 500;
+      text-decoration: none !important;
+      transition: all 0.15s ease;
+
+      i.fa {
+        color: var(--br-icon-color);
+        font-size: 12px;
+        opacity: 0.85;
+      }
+
+      &:hover {
+        background: var(--br-surface-3);
+        border-color: var(--br-accent);
+        color: var(--br-accent);
+
+        i.fa {
+          color: var(--br-accent);
+          opacity: 1;
+        }
+      }
+
+      // Destaque para o botão principal de Adicionar Comentário
+      &.js-modal-medium[href*="CommentController"] {
+        background: var(--br-accent-soft);
+        border-color: var(--br-accent);
+        color: var(--br-accent);
+        font-weight: 600;
+
+        i.fa {
+          color: var(--br-accent);
+        }
+
+        &:hover {
+          background: var(--br-accent);
+          color: #fff;
+
+          i.fa {
+            color: #fff;
+          }
+        }
+      }
+    }
+  }
+
+  // Cards individuais de comentários
+  .comment {
+    background: var(--br-surface);
+    border: 1px solid var(--br-border);
+    border-left: 3px solid var(--br-accent);
+    border-radius: var(--br-radius);
+    padding: 16px 20px;
+    margin-bottom: 16px;
+    box-shadow: var(--br-shadow-xs);
+    position: relative;
+    transition: all 0.15s ease;
+
+    &:hover {
+      border-color: var(--br-accent);
+      border-left-color: var(--br-accent);
+      box-shadow: var(--br-shadow-sm);
+    }
+
+    // Top Header: Avatar + Autor + Meta info
+    .avatar {
+      position: absolute;
+      top: 16px;
+      left: 18px;
+    }
+
     .comment-title {
+      margin-left: 50px;
       display: flex;
       align-items: center;
       gap: 10px;
       flex-wrap: wrap;
-      margin-bottom: 10px;
+      padding-right: 40px;
+      min-height: 38px;
 
       strong.comment-username {
         color: var(--br-text);
@@ -1473,14 +1478,35 @@ div#comments,
         font-size: 14px;
       }
 
-      small.comment-date,
-      small.comment-visibility {
+      small.comment-date {
         color: var(--br-text-muted);
         font-size: 12px;
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+
+        &::before {
+          content: "•";
+          color: var(--br-text-muted);
+          opacity: 0.5;
+          margin-right: 2px;
+        }
+      }
+
+      small.comment-visibility {
+        display: inline-flex;
+        align-items: center;
+        padding: 2px 8px;
+        background: var(--br-surface-2);
+        border: 1px solid var(--br-border);
+        border-radius: 999px;
+        font-size: 11px;
+        font-weight: 500;
+        color: var(--br-text-secondary);
       }
     }
 
-    // Menu de ações (engrenagem no canto superior direito)
+    // Ações do comentário (engrenagem no canto superior direito)
     .comment-actions {
       position: absolute;
       top: 14px;
@@ -1489,35 +1515,43 @@ div#comments,
       padding: 0;
       border: none;
 
-      .dropdown > a {
+      .dropdown > a.dropdown-menu-link-icon {
         display: inline-flex;
         align-items: center;
+        justify-content: center;
         gap: 4px;
-        padding: 4px 8px;
+        padding: 5px 8px;
         background: var(--br-surface-2);
+        border: 1px solid var(--br-border);
         border-radius: var(--br-radius-sm);
         color: var(--br-text-muted);
         text-decoration: none;
+        transition: all 0.12s ease;
 
         &:hover {
           background: var(--br-surface-3);
-          color: var(--br-text);
+          border-color: var(--br-accent);
+          color: var(--br-accent);
         }
       }
     }
 
-    // Conteúdo Markdown do comentário
+    // Conteúdo Markdown do comentário em speech-bubble
     .comment-content {
-      clear: both;
-      margin-top: 10px;
+      margin-left: 50px;
+      margin-top: 8px;
+      padding: 12px 16px;
+      background: var(--br-surface-2);
+      border: 1px solid var(--br-border);
+      border-radius: var(--br-radius-sm);
 
       .markdown {
         color: var(--br-text);
-        font-size: 14px;
+        font-size: 13.5px;
         line-height: 1.6;
 
         p {
-          margin: 0 0 10px 0;
+          margin: 0 0 8px 0;
 
           &:last-child {
             margin-bottom: 0;
@@ -1533,16 +1567,238 @@ div#comments,
           }
         }
 
-        code, pre {
-          background: var(--br-surface-2);
+        blockquote {
+          border-left: 3px solid var(--br-accent);
+          background: var(--br-surface-3);
+          padding: 8px 14px;
+          border-radius: 0 var(--br-radius-sm) var(--br-radius-sm) 0;
+          margin: 8px 0;
+          color: var(--br-text-secondary);
+          font-style: italic;
+
+          p {
+            margin: 0;
+          }
+        }
+
+        code {
+          background: var(--br-surface-3);
+          border: 1px solid var(--br-border);
           border-radius: var(--br-radius-sm);
           padding: 2px 6px;
+          font-size: 12.5px;
+          font-family: monospace;
+          color: var(--br-accent);
         }
 
         pre {
-          padding: 10px 14px;
+          background: var(--br-surface-3);
+          border: 1px solid var(--br-border);
+          border-radius: var(--br-radius-sm);
+          padding: 12px 14px;
           overflow-x: auto;
+          margin: 8px 0;
+
+          code {
+            border: none;
+            padding: 0;
+            background: transparent;
+            color: inherit;
+          }
         }
+      }
+    }
+  }
+
+  // Formulário inline de novo comentário na página da tarefa
+  form[action*="CommentController"] {
+    width: 100%;
+    margin-top: 24px;
+    padding: 18px 20px;
+    background: var(--br-surface);
+    border: 1px solid var(--br-border);
+    border-radius: var(--br-radius);
+    box-shadow: var(--br-shadow-xs);
+
+    &::before {
+      content: "Escrever um comentário";
+      display: block;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--br-text);
+      margin-bottom: 12px;
+    }
+
+    label[for="form-visibility"] {
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--br-text-muted);
+      margin-top: 14px;
+      margin-bottom: 6px;
+      display: block;
+    }
+
+    select#form-visibility {
+      background: var(--br-surface-2);
+      border: 1px solid var(--br-border);
+      border-radius: var(--br-radius-sm);
+      padding: 8px 12px;
+      color: var(--br-text);
+      font-size: 13px;
+      cursor: pointer;
+      margin-bottom: 14px;
+      max-width: 320px;
+
+      &:focus {
+        outline: none;
+        border-color: var(--br-accent);
+      }
+    }
+
+    .form-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 8px;
+      padding-top: 14px;
+      border-top: 1px solid var(--br-border);
+
+      button[type="submit"],
+      .btn-blue {
+        padding: 8px 20px;
+        background: var(--br-accent);
+        color: #fff;
+        border: none;
+        border-radius: var(--br-radius-sm);
+        font-weight: 600;
+        font-size: 13.5px;
+        cursor: pointer;
+        transition: all 0.15s ease;
+
+        &:hover {
+          filter: brightness(1.1);
+          transform: translateY(-1px);
+        }
+      }
+    }
+  }
+}
+
+// Modal de Comentários (#modal-box para criação e edição de comentário)
+#modal-box {
+  .page-header h2 {
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--br-text);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+
+  // Link de envio por e-mail dentro do modal
+  a[href*="CommentMailController"] {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    background: var(--br-surface-2);
+    border: 1px solid var(--br-border);
+    border-radius: 999px;
+    color: var(--br-text-secondary);
+    font-size: 12.5px;
+    font-weight: 500;
+    text-decoration: none !important;
+    margin-bottom: 16px;
+    transition: all 0.15s ease;
+
+    i.fa {
+      color: var(--br-accent);
+    }
+
+    &:hover {
+      background: var(--br-accent-soft);
+      border-color: var(--br-accent);
+      color: var(--br-accent);
+    }
+  }
+
+  label[for="form-visibility"] {
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--br-text-muted);
+    margin-top: 14px;
+    margin-bottom: 6px;
+    display: block;
+  }
+
+  select#form-visibility {
+    width: 100%;
+    background: var(--br-surface-2);
+    border: 1px solid var(--br-border);
+    border-radius: var(--br-radius-sm);
+    padding: 8px 12px;
+    color: var(--br-text);
+    font-size: 13.5px;
+    cursor: pointer;
+
+    &:focus {
+      outline: none;
+      border-color: var(--br-accent);
+    }
+  }
+
+  .form-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 20px;
+    padding-top: 16px;
+    border-top: 1px solid var(--br-border);
+    color: var(--br-text-muted);
+    font-size: 12px;
+
+    button[type="submit"],
+    .btn-blue {
+      padding: 8px 20px;
+      background: var(--br-accent);
+      color: #fff;
+      border: none;
+      border-radius: var(--br-radius-sm);
+      font-weight: 600;
+      font-size: 13.5px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+
+      &:hover {
+        filter: brightness(1.1);
+        transform: translateY(-1px);
+      }
+    }
+
+    a.js-modal-close,
+    a[href*="TaskViewController"],
+    a.btn-cancel {
+      display: inline-flex;
+      align-items: center;
+      padding: 8px 16px;
+      border-radius: var(--br-radius-sm);
+      background: var(--br-surface-2);
+      border: 1px solid var(--br-border);
+      color: var(--br-text-secondary);
+      font-size: 13px;
+      font-weight: 500;
+      text-decoration: none !important;
+      transition: all 0.15s ease;
+
+      &:hover {
+        background: var(--br-surface-3);
+        color: var(--br-text);
+        border-color: var(--br-border-strong);
       }
     }
   }

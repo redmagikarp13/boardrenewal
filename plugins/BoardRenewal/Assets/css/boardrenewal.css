@@ -2143,9 +2143,211 @@ section.page:has(.sidebar-container .sidebar ul li.active) table.subtasks-table 
   border-color: var(--br-accent);
 }
 
+.avatar,
+.avatar-inline,
+.avatar-20,
+.avatar-32,
+.avatar-48 {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  vertical-align: middle;
+  border-radius: 50% !important;
+  overflow: hidden !important;
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+}
+.avatar.avatar-20,
+.avatar-inline.avatar-20,
+.avatar-20.avatar-20,
+.avatar-32.avatar-20,
+.avatar-48.avatar-20 {
+  width: 22px !important;
+  height: 22px !important;
+  min-width: 22px !important;
+  min-height: 22px !important;
+}
+.avatar.avatar-32,
+.avatar-inline.avatar-32,
+.avatar-20.avatar-32,
+.avatar-32.avatar-32,
+.avatar-48.avatar-32 {
+  width: 32px !important;
+  height: 32px !important;
+  min-width: 32px !important;
+  min-height: 32px !important;
+}
+.avatar.avatar-48,
+.avatar-inline.avatar-48,
+.avatar-20.avatar-48,
+.avatar-32.avatar-48,
+.avatar-48.avatar-48 {
+  width: 38px !important;
+  height: 38px !important;
+  min-width: 38px !important;
+  min-height: 38px !important;
+}
+.avatar .avatar-letter,
+.avatar div.avatar-letter,
+.avatar-inline .avatar-letter,
+.avatar-inline div.avatar-letter,
+.avatar-20 .avatar-letter,
+.avatar-20 div.avatar-letter,
+.avatar-32 .avatar-letter,
+.avatar-32 div.avatar-letter,
+.avatar-48 .avatar-letter,
+.avatar-48 div.avatar-letter {
+  width: 100% !important;
+  height: 100% !important;
+  min-width: 100% !important;
+  min-height: 100% !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border-radius: 50% !important;
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 1;
+  color: #fff;
+  text-transform: uppercase;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.15);
+}
+.avatar img,
+.avatar-inline img,
+.avatar-20 img,
+.avatar-32 img,
+.avatar-48 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.text-editor,
+.js-text-editor {
+  width: 100%;
+  box-sizing: border-box;
+  margin: 10px 0;
+  border: 1px solid var(--br-border);
+  border-radius: var(--br-radius);
+  background: var(--br-surface);
+  overflow: hidden;
+  box-shadow: var(--br-shadow-xs);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+.text-editor:focus-within,
+.js-text-editor:focus-within {
+  border-color: var(--br-accent) !important;
+  box-shadow: 0 0 0 3px var(--br-accent-soft) !important;
+}
+.text-editor .text-editor-write-mode,
+.text-editor .text-editor-view-mode,
+.js-text-editor .text-editor-write-mode,
+.js-text-editor .text-editor-view-mode {
+  width: 100%;
+  box-sizing: border-box;
+}
+.text-editor .text-editor-toolbar,
+.js-text-editor .text-editor-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 7px 12px;
+  background: var(--br-surface-2);
+  border: none;
+  border-bottom: 1px solid var(--br-border);
+  border-radius: 0;
+  flex-wrap: wrap;
+}
+.text-editor .text-editor-toolbar a,
+.js-text-editor .text-editor-toolbar a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 28px;
+  height: 28px;
+  padding: 0 8px;
+  border-radius: var(--br-radius-sm);
+  color: var(--br-text-secondary);
+  font-size: 12px;
+  text-decoration: none !important;
+  transition: all 0.12s ease;
+  cursor: pointer;
+}
+.text-editor .text-editor-toolbar a i.fa,
+.js-text-editor .text-editor-toolbar a i.fa {
+  font-size: 12.5px;
+  color: inherit;
+}
+.text-editor .text-editor-toolbar a:first-child,
+.js-text-editor .text-editor-toolbar a:first-child {
+  background: var(--br-surface);
+  border: 1px solid var(--br-border);
+  color: var(--br-text);
+  font-weight: 600;
+  gap: 6px;
+  margin-right: 6px;
+  padding: 0 10px;
+}
+.text-editor .text-editor-toolbar a:first-child:hover,
+.js-text-editor .text-editor-toolbar a:first-child:hover {
+  background: var(--br-accent-soft);
+  border-color: var(--br-accent);
+  color: var(--br-accent);
+}
+.text-editor .text-editor-toolbar a:not(:first-child):hover,
+.js-text-editor .text-editor-toolbar a:not(:first-child):hover {
+  background: var(--br-surface-3);
+  color: var(--br-accent);
+}
+.text-editor textarea,
+.text-editor textarea:focus,
+.js-text-editor textarea,
+.js-text-editor textarea:focus {
+  width: 100% !important;
+  min-width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box;
+  display: block;
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  padding: 12px 14px !important;
+  color: var(--br-text) !important;
+  font-size: 13.5px !important;
+  font-family: var(--br-font) !important;
+  line-height: 1.6 !important;
+  resize: vertical;
+  min-height: 120px;
+  margin: 0;
+  outline: none !important;
+}
+.text-editor textarea::placeholder,
+.text-editor textarea:focus::placeholder,
+.js-text-editor textarea::placeholder,
+.js-text-editor textarea:focus::placeholder {
+  color: var(--br-text-muted);
+}
+.text-editor .text-editor-preview-area,
+.js-text-editor .text-editor-preview-area {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 14px 16px;
+  background: transparent;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  min-height: 120px;
+  color: var(--br-text);
+  font-size: 13.5px;
+  line-height: 1.6;
+}
+
 div#comments,
 .comments {
-  padding: 8px 0 16px;
+  padding: 10px 0 20px;
 }
 div#comments .comment-sorting,
 .comments .comment-sorting {
@@ -2162,18 +2364,19 @@ div#comments .comment-sorting small,
   gap: 8px;
   flex-wrap: wrap;
   font-size: 13px;
+  width: 100%;
 }
 div#comments .comment-sorting a,
 .comments .comment-sorting a {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  padding: 6px 14px;
+  padding: 7px 14px;
   background: var(--br-surface-2);
   border: 1px solid var(--br-border);
   border-radius: 999px;
   color: var(--br-text);
-  font-size: 13px;
+  font-size: 12.5px;
   font-weight: 500;
   text-decoration: none !important;
   transition: all 0.15s ease;
@@ -2181,12 +2384,12 @@ div#comments .comment-sorting a,
 div#comments .comment-sorting a i.fa,
 .comments .comment-sorting a i.fa {
   color: var(--br-icon-color);
-  font-size: 13px;
-  opacity: 0.8;
+  font-size: 12px;
+  opacity: 0.85;
 }
 div#comments .comment-sorting a:hover,
 .comments .comment-sorting a:hover {
-  background: var(--br-accent-soft);
+  background: var(--br-surface-3);
   border-color: var(--br-accent);
   color: var(--br-accent);
 }
@@ -2195,311 +2398,59 @@ div#comments .comment-sorting a:hover i.fa,
   color: var(--br-accent);
   opacity: 1;
 }
-div#comments form,
-.comments form {
-  width: 100%;
-  margin-top: 16px;
-}
-div#comments form label,
-.comments form label {
-  font-size: 13px;
+div#comments .comment-sorting a.js-modal-medium[href*=CommentController],
+.comments .comment-sorting a.js-modal-medium[href*=CommentController] {
+  background: var(--br-accent-soft);
+  border-color: var(--br-accent);
+  color: var(--br-accent);
   font-weight: 600;
-  color: var(--br-text);
-  margin-top: 14px;
-  margin-bottom: 6px;
 }
-div#comments form select,
-.comments form select {
-  width: 100%;
-  max-width: 320px;
-  background: var(--br-surface);
-  border: 1px solid var(--br-border-strong);
-  border-radius: var(--br-radius-sm);
-  padding: 9px 12px;
-  color: var(--br-text);
-  font-size: 14px;
-  cursor: pointer;
+div#comments .comment-sorting a.js-modal-medium[href*=CommentController] i.fa,
+.comments .comment-sorting a.js-modal-medium[href*=CommentController] i.fa {
+  color: var(--br-accent);
 }
-div#comments form select:focus,
-.comments form select:focus {
-  outline: none;
-  border-color: var(--br-accent);
-  box-shadow: 0 0 0 3px var(--br-accent-soft);
+div#comments .comment-sorting a.js-modal-medium[href*=CommentController]:hover,
+.comments .comment-sorting a.js-modal-medium[href*=CommentController]:hover {
+  background: var(--br-accent);
+  color: #fff;
 }
-div#comments form .form-actions,
-.comments form .form-actions {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-top: 20px;
-  padding-top: 16px;
-  border-top: 1px solid var(--br-border);
-}
-div#comments .text-editor,
-div#comments .js-text-editor,
-.comments .text-editor,
-.comments .js-text-editor {
-  width: 100%;
-  box-sizing: border-box;
-  margin: 8px 0;
-}
-div#comments .text-editor .text-editor-write-mode,
-div#comments .text-editor .text-editor-view-mode,
-div#comments .js-text-editor .text-editor-write-mode,
-div#comments .js-text-editor .text-editor-view-mode,
-.comments .text-editor .text-editor-write-mode,
-.comments .text-editor .text-editor-view-mode,
-.comments .js-text-editor .text-editor-write-mode,
-.comments .js-text-editor .text-editor-view-mode {
-  width: 100%;
-  box-sizing: border-box;
-}
-div#comments .text-editor .text-editor-toolbar,
-div#comments .js-text-editor .text-editor-toolbar,
-.comments .text-editor .text-editor-toolbar,
-.comments .js-text-editor .text-editor-toolbar {
-  display: flex;
-  align-items: center;
-  gap: 3px;
-  padding: 6px 10px;
-  background: var(--br-surface-2);
-  border: 1px solid var(--br-border-strong);
-  border-bottom: none;
-  border-radius: var(--br-radius-sm) var(--br-radius-sm) 0 0;
-  flex-wrap: wrap;
-}
-div#comments .text-editor .text-editor-toolbar a,
-div#comments .js-text-editor .text-editor-toolbar a,
-.comments .text-editor .text-editor-toolbar a,
-.comments .js-text-editor .text-editor-toolbar a {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 28px;
-  height: 28px;
-  padding: 2px 8px;
-  border-radius: 4px;
-  color: var(--br-text-secondary);
-  font-size: 13px;
-  text-decoration: none !important;
-  transition: all 0.15s ease;
-}
-div#comments .text-editor .text-editor-toolbar a i.fa,
-div#comments .js-text-editor .text-editor-toolbar a i.fa,
-.comments .text-editor .text-editor-toolbar a i.fa,
-.comments .js-text-editor .text-editor-toolbar a i.fa {
-  font-size: 13px;
-  opacity: 0.85;
-  text-align: center;
-}
-div#comments .text-editor .text-editor-toolbar a:hover,
-div#comments .js-text-editor .text-editor-toolbar a:hover,
-.comments .text-editor .text-editor-toolbar a:hover,
-.comments .js-text-editor .text-editor-toolbar a:hover {
-  background: var(--br-surface-3);
-  color: var(--br-text);
-}
-div#comments .text-editor .text-editor-toolbar a:hover i.fa,
-div#comments .js-text-editor .text-editor-toolbar a:hover i.fa,
-.comments .text-editor .text-editor-toolbar a:hover i.fa,
-.comments .js-text-editor .text-editor-toolbar a:hover i.fa {
-  opacity: 1;
-  color: var(--br-text);
-}
-div#comments .text-editor textarea,
-div#comments .js-text-editor textarea,
-.comments .text-editor textarea,
-.comments .js-text-editor textarea {
-  width: 100% !important;
-  min-width: 100% !important;
-  max-width: 100% !important;
-  box-sizing: border-box;
-  display: block;
-  background: var(--br-surface);
-  border: 1px solid var(--br-border-strong);
-  border-radius: 0 0 var(--br-radius-sm) var(--br-radius-sm);
-  padding: 12px 14px;
-  color: var(--br-text);
-  font-size: 14px;
-  font-family: var(--br-font);
-  line-height: 1.6;
-  resize: vertical;
-  min-height: 110px;
-  margin: 0;
-}
-div#comments .text-editor textarea:focus,
-div#comments .js-text-editor textarea:focus,
-.comments .text-editor textarea:focus,
-.comments .js-text-editor textarea:focus {
-  outline: none;
-  border-color: var(--br-accent);
-  box-shadow: 0 0 0 3px var(--br-accent-soft);
-  position: relative;
-  z-index: 1;
-}
-div#comments .text-editor textarea::placeholder,
-div#comments .js-text-editor textarea::placeholder,
-.comments .text-editor textarea::placeholder,
-.comments .js-text-editor textarea::placeholder {
-  color: var(--br-text-muted);
-}
-div#comments .text-editor .text-editor-preview-area,
-div#comments .js-text-editor .text-editor-preview-area,
-.comments .text-editor .text-editor-preview-area,
-.comments .js-text-editor .text-editor-preview-area {
-  width: 100%;
-  box-sizing: border-box;
-  padding: 14px 16px;
-  background: var(--br-surface);
-  border: 1px solid var(--br-border-strong);
-  border-radius: 0 0 var(--br-radius-sm) var(--br-radius-sm);
-  min-height: 110px;
-  color: var(--br-text);
-  font-size: 14px;
-  line-height: 1.6;
+div#comments .comment-sorting a.js-modal-medium[href*=CommentController]:hover i.fa,
+.comments .comment-sorting a.js-modal-medium[href*=CommentController]:hover i.fa {
+  color: #fff;
 }
 div#comments .comment,
 .comments .comment {
   background: var(--br-surface);
   border: 1px solid var(--br-border);
+  border-left: 3px solid var(--br-accent);
   border-radius: var(--br-radius);
-  padding: 18px 20px;
+  padding: 16px 20px;
   margin-bottom: 16px;
-  box-shadow: var(--br-shadow-sm);
+  box-shadow: var(--br-shadow-xs);
   position: relative;
-  transition: all 0.2s ease;
+  transition: all 0.15s ease;
 }
 div#comments .comment:hover,
 .comments .comment:hover {
   border-color: var(--br-accent);
-  box-shadow: var(--br-shadow-md);
-}
-div#comments .comment .avatar,
-div#comments .comment .avatar-inline,
-div#comments .comment .avatar-20,
-div#comments .comment .avatar-32,
-div#comments .comment .avatar-48,
-.comments .comment .avatar,
-.comments .comment .avatar-inline,
-.comments .comment .avatar-20,
-.comments .comment .avatar-32,
-.comments .comment .avatar-48 {
-  display: inline-flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  vertical-align: middle;
-  border-radius: 50% !important;
-  overflow: hidden !important;
-  flex-shrink: 0;
-  width: 24px;
-  height: 24px;
-}
-div#comments .comment .avatar.avatar-20,
-div#comments .comment .avatar-inline.avatar-20,
-div#comments .comment .avatar-20.avatar-20,
-div#comments .comment .avatar-32.avatar-20,
-div#comments .comment .avatar-48.avatar-20,
-.comments .comment .avatar.avatar-20,
-.comments .comment .avatar-inline.avatar-20,
-.comments .comment .avatar-20.avatar-20,
-.comments .comment .avatar-32.avatar-20,
-.comments .comment .avatar-48.avatar-20 {
-  width: 24px !important;
-  height: 24px !important;
-  min-width: 24px !important;
-  min-height: 24px !important;
-}
-div#comments .comment .avatar.avatar-32,
-div#comments .comment .avatar-inline.avatar-32,
-div#comments .comment .avatar-20.avatar-32,
-div#comments .comment .avatar-32.avatar-32,
-div#comments .comment .avatar-48.avatar-32,
-.comments .comment .avatar.avatar-32,
-.comments .comment .avatar-inline.avatar-32,
-.comments .comment .avatar-20.avatar-32,
-.comments .comment .avatar-32.avatar-32,
-.comments .comment .avatar-48.avatar-32 {
-  width: 32px !important;
-  height: 32px !important;
-  min-width: 32px !important;
-  min-height: 32px !important;
-}
-div#comments .comment .avatar.avatar-48,
-div#comments .comment .avatar-inline.avatar-48,
-div#comments .comment .avatar-20.avatar-48,
-div#comments .comment .avatar-32.avatar-48,
-div#comments .comment .avatar-48.avatar-48,
-.comments .comment .avatar.avatar-48,
-.comments .comment .avatar-inline.avatar-48,
-.comments .comment .avatar-20.avatar-48,
-.comments .comment .avatar-32.avatar-48,
-.comments .comment .avatar-48.avatar-48 {
-  width: 48px !important;
-  height: 48px !important;
-  min-width: 48px !important;
-  min-height: 48px !important;
-}
-div#comments .comment .avatar .avatar-letter,
-div#comments .comment .avatar div.avatar-letter,
-div#comments .comment .avatar-inline .avatar-letter,
-div#comments .comment .avatar-inline div.avatar-letter,
-div#comments .comment .avatar-20 .avatar-letter,
-div#comments .comment .avatar-20 div.avatar-letter,
-div#comments .comment .avatar-32 .avatar-letter,
-div#comments .comment .avatar-32 div.avatar-letter,
-div#comments .comment .avatar-48 .avatar-letter,
-div#comments .comment .avatar-48 div.avatar-letter,
-.comments .comment .avatar .avatar-letter,
-.comments .comment .avatar div.avatar-letter,
-.comments .comment .avatar-inline .avatar-letter,
-.comments .comment .avatar-inline div.avatar-letter,
-.comments .comment .avatar-20 .avatar-letter,
-.comments .comment .avatar-20 div.avatar-letter,
-.comments .comment .avatar-32 .avatar-letter,
-.comments .comment .avatar-32 div.avatar-letter,
-.comments .comment .avatar-48 .avatar-letter,
-.comments .comment .avatar-48 div.avatar-letter {
-  width: 100% !important;
-  height: 100% !important;
-  min-width: 100% !important;
-  min-height: 100% !important;
-  display: inline-flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  border-radius: 50% !important;
-  font-weight: 600;
-  font-size: 11px;
-  line-height: 1;
-  color: #fff;
-  text-transform: uppercase;
-}
-div#comments .comment .avatar img,
-div#comments .comment .avatar-inline img,
-div#comments .comment .avatar-20 img,
-div#comments .comment .avatar-32 img,
-div#comments .comment .avatar-48 img,
-.comments .comment .avatar img,
-.comments .comment .avatar-inline img,
-.comments .comment .avatar-20 img,
-.comments .comment .avatar-32 img,
-.comments .comment .avatar-48 img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 50%;
+  border-left-color: var(--br-accent);
+  box-shadow: var(--br-shadow-sm);
 }
 div#comments .comment .avatar,
 .comments .comment .avatar {
-  margin-right: 12px;
-  float: left;
+  position: absolute;
+  top: 16px;
+  left: 18px;
 }
 div#comments .comment .comment-title,
 .comments .comment .comment-title {
+  margin-left: 50px;
   display: flex;
   align-items: center;
   gap: 10px;
   flex-wrap: wrap;
-  margin-bottom: 10px;
+  padding-right: 40px;
+  min-height: 38px;
 }
 div#comments .comment .comment-title strong.comment-username,
 .comments .comment .comment-title strong.comment-username {
@@ -2508,11 +2459,31 @@ div#comments .comment .comment-title strong.comment-username,
   font-size: 14px;
 }
 div#comments .comment .comment-title small.comment-date,
-div#comments .comment .comment-title small.comment-visibility,
-.comments .comment .comment-title small.comment-date,
-.comments .comment .comment-title small.comment-visibility {
+.comments .comment .comment-title small.comment-date {
   color: var(--br-text-muted);
   font-size: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+div#comments .comment .comment-title small.comment-date::before,
+.comments .comment .comment-title small.comment-date::before {
+  content: "•";
+  color: var(--br-text-muted);
+  opacity: 0.5;
+  margin-right: 2px;
+}
+div#comments .comment .comment-title small.comment-visibility,
+.comments .comment .comment-title small.comment-visibility {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 8px;
+  background: var(--br-surface-2);
+  border: 1px solid var(--br-border);
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--br-text-secondary);
 }
 div#comments .comment .comment-actions,
 .comments .comment .comment-actions {
@@ -2523,36 +2494,44 @@ div#comments .comment .comment-actions,
   padding: 0;
   border: none;
 }
-div#comments .comment .comment-actions .dropdown > a,
-.comments .comment .comment-actions .dropdown > a {
+div#comments .comment .comment-actions .dropdown > a.dropdown-menu-link-icon,
+.comments .comment .comment-actions .dropdown > a.dropdown-menu-link-icon {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 4px;
-  padding: 4px 8px;
+  padding: 5px 8px;
   background: var(--br-surface-2);
+  border: 1px solid var(--br-border);
   border-radius: var(--br-radius-sm);
   color: var(--br-text-muted);
   text-decoration: none;
+  transition: all 0.12s ease;
 }
-div#comments .comment .comment-actions .dropdown > a:hover,
-.comments .comment .comment-actions .dropdown > a:hover {
+div#comments .comment .comment-actions .dropdown > a.dropdown-menu-link-icon:hover,
+.comments .comment .comment-actions .dropdown > a.dropdown-menu-link-icon:hover {
   background: var(--br-surface-3);
-  color: var(--br-text);
+  border-color: var(--br-accent);
+  color: var(--br-accent);
 }
 div#comments .comment .comment-content,
 .comments .comment .comment-content {
-  clear: both;
-  margin-top: 10px;
+  margin-left: 50px;
+  margin-top: 8px;
+  padding: 12px 16px;
+  background: var(--br-surface-2);
+  border: 1px solid var(--br-border);
+  border-radius: var(--br-radius-sm);
 }
 div#comments .comment .comment-content .markdown,
 .comments .comment .comment-content .markdown {
   color: var(--br-text);
-  font-size: 14px;
+  font-size: 13.5px;
   line-height: 1.6;
 }
 div#comments .comment .comment-content .markdown p,
 .comments .comment .comment-content .markdown p {
-  margin: 0 0 10px 0;
+  margin: 0 0 8px 0;
 }
 div#comments .comment .comment-content .markdown p:last-child,
 .comments .comment .comment-content .markdown p:last-child {
@@ -2567,17 +2546,228 @@ div#comments .comment .comment-content .markdown a:hover,
 .comments .comment .comment-content .markdown a:hover {
   text-decoration: underline;
 }
-div#comments .comment .comment-content .markdown code, div#comments .comment .comment-content .markdown pre,
-.comments .comment .comment-content .markdown code,
-.comments .comment .comment-content .markdown pre {
-  background: var(--br-surface-2);
+div#comments .comment .comment-content .markdown blockquote,
+.comments .comment .comment-content .markdown blockquote {
+  border-left: 3px solid var(--br-accent);
+  background: var(--br-surface-3);
+  padding: 8px 14px;
+  border-radius: 0 var(--br-radius-sm) var(--br-radius-sm) 0;
+  margin: 8px 0;
+  color: var(--br-text-secondary);
+  font-style: italic;
+}
+div#comments .comment .comment-content .markdown blockquote p,
+.comments .comment .comment-content .markdown blockquote p {
+  margin: 0;
+}
+div#comments .comment .comment-content .markdown code,
+.comments .comment .comment-content .markdown code {
+  background: var(--br-surface-3);
+  border: 1px solid var(--br-border);
   border-radius: var(--br-radius-sm);
   padding: 2px 6px;
+  font-size: 12.5px;
+  font-family: monospace;
+  color: var(--br-accent);
 }
 div#comments .comment .comment-content .markdown pre,
 .comments .comment .comment-content .markdown pre {
-  padding: 10px 14px;
+  background: var(--br-surface-3);
+  border: 1px solid var(--br-border);
+  border-radius: var(--br-radius-sm);
+  padding: 12px 14px;
   overflow-x: auto;
+  margin: 8px 0;
+}
+div#comments .comment .comment-content .markdown pre code,
+.comments .comment .comment-content .markdown pre code {
+  border: none;
+  padding: 0;
+  background: transparent;
+  color: inherit;
+}
+div#comments form[action*=CommentController],
+.comments form[action*=CommentController] {
+  width: 100%;
+  margin-top: 24px;
+  padding: 18px 20px;
+  background: var(--br-surface);
+  border: 1px solid var(--br-border);
+  border-radius: var(--br-radius);
+  box-shadow: var(--br-shadow-xs);
+}
+div#comments form[action*=CommentController]::before,
+.comments form[action*=CommentController]::before {
+  content: "Escrever um comentário";
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--br-text);
+  margin-bottom: 12px;
+}
+div#comments form[action*=CommentController] label[for=form-visibility],
+.comments form[action*=CommentController] label[for=form-visibility] {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--br-text-muted);
+  margin-top: 14px;
+  margin-bottom: 6px;
+  display: block;
+}
+div#comments form[action*=CommentController] select#form-visibility,
+.comments form[action*=CommentController] select#form-visibility {
+  background: var(--br-surface-2);
+  border: 1px solid var(--br-border);
+  border-radius: var(--br-radius-sm);
+  padding: 8px 12px;
+  color: var(--br-text);
+  font-size: 13px;
+  cursor: pointer;
+  margin-bottom: 14px;
+  max-width: 320px;
+}
+div#comments form[action*=CommentController] select#form-visibility:focus,
+.comments form[action*=CommentController] select#form-visibility:focus {
+  outline: none;
+  border-color: var(--br-accent);
+}
+div#comments form[action*=CommentController] .form-actions,
+.comments form[action*=CommentController] .form-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 8px;
+  padding-top: 14px;
+  border-top: 1px solid var(--br-border);
+}
+div#comments form[action*=CommentController] .form-actions button[type=submit],
+div#comments form[action*=CommentController] .form-actions .btn-blue,
+.comments form[action*=CommentController] .form-actions button[type=submit],
+.comments form[action*=CommentController] .form-actions .btn-blue {
+  padding: 8px 20px;
+  background: var(--br-accent);
+  color: #fff;
+  border: none;
+  border-radius: var(--br-radius-sm);
+  font-weight: 600;
+  font-size: 13.5px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+div#comments form[action*=CommentController] .form-actions button[type=submit]:hover,
+div#comments form[action*=CommentController] .form-actions .btn-blue:hover,
+.comments form[action*=CommentController] .form-actions button[type=submit]:hover,
+.comments form[action*=CommentController] .form-actions .btn-blue:hover {
+  filter: brightness(1.1);
+  transform: translateY(-1px);
+}
+
+#modal-box .page-header h2 {
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--br-text);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+#modal-box a[href*=CommentMailController] {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  background: var(--br-surface-2);
+  border: 1px solid var(--br-border);
+  border-radius: 999px;
+  color: var(--br-text-secondary);
+  font-size: 12.5px;
+  font-weight: 500;
+  text-decoration: none !important;
+  margin-bottom: 16px;
+  transition: all 0.15s ease;
+}
+#modal-box a[href*=CommentMailController] i.fa {
+  color: var(--br-accent);
+}
+#modal-box a[href*=CommentMailController]:hover {
+  background: var(--br-accent-soft);
+  border-color: var(--br-accent);
+  color: var(--br-accent);
+}
+#modal-box label[for=form-visibility] {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--br-text-muted);
+  margin-top: 14px;
+  margin-bottom: 6px;
+  display: block;
+}
+#modal-box select#form-visibility {
+  width: 100%;
+  background: var(--br-surface-2);
+  border: 1px solid var(--br-border);
+  border-radius: var(--br-radius-sm);
+  padding: 8px 12px;
+  color: var(--br-text);
+  font-size: 13.5px;
+  cursor: pointer;
+}
+#modal-box select#form-visibility:focus {
+  outline: none;
+  border-color: var(--br-accent);
+}
+#modal-box .form-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid var(--br-border);
+  color: var(--br-text-muted);
+  font-size: 12px;
+}
+#modal-box .form-actions button[type=submit],
+#modal-box .form-actions .btn-blue {
+  padding: 8px 20px;
+  background: var(--br-accent);
+  color: #fff;
+  border: none;
+  border-radius: var(--br-radius-sm);
+  font-weight: 600;
+  font-size: 13.5px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+#modal-box .form-actions button[type=submit]:hover,
+#modal-box .form-actions .btn-blue:hover {
+  filter: brightness(1.1);
+  transform: translateY(-1px);
+}
+#modal-box .form-actions a.js-modal-close,
+#modal-box .form-actions a[href*=TaskViewController],
+#modal-box .form-actions a.btn-cancel {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 16px;
+  border-radius: var(--br-radius-sm);
+  background: var(--br-surface-2);
+  border: 1px solid var(--br-border);
+  color: var(--br-text-secondary);
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none !important;
+  transition: all 0.15s ease;
+}
+#modal-box .form-actions a.js-modal-close:hover,
+#modal-box .form-actions a[href*=TaskViewController]:hover,
+#modal-box .form-actions a.btn-cancel:hover {
+  background: var(--br-surface-3);
+  color: var(--br-text);
+  border-color: var(--br-border-strong);
 }
 
 .project-overview-columns {
