@@ -2926,49 +2926,197 @@ table {
     }
   }
 
-  // Tags/Badges
+  // Tags/Badges na tela da tarefa
   .task-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
     margin-top: 16px;
 
-    .task-tag {
-      display: inline-flex;
+    ul {
+      display: flex;
+      flex-wrap: wrap;
       align-items: center;
-      padding: 4px 12px;
-      border-radius: 999px;
-      font-size: 12px;
-      font-weight: 500;
+      gap: 8px;
+      padding: 0;
+      margin: 0;
+      list-style: none;
 
-      &.color-yellow {
-        background: #f5d76e;
-        color: #000;
+      li.task-tag,
+      li {
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+        padding: 4px 11px;
+        border-radius: 999px;
+        font-size: 12px;
+        font-weight: 500;
+        line-height: 1.2;
+        background: var(--br-surface-2);
+        color: var(--br-text);
+        border: 1px solid var(--br-border);
+        transition: all 0.12s ease;
+
+        &::before {
+          content: '#';
+          font-weight: 600;
+          opacity: 0.6;
+          color: var(--br-accent);
+        }
+
+        &:hover {
+          border-color: var(--br-accent);
+          background: var(--br-surface-3);
+        }
+
+        &.color-yellow { background: rgba(234, 179, 8, 0.12); color: #ca8a04; border-color: rgba(234, 179, 8, 0.3); }
+        &.color-blue { background: rgba(14, 165, 233, 0.12); color: #0284c7; border-color: rgba(14, 165, 233, 0.3); }
+        &.color-green { background: rgba(34, 197, 94, 0.12); color: #16a34a; border-color: rgba(34, 197, 94, 0.3); }
+        &.color-red { background: rgba(239, 68, 68, 0.12); color: #dc2626; border-color: rgba(239, 68, 68, 0.3); }
+        &.color-purple { background: rgba(168, 85, 247, 0.12); color: #9333ea; border-color: rgba(168, 85, 247, 0.3); }
+        &.color-orange { background: rgba(249, 115, 22, 0.12); color: #ea580c; border-color: rgba(249, 115, 22, 0.3); }
+      }
+    }
+  }
+}
+
+// Tabelas de links internos e externos na tarefa
+.task-links-table,
+.task-external-links-table,
+table.table-striped {
+  .task-links-table-td {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  td {
+    .dropdown {
+      display: inline-flex;
+      vertical-align: middle;
+      margin-right: 6px;
+    }
+  }
+
+  tbody td:first-child {
+    white-space: nowrap;
+  }
+}
+
+// Botões dropdown de engrenagem nas tabelas (ex: .dropdown-menu-link-icon)
+a.dropdown-menu-link-icon {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 6px;
+  border-radius: var(--br-radius-sm);
+  color: var(--br-text-muted);
+  background: var(--br-surface-2);
+  border: 1px solid var(--br-border);
+  font-size: 11px;
+  line-height: 1;
+  text-decoration: none !important;
+  transition: all 0.12s ease;
+
+  i.fa {
+    font-size: 11px;
+  }
+
+  &:hover {
+    color: var(--br-accent);
+    border-color: var(--br-accent);
+    background: var(--br-surface-3);
+  }
+}
+
+// Galeria de anexos e arquivos da tarefa
+.file-thumbnails {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 10px;
+
+  .file-thumbnail {
+    display: inline-flex;
+    flex-direction: column;
+    width: 240px;
+    background: var(--br-surface);
+    border: 1px solid var(--br-border);
+    border-radius: var(--br-radius);
+    overflow: hidden;
+    box-shadow: var(--br-shadow-sm);
+    transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--br-shadow-md);
+      border-color: var(--br-accent);
+    }
+
+    .js-image-slideshow-rendered {
+      width: 100%;
+      height: 130px;
+      background: var(--br-surface-2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        cursor: pointer;
+        transition: transform 0.2s ease;
+
+        &:hover {
+          transform: scale(1.04);
+        }
+      }
+    }
+
+    .file-thumbnail-content {
+      padding: 10px 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+
+      .file-thumbnail-title {
+        font-size: 12.5px;
+        font-weight: 600;
+        color: var(--br-text);
+
+        .dropdown a.dropdown-menu-link-text {
+          color: var(--br-text);
+          text-decoration: none;
+          display: inline-flex;
+          align-items: center;
+          gap: 4px;
+          max-width: 100%;
+          line-height: 1.3;
+          word-break: break-word;
+
+          &:hover {
+            color: var(--br-accent);
+          }
+
+          i.fa-caret-down {
+            opacity: 0.6;
+            font-size: 10px;
+            flex-shrink: 0;
+          }
+        }
       }
 
-      &.color-blue {
-        background: #5dade2;
-        color: #fff;
-      }
+      .file-thumbnail-description {
+        font-size: 11.5px;
+        color: var(--br-text-muted);
+        display: flex;
+        align-items: center;
+        gap: 6px;
 
-      &.color-green {
-        background: #58d68d;
-        color: #fff;
-      }
-
-      &.color-red {
-        background: #ec7063;
-        color: #fff;
-      }
-
-      &.color-orange {
-        background: #f0b27a;
-        color: #000;
-      }
-
-      &.color-purple {
-        background: #af7ac5;
-        color: #fff;
+        .tooltip i.fa-info-circle {
+          color: var(--br-accent);
+          opacity: 0.8;
+        }
       }
     }
   }
