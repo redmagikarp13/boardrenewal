@@ -2346,11 +2346,14 @@ section.page:has(.sidebar-container .sidebar ul li.active) table.subtasks-table 
 }
 
 div#comments,
-.comments {
-  padding: 4px 0 10px;
+.comments,
+.accordion-content.comments {
+  padding: 18px 20px 22px !important;
+  box-sizing: border-box;
 }
 div#comments .comment-sorting,
-.comments .comment-sorting {
+.comments .comment-sorting,
+.accordion-content.comments .comment-sorting {
   display: flex;
   align-items: center;
   gap: 8px;
@@ -2358,7 +2361,8 @@ div#comments .comment-sorting,
   flex-wrap: wrap;
 }
 div#comments .comment-sorting small,
-.comments .comment-sorting small {
+.comments .comment-sorting small,
+.accordion-content.comments .comment-sorting small {
   display: flex;
   align-items: center;
   gap: 8px;
@@ -2367,7 +2371,8 @@ div#comments .comment-sorting small,
   width: 100%;
 }
 div#comments .comment-sorting a,
-.comments .comment-sorting a {
+.comments .comment-sorting a,
+.accordion-content.comments .comment-sorting a {
   display: inline-flex;
   align-items: center;
   gap: 6px;
@@ -2383,44 +2388,52 @@ div#comments .comment-sorting a,
   transition: all 0.15s ease;
 }
 div#comments .comment-sorting a i.fa,
-.comments .comment-sorting a i.fa {
+.comments .comment-sorting a i.fa,
+.accordion-content.comments .comment-sorting a i.fa {
   color: var(--br-icon-color);
   font-size: 12px;
   opacity: 0.85;
 }
 div#comments .comment-sorting a:hover,
-.comments .comment-sorting a:hover {
+.comments .comment-sorting a:hover,
+.accordion-content.comments .comment-sorting a:hover {
   background: var(--br-surface-2);
   border-color: var(--br-accent);
   color: var(--br-accent);
 }
 div#comments .comment-sorting a:hover i.fa,
-.comments .comment-sorting a:hover i.fa {
+.comments .comment-sorting a:hover i.fa,
+.accordion-content.comments .comment-sorting a:hover i.fa {
   color: var(--br-accent);
   opacity: 1;
 }
 div#comments .comment-sorting a.js-modal-medium[href*=CommentController],
-.comments .comment-sorting a.js-modal-medium[href*=CommentController] {
+.comments .comment-sorting a.js-modal-medium[href*=CommentController],
+.accordion-content.comments .comment-sorting a.js-modal-medium[href*=CommentController] {
   background: var(--br-accent-soft);
   border-color: var(--br-accent);
   color: var(--br-accent);
   font-weight: 600;
 }
 div#comments .comment-sorting a.js-modal-medium[href*=CommentController] i.fa,
-.comments .comment-sorting a.js-modal-medium[href*=CommentController] i.fa {
+.comments .comment-sorting a.js-modal-medium[href*=CommentController] i.fa,
+.accordion-content.comments .comment-sorting a.js-modal-medium[href*=CommentController] i.fa {
   color: var(--br-accent);
 }
 div#comments .comment-sorting a.js-modal-medium[href*=CommentController]:hover,
-.comments .comment-sorting a.js-modal-medium[href*=CommentController]:hover {
+.comments .comment-sorting a.js-modal-medium[href*=CommentController]:hover,
+.accordion-content.comments .comment-sorting a.js-modal-medium[href*=CommentController]:hover {
   background: var(--br-accent);
   color: #fff;
 }
 div#comments .comment-sorting a.js-modal-medium[href*=CommentController]:hover i.fa,
-.comments .comment-sorting a.js-modal-medium[href*=CommentController]:hover i.fa {
+.comments .comment-sorting a.js-modal-medium[href*=CommentController]:hover i.fa,
+.accordion-content.comments .comment-sorting a.js-modal-medium[href*=CommentController]:hover i.fa {
   color: #fff;
 }
 div#comments .comment,
-.comments .comment {
+.comments .comment,
+.accordion-content.comments .comment {
   display: grid;
   grid-template-columns: 38px 1fr auto;
   grid-template-rows: auto auto;
@@ -2437,12 +2450,14 @@ div#comments .comment,
   transition: all 0.2s ease;
 }
 div#comments .comment:hover,
-.comments .comment:hover {
+.comments .comment:hover,
+.accordion-content.comments .comment:hover {
   border-color: var(--br-accent);
   box-shadow: var(--br-shadow-sm);
 }
 div#comments .comment .avatar,
-.comments .comment .avatar {
+.comments .comment .avatar,
+.accordion-content.comments .comment .avatar {
   grid-column: 1;
   grid-row: 1/span 2;
   position: static !important;
@@ -2454,7 +2469,9 @@ div#comments .comment .avatar,
 div#comments .comment .avatar .avatar-letter,
 div#comments .comment .avatar img,
 .comments .comment .avatar .avatar-letter,
-.comments .comment .avatar img {
+.comments .comment .avatar img,
+.accordion-content.comments .comment .avatar .avatar-letter,
+.accordion-content.comments .comment .avatar img {
   width: 38px !important;
   height: 38px !important;
   line-height: 38px !important;
@@ -2466,7 +2483,8 @@ div#comments .comment .avatar img,
   justify-content: center;
 }
 div#comments .comment .comment-title,
-.comments .comment .comment-title {
+.comments .comment .comment-title,
+.accordion-content.comments .comment .comment-title {
   grid-column: 2;
   grid-row: 1;
   display: flex;
@@ -2478,13 +2496,15 @@ div#comments .comment .comment-title,
   min-height: auto;
 }
 div#comments .comment .comment-title strong.comment-username,
-.comments .comment .comment-title strong.comment-username {
+.comments .comment .comment-title strong.comment-username,
+.accordion-content.comments .comment .comment-title strong.comment-username {
   color: var(--br-text);
   font-weight: 600;
   font-size: 13.5px;
 }
 div#comments .comment .comment-title small.comment-date,
-.comments .comment .comment-title small.comment-date {
+.comments .comment .comment-title small.comment-date,
+.accordion-content.comments .comment .comment-title small.comment-date {
   color: var(--br-text-muted);
   font-size: 12px;
   display: inline-flex;
@@ -2492,14 +2512,16 @@ div#comments .comment .comment-title small.comment-date,
   gap: 4px;
 }
 div#comments .comment .comment-title small.comment-date::before,
-.comments .comment .comment-title small.comment-date::before {
+.comments .comment .comment-title small.comment-date::before,
+.accordion-content.comments .comment .comment-title small.comment-date::before {
   content: "•";
   color: var(--br-text-muted);
   opacity: 0.5;
   margin-right: 2px;
 }
 div#comments .comment .comment-title small.comment-visibility,
-.comments .comment .comment-title small.comment-visibility {
+.comments .comment .comment-title small.comment-visibility,
+.accordion-content.comments .comment .comment-title small.comment-visibility {
   display: inline-flex;
   align-items: center;
   padding: 2px 8px;
@@ -2511,7 +2533,8 @@ div#comments .comment .comment-title small.comment-visibility,
   color: var(--br-text-secondary);
 }
 div#comments .comment .comment-actions,
-.comments .comment .comment-actions {
+.comments .comment .comment-actions,
+.accordion-content.comments .comment .comment-actions {
   grid-column: 3;
   grid-row: 1;
   position: static !important;
@@ -2520,7 +2543,8 @@ div#comments .comment .comment-actions,
   border: none;
 }
 div#comments .comment .comment-actions .dropdown > a.dropdown-menu-link-icon,
-.comments .comment .comment-actions .dropdown > a.dropdown-menu-link-icon {
+.comments .comment .comment-actions .dropdown > a.dropdown-menu-link-icon,
+.accordion-content.comments .comment .comment-actions .dropdown > a.dropdown-menu-link-icon {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -2535,13 +2559,15 @@ div#comments .comment .comment-actions .dropdown > a.dropdown-menu-link-icon,
   transition: all 0.12s ease;
 }
 div#comments .comment .comment-actions .dropdown > a.dropdown-menu-link-icon:hover,
-.comments .comment .comment-actions .dropdown > a.dropdown-menu-link-icon:hover {
+.comments .comment .comment-actions .dropdown > a.dropdown-menu-link-icon:hover,
+.accordion-content.comments .comment .comment-actions .dropdown > a.dropdown-menu-link-icon:hover {
   background: var(--br-surface-3);
   border-color: var(--br-accent);
   color: var(--br-accent);
 }
 div#comments .comment .comment-content,
-.comments .comment .comment-content {
+.comments .comment .comment-content,
+.accordion-content.comments .comment .comment-content {
   grid-column: 2/span 2;
   grid-row: 2;
   margin: 0;
@@ -2551,30 +2577,36 @@ div#comments .comment .comment-content,
   border-radius: 0;
 }
 div#comments .comment .comment-content .markdown,
-.comments .comment .comment-content .markdown {
+.comments .comment .comment-content .markdown,
+.accordion-content.comments .comment .comment-content .markdown {
   color: var(--br-text);
   font-size: 13.5px;
   line-height: 1.6;
 }
 div#comments .comment .comment-content .markdown p,
-.comments .comment .comment-content .markdown p {
+.comments .comment .comment-content .markdown p,
+.accordion-content.comments .comment .comment-content .markdown p {
   margin: 0 0 8px 0;
 }
 div#comments .comment .comment-content .markdown p:last-child,
-.comments .comment .comment-content .markdown p:last-child {
+.comments .comment .comment-content .markdown p:last-child,
+.accordion-content.comments .comment .comment-content .markdown p:last-child {
   margin-bottom: 0;
 }
 div#comments .comment .comment-content .markdown a,
-.comments .comment .comment-content .markdown a {
+.comments .comment .comment-content .markdown a,
+.accordion-content.comments .comment .comment-content .markdown a {
   color: var(--br-accent);
   text-decoration: none;
 }
 div#comments .comment .comment-content .markdown a:hover,
-.comments .comment .comment-content .markdown a:hover {
+.comments .comment .comment-content .markdown a:hover,
+.accordion-content.comments .comment .comment-content .markdown a:hover {
   text-decoration: underline;
 }
 div#comments .comment .comment-content .markdown blockquote,
-.comments .comment .comment-content .markdown blockquote {
+.comments .comment .comment-content .markdown blockquote,
+.accordion-content.comments .comment .comment-content .markdown blockquote {
   border-left: 3px solid var(--br-accent);
   background: var(--br-surface-2);
   padding: 8px 14px;
@@ -2584,11 +2616,13 @@ div#comments .comment .comment-content .markdown blockquote,
   font-style: italic;
 }
 div#comments .comment .comment-content .markdown blockquote p,
-.comments .comment .comment-content .markdown blockquote p {
+.comments .comment .comment-content .markdown blockquote p,
+.accordion-content.comments .comment .comment-content .markdown blockquote p {
   margin: 0;
 }
 div#comments .comment .comment-content .markdown code,
-.comments .comment .comment-content .markdown code {
+.comments .comment .comment-content .markdown code,
+.accordion-content.comments .comment .comment-content .markdown code {
   background: var(--br-surface-2);
   border: 1px solid var(--br-border);
   border-radius: var(--br-radius-sm);
@@ -2598,7 +2632,8 @@ div#comments .comment .comment-content .markdown code,
   color: var(--br-accent);
 }
 div#comments .comment .comment-content .markdown pre,
-.comments .comment .comment-content .markdown pre {
+.comments .comment .comment-content .markdown pre,
+.accordion-content.comments .comment .comment-content .markdown pre {
   background: var(--br-surface-2);
   border: 1px solid var(--br-border);
   border-radius: var(--br-radius-sm);
@@ -2607,14 +2642,16 @@ div#comments .comment .comment-content .markdown pre,
   margin: 8px 0;
 }
 div#comments .comment .comment-content .markdown pre code,
-.comments .comment .comment-content .markdown pre code {
+.comments .comment .comment-content .markdown pre code,
+.accordion-content.comments .comment .comment-content .markdown pre code {
   border: none;
   padding: 0;
   background: transparent;
   color: inherit;
 }
 div#comments form[action*=CommentController],
-.comments form[action*=CommentController] {
+.comments form[action*=CommentController],
+.accordion-content.comments form[action*=CommentController] {
   width: 100%;
   margin-top: 20px;
   padding-top: 18px;
@@ -2629,7 +2666,8 @@ div#comments form[action*=CommentController],
   row-gap: 12px;
 }
 div#comments form[action*=CommentController]::before,
-.comments form[action*=CommentController]::before {
+.comments form[action*=CommentController]::before,
+.accordion-content.comments form[action*=CommentController]::before {
   grid-column: 1/-1;
   content: "Escrever um comentário";
   display: flex;
@@ -2643,12 +2681,14 @@ div#comments form[action*=CommentController]::before,
   margin-bottom: 2px;
 }
 div#comments form[action*=CommentController] .js-text-editor-rendered,
-.comments form[action*=CommentController] .js-text-editor-rendered {
+.comments form[action*=CommentController] .js-text-editor-rendered,
+.accordion-content.comments form[action*=CommentController] .js-text-editor-rendered {
   grid-column: 1/-1;
   width: 100%;
 }
 div#comments form[action*=CommentController] label[for=form-visibility],
-.comments form[action*=CommentController] label[for=form-visibility] {
+.comments form[action*=CommentController] label[for=form-visibility],
+.accordion-content.comments form[action*=CommentController] label[for=form-visibility] {
   grid-column: 1;
   font-size: 12px;
   font-weight: 600;
@@ -2657,7 +2697,8 @@ div#comments form[action*=CommentController] label[for=form-visibility],
   white-space: nowrap;
 }
 div#comments form[action*=CommentController] select#form-visibility,
-.comments form[action*=CommentController] select#form-visibility {
+.comments form[action*=CommentController] select#form-visibility,
+.accordion-content.comments form[action*=CommentController] select#form-visibility {
   grid-column: 2;
   background: var(--br-surface);
   border: 1px solid var(--br-border);
@@ -2673,13 +2714,15 @@ div#comments form[action*=CommentController] select#form-visibility,
   transition: border-color 0.15s ease;
 }
 div#comments form[action*=CommentController] select#form-visibility:focus,
-.comments form[action*=CommentController] select#form-visibility:focus {
+.comments form[action*=CommentController] select#form-visibility:focus,
+.accordion-content.comments form[action*=CommentController] select#form-visibility:focus {
   outline: none;
   border-color: var(--br-accent);
   box-shadow: 0 0 0 2px var(--br-accent-soft);
 }
 div#comments form[action*=CommentController] .form-actions,
-.comments form[action*=CommentController] .form-actions {
+.comments form[action*=CommentController] .form-actions,
+.accordion-content.comments form[action*=CommentController] .form-actions {
   grid-column: 4;
   display: flex;
   align-items: center;
@@ -2692,7 +2735,9 @@ div#comments form[action*=CommentController] .form-actions,
 div#comments form[action*=CommentController] .form-actions button[type=submit],
 div#comments form[action*=CommentController] .form-actions .btn-blue,
 .comments form[action*=CommentController] .form-actions button[type=submit],
-.comments form[action*=CommentController] .form-actions .btn-blue {
+.comments form[action*=CommentController] .form-actions .btn-blue,
+.accordion-content.comments form[action*=CommentController] .form-actions button[type=submit],
+.accordion-content.comments form[action*=CommentController] .form-actions .btn-blue {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -2711,7 +2756,9 @@ div#comments form[action*=CommentController] .form-actions .btn-blue,
 div#comments form[action*=CommentController] .form-actions button[type=submit]:hover,
 div#comments form[action*=CommentController] .form-actions .btn-blue:hover,
 .comments form[action*=CommentController] .form-actions button[type=submit]:hover,
-.comments form[action*=CommentController] .form-actions .btn-blue:hover {
+.comments form[action*=CommentController] .form-actions .btn-blue:hover,
+.accordion-content.comments form[action*=CommentController] .form-actions button[type=submit]:hover,
+.accordion-content.comments form[action*=CommentController] .form-actions .btn-blue:hover {
   filter: brightness(1.1);
   transform: translateY(-1px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);

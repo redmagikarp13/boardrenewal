@@ -1364,8 +1364,10 @@ section.page:has(.sidebar-container .sidebar ul li.active) {
 
 // Seção de Comentários (Estilo Stream/Feed fluido e integrado)
 div#comments,
-.comments {
-  padding: 4px 0 10px;
+.comments,
+.accordion-content.comments {
+  padding: 18px 20px 22px !important;
+  box-sizing: border-box;
 
   // Botões de ação superiores (Add a comment, Change sorting, Send by email)
   .comment-sorting {
