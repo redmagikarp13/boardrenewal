@@ -450,9 +450,12 @@ ul, ol {
       .table-list-title {
         flex: 1;
         min-width: 0;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
 
         a {
-          display: block;
+          display: inline-block;
           font-size: 15px;
           font-weight: 600;
           color: var(--br-text);
@@ -591,6 +594,7 @@ ul, ol {
           width: auto !important;
 
           &.column-50 {
+            flex: 1 1 auto;
             min-width: 0;
             overflow: hidden;
           }
@@ -935,9 +939,9 @@ section.page:has(.sidebar-container .sidebar ul li.active) {
 
   table.subtasks-table {
     width: 100%;
-    min-width: 800px; // Garante largura mínima para scroll horizontal
+    min-width: 1020px; // Garante largura confortável para todas as colunas
     border-collapse: collapse;
-    margin: 20px 0;
+    margin: 16px 0;
     background: var(--br-surface);
     border-radius: var(--br-radius);
     overflow: hidden;
@@ -946,13 +950,14 @@ section.page:has(.sidebar-container .sidebar ul li.active) {
       background: var(--br-surface-2);
 
       th {
-        padding: 12px 16px;
+        padding: 10px 12px;
         text-align: left;
-        font-size: 12px;
+        font-size: 11.5px;
         font-weight: 600;
         color: var(--br-text-muted);
         text-transform: uppercase;
         letter-spacing: 0.5px;
+        white-space: nowrap;
         border-bottom: 2px solid var(--br-border);
       }
     }
@@ -960,7 +965,7 @@ section.page:has(.sidebar-container .sidebar ul li.active) {
     tbody {
       tr {
         border-bottom: 1px solid var(--br-border);
-        transition: background 0.2s ease;
+        transition: background 0.15s ease;
 
         &:hover {
           background: var(--br-surface-2);
@@ -971,10 +976,14 @@ section.page:has(.sidebar-container .sidebar ul li.active) {
         }
 
         td {
-          padding: 12px 16px;
-          font-size: 14px;
+          padding: 8px 12px;
+          font-size: 13px;
           color: var(--br-text);
           vertical-align: middle;
+
+          &:first-child {
+            min-width: 240px;
+          }
         }
       }
     }
@@ -1053,10 +1062,12 @@ section.page:has(.sidebar-container .sidebar ul li.active) {
       background: var(--br-surface);
       border: 1px solid var(--br-border);
       border-radius: var(--br-radius-sm);
-      padding: 6px 10px;
+      padding: 5px 8px;
       color: var(--br-text);
-      font-size: 14px;
+      font-size: 13px;
       font-family: var(--br-font);
+      min-width: 130px;
+      width: 100%;
 
       &:focus {
         outline: none;
@@ -1074,9 +1085,11 @@ section.page:has(.sidebar-container .sidebar ul li.active) {
       background: var(--br-surface);
       border: 1px solid var(--br-border);
       border-radius: var(--br-radius-sm);
-      padding: 6px 10px;
+      padding: 5px 8px;
       color: var(--br-text);
-      font-size: 14px;
+      font-size: 13px;
+      min-width: 110px;
+      width: 100%;
       cursor: pointer;
 
       &:focus {
@@ -1088,7 +1101,8 @@ section.page:has(.sidebar-container .sidebar ul li.active) {
     // Dropdown de assignee
     .tt-assign-dropdown {
       color: var(--br-text);
-      font-size: 14px;
+      font-size: 13px;
+      min-width: 110px;
 
       &:hover {
         color: var(--br-accent);
@@ -1098,9 +1112,15 @@ section.page:has(.sidebar-container .sidebar ul li.active) {
     // Toggle de assignee (texto do usuário atribuído)
     .tt-assign-toggle {
       color: var(--br-text);
-      font-size: 14px;
+      font-size: 13px;
+      padding: 4px 8px;
+      border-radius: var(--br-radius-sm);
+      background: var(--br-surface);
+      border: 1px solid var(--br-border);
+      cursor: pointer;
 
       &:hover {
+        border-color: var(--br-accent);
         color: var(--br-accent);
       }
     }
@@ -1111,12 +1131,31 @@ section.page:has(.sidebar-container .sidebar ul li.active) {
 
     // Links cell
     .tt-links-cell {
-      a {
-        color: var(--br-accent);
-        text-decoration: none;
+      min-width: 100px;
 
-        &:hover {
-          text-decoration: underline;
+      .tt-links-view {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 4px;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+
+        li a {
+          display: inline-flex;
+          align-items: center;
+          padding: 2px 7px;
+          background: var(--br-accent-soft);
+          border-radius: 4px;
+          font-size: 11.5px;
+          font-weight: 500;
+          color: var(--br-accent);
+          text-decoration: none;
+
+          &:hover {
+            background: var(--br-accent);
+            color: #ffffff;
+          }
         }
       }
     }
@@ -1126,9 +1165,9 @@ section.page:has(.sidebar-container .sidebar ul li.active) {
       background: var(--br-surface);
       border: 1px solid var(--br-border);
       border-radius: var(--br-radius-sm);
-      padding: 8px 10px;
+      padding: 6px 8px;
       color: var(--br-text);
-      font-size: 14px;
+      font-size: 13px;
       font-family: var(--br-font);
       resize: vertical;
 
@@ -1353,6 +1392,66 @@ div#comments,
       border-color: var(--br-accent);
       box-shadow: var(--br-shadow-md);
     }
+
+// Avatares Universais (Kanboard + BoardRenewal)
+.avatar,
+.avatar-inline,
+.avatar-20,
+.avatar-32,
+.avatar-48 {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  vertical-align: middle;
+  border-radius: 50% !important;
+  overflow: hidden !important;
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+
+  &.avatar-20 {
+    width: 24px !important;
+    height: 24px !important;
+    min-width: 24px !important;
+    min-height: 24px !important;
+  }
+  &.avatar-32 {
+    width: 32px !important;
+    height: 32px !important;
+    min-width: 32px !important;
+    min-height: 32px !important;
+  }
+  &.avatar-48 {
+    width: 48px !important;
+    height: 48px !important;
+    min-width: 48px !important;
+    min-height: 48px !important;
+  }
+
+  .avatar-letter,
+  div.avatar-letter {
+    width: 100% !important;
+    height: 100% !important;
+    min-width: 100% !important;
+    min-height: 100% !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border-radius: 50% !important;
+    font-weight: 600;
+    font-size: 11px;
+    line-height: 1;
+    color: #fff;
+    text-transform: uppercase;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+}
 
     // Avatar do autor
     .avatar {
@@ -1681,88 +1780,169 @@ ul.dropdown-submenu-open {
   z-index: 1000;
   min-width: 240px;
   list-style: none;
-  margin: 3px 0 0;
+  margin: 4px 0 0;
   padding: 6px;
   background: var(--br-surface);
   border: 1px solid var(--br-border);
   border-radius: var(--br-radius);
   box-shadow: var(--br-shadow-md);
+  backdrop-filter: blur(12px);
 
-  // Itens do menu: flex para alinhar ícone + texto
   li {
     display: flex;
     align-items: center;
+    width: 100%;
+    margin: 1px 0;
+    padding: 0;
+    list-style: none;
 
-    // Ícone dentro do <a>
-    a i.fa {
-      width: 16px;
-      text-align: center;
-      opacity: 0.7;
-      flex-shrink: 0;
-    }
-
-    // Ícone fora do <a> (ex: Documentação)
-    > i.fa {
-      width: 16px;
-      text-align: center;
-      opacity: 0.7;
-      flex-shrink: 0;
-    }
-
-    // Ícone dentro de <span> irmão do <a> (ex: Vista reduzida, Contrair verticalmente)
-    > span i.fa {
-      width: 16px;
-      text-align: center;
-      opacity: 0.7;
-      flex-shrink: 0;
-      margin-right: 10px;
-    }
-
-    > span {
-      display: flex;
-      align-items: center;
-      flex: 1;
-    }
-
-    a {
+    // Link padrão: <li><a href="#"><i class="fa ..."></i> Texto</a></li>
+    > a {
       display: flex;
       align-items: center;
       gap: 10px;
-      flex: 1;
-      padding: 7px 10px;
+      width: 100%;
+      padding: 8px 12px;
       border-radius: var(--br-radius-sm);
       color: var(--br-text);
       font-size: 13px;
+      text-decoration: none !important;
+      transition: background 0.12s ease, color 0.12s ease;
+
+      i.fa, .fa {
+        width: 18px;
+        text-align: center;
+        opacity: 0.75;
+        flex-shrink: 0;
+        margin: 0;
+        font-size: 13px;
+      }
 
       &:hover {
         background: var(--br-surface-2);
+        color: var(--br-accent);
         text-decoration: none;
+
+        i.fa, .fa {
+          opacity: 1;
+          color: var(--br-accent);
+        }
       }
     }
-  }
 
-  // Cabeçalho do dropdown do usuário (ex: "admin")
-  li strong {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 8px 10px;
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--br-text);
-
-    &::before {
-      content: attr(data-initial);
-      width: 28px;
-      height: 28px;
-      border-radius: 8px;
-      background: var(--br-accent);
-      color: #fff;
+    // Quando <span> envolve ícone + link (ex: filter-compact, filter-vert-collapse na engrenagem)
+    > span {
       display: flex;
       align-items: center;
-      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      padding: 8px 12px;
+      border-radius: var(--br-radius-sm);
+      color: var(--br-text);
       font-size: 13px;
+      cursor: pointer;
+      transition: background 0.12s ease, color 0.12s ease;
+
+      i.fa, .fa {
+        width: 18px;
+        text-align: center;
+        opacity: 0.75;
+        flex-shrink: 0;
+        margin: 0;
+        font-size: 13px;
+      }
+
+      a {
+        display: inline-flex;
+        align-items: center;
+        padding: 0;
+        background: transparent !important;
+        color: inherit;
+        font-size: inherit;
+        text-decoration: none !important;
+        flex: 1;
+      }
+
+      &:hover {
+        background: var(--br-surface-2);
+        color: var(--br-accent);
+
+        i.fa, .fa {
+          opacity: 1;
+          color: var(--br-accent);
+        }
+
+        a {
+          color: var(--br-accent);
+        }
+      }
+    }
+
+    // Quando o ícone é irmão direto do <a> dentro de <li> (ex: Documentação no menu do usuário)
+    &:has(> i.fa) {
+      padding: 0;
+      border-radius: var(--br-radius-sm);
+      transition: background 0.12s ease, color 0.12s ease;
+
+      > i.fa, > .fa {
+        width: 18px;
+        text-align: center;
+        opacity: 0.75;
+        flex-shrink: 0;
+        margin-left: 12px;
+        margin-right: 10px;
+        font-size: 13px;
+      }
+
+      > a {
+        padding: 8px 12px 8px 0;
+        gap: 0;
+        background: transparent !important;
+        flex: 1;
+
+        &:hover {
+          background: transparent !important;
+        }
+      }
+
+      &:hover {
+        background: var(--br-surface-2);
+
+        > i.fa, > .fa {
+          opacity: 1;
+          color: var(--br-accent);
+        }
+
+        > a {
+          color: var(--br-accent);
+        }
+      }
+    }
+
+    // Cabeçalho do menu
+    &.no-hover {
+      padding: 6px 12px;
+      font-size: 12px;
       font-weight: 600;
+      color: var(--br-text-muted);
+      border-bottom: 1px solid var(--br-border);
+      margin-bottom: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+
+      &:hover {
+        background: none !important;
+      }
+    }
+
+    strong {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 4px 0;
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--br-text);
     }
   }
 }
@@ -1988,6 +2168,25 @@ label:has(input[type="radio"]),
 
 .form-required {
   color: var(--br-danger);
+  font-weight: bold;
+  margin-left: 4px;
+}
+
+// Asterisco vermelho junto ao label de campos obrigatórios
+label:has(+ input[required])::after,
+label:has(+ select[required])::after,
+label:has(+ textarea[required])::after,
+label:has(+ .input-addon input[required])::after {
+  content: " *";
+  color: var(--br-danger);
+  font-weight: bold;
+}
+
+// Oculta o span solto que o Kanboard coloca após o input
+input + .form-required,
+select + .form-required,
+textarea + .form-required {
+  display: none !important;
 }
 
 .form-actions {
@@ -1998,14 +2197,25 @@ label:has(input[type="radio"]),
   padding-top: 16px;
   border-top: 1px solid var(--br-border);
 
+  // Link de cancelamento estilizado como botão secundário moderno
   a {
-    color: var(--br-text-muted);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 7px 16px;
+    border-radius: var(--br-radius-sm);
+    background: var(--br-surface-2);
+    border: 1px solid var(--br-border);
+    color: var(--br-text-secondary);
     font-size: 13px;
-    text-decoration: none;
+    font-weight: 500;
+    text-decoration: none !important;
+    transition: all 0.15s ease;
 
     &:hover {
+      background: var(--br-surface-3);
       color: var(--br-text);
-      text-decoration: underline;
+      border-color: var(--br-border-strong);
     }
   }
 }
