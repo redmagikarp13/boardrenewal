@@ -164,20 +164,44 @@ class BoardRenewalHelper extends Base
     }
 
     /**
-     * ID da paleta selecionada
+     * ID da paleta selecionada (Prioridade: Usuário Logado > Configuração Global)
      */
     public function getPalette()
     {
+        if ($this->userSession->isLogged()) {
+            $userId = $this->userSession->getId();
+            $userPalette = $this->userMetadataModel->get($userId, 'boardrenewal_palette', '');
+            if (!empty($userPalette) && $userPalette !== 'system_default') {
+                $palettes = $this->getPalettes();
+                if (isset($palettes[$userPalette])) {
+                    return $userPalette;
+                }
+            }
+        }
+
         $val = $this->configModel->get('boardrenewal_palette', 'default');
         $palettes = $this->getPalettes();
         return isset($palettes[$val]) ? $val : 'default';
     }
 
     /**
-     * Cor customizada (quando palette == 'custom')
+     * Cor customizada (quando palette == 'custom') (Prioridade: Usuário Logado > Configuração Global)
      */
     public function getCustomAccentColor()
     {
+        if ($this->userSession->isLogged()) {
+            $userId = $this->userSession->getId();
+            $userAccent = trim($this->userMetadataModel->get($userId, 'boardrenewal_custom_accent', ''));
+            if (!empty($userAccent)) {
+                if ($userAccent[0] !== '#') {
+                    $userAccent = '#' . $userAccent;
+                }
+                if (preg_match('/^#[0-9a-fA-F]{3,8}$/', $userAccent)) {
+                    return $userAccent;
+                }
+            }
+        }
+
         $val = trim($this->configModel->get('boardrenewal_custom_accent', '#6366f1'));
         if (!empty($val) && $val[0] !== '#') {
             $val = '#' . $val;
@@ -238,10 +262,23 @@ class BoardRenewalHelper extends Base
     }
 
     /**
-     * Cor de fundo dos cards no modo claro
+     * Cor de fundo dos cards no modo claro (Prioridade: Usuário Logado > Configuração Global)
      */
     public function getCardBgLight()
     {
+        if ($this->userSession->isLogged()) {
+            $userId = $this->userSession->getId();
+            $userBg = trim($this->userMetadataModel->get($userId, 'boardrenewal_card_bg_light', ''));
+            if (!empty($userBg)) {
+                if ($userBg[0] !== '#') {
+                    $userBg = '#' . $userBg;
+                }
+                if (preg_match('/^#[0-9a-fA-F]{3,8}$/', $userBg)) {
+                    return $userBg;
+                }
+            }
+        }
+
         $val = trim($this->configModel->get('boardrenewal_card_bg_light', ''));
         if (!empty($val) && $val[0] !== '#') {
             $val = '#' . $val;
@@ -250,10 +287,23 @@ class BoardRenewalHelper extends Base
     }
 
     /**
-     * Cor de fundo dos cards no modo escuro
+     * Cor de fundo dos cards no modo escuro (Prioridade: Usuário Logado > Configuração Global)
      */
     public function getCardBgDark()
     {
+        if ($this->userSession->isLogged()) {
+            $userId = $this->userSession->getId();
+            $userBg = trim($this->userMetadataModel->get($userId, 'boardrenewal_card_bg_dark', ''));
+            if (!empty($userBg)) {
+                if ($userBg[0] !== '#') {
+                    $userBg = '#' . $userBg;
+                }
+                if (preg_match('/^#[0-9a-fA-F]{3,8}$/', $userBg)) {
+                    return $userBg;
+                }
+            }
+        }
+
         $val = trim($this->configModel->get('boardrenewal_card_bg_dark', ''));
         if (!empty($val) && $val[0] !== '#') {
             $val = '#' . $val;

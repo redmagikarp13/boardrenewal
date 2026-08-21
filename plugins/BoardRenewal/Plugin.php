@@ -14,8 +14,11 @@ class Plugin extends Base
         // Página de login moderna com suporte a logo e identidade visual
         $this->template->setTemplateOverride('auth/index', 'boardRenewal:auth/index');
 
-        // Hook na barra lateral de Configurações
+        // Hook na barra lateral de Configurações Globais
         $this->template->hook->attach('template:config:sidebar', 'boardRenewal:config/sidebar');
+
+        // Hook na barra lateral do Perfil de Usuário
+        $this->template->hook->attach('template:user:sidebar:actions', 'boardRenewal:user/sidebar');
     }
 
     public function getHelpers()
