@@ -1983,6 +1983,126 @@ ul.dropdown-submenu-open {
   }
 }
 
+// jQuery UI Autocomplete (Links internos, busca de tarefas, etc.)
+ul.ui-autocomplete,
+.ui-autocomplete {
+  position: absolute !important;
+  z-index: 10001 !important; // Deve ficar ACIMA do #modal-overlay (z-index: 1000) e #modal-box
+  max-height: 280px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  list-style: none;
+  margin: 4px 0 0;
+  padding: 6px;
+  background: var(--br-surface) !important;
+  border: 1px solid var(--br-border) !important;
+  border-radius: var(--br-radius);
+  box-shadow: var(--br-shadow-md), 0 12px 30px -4px rgba(0, 0, 0, 0.4) !important;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  font-family: var(--br-font);
+
+  .ui-menu-item {
+    list-style: none;
+    margin: 2px 0;
+    padding: 0;
+
+    .ui-menu-item-wrapper {
+      display: flex;
+      align-items: center;
+      padding: 8px 12px;
+      border-radius: var(--br-radius-sm);
+      color: var(--br-text);
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      border: none !important;
+      background: transparent;
+      transition: background 0.12s ease, color 0.12s ease;
+
+      &.ui-state-active,
+      &:hover {
+        background: var(--br-accent) !important;
+        color: var(--br-accent-contrast) !important;
+        border: none !important;
+        margin: 0 !important;
+      }
+    }
+  }
+}
+
+// jQuery UI Datepicker (Seleção de datas em modais e formulários)
+.ui-datepicker {
+  z-index: 10002 !important; // Acima de modais
+  background: var(--br-surface) !important;
+  border: 1px solid var(--br-border) !important;
+  border-radius: var(--br-radius) !important;
+  box-shadow: var(--br-shadow-md), 0 12px 30px -4px rgba(0, 0, 0, 0.4) !important;
+  backdrop-filter: blur(16px);
+  padding: 10px !important;
+  font-family: var(--br-font);
+  color: var(--br-text);
+
+  .ui-datepicker-header {
+    background: var(--br-surface-2) !important;
+    border: 1px solid var(--br-border) !important;
+    border-radius: var(--br-radius-sm) !important;
+    color: var(--br-text) !important;
+    padding: 4px 0 !important;
+
+    .ui-datepicker-prev,
+    .ui-datepicker-next {
+      cursor: pointer;
+      border-radius: var(--br-radius-sm);
+
+      &:hover {
+        background: var(--br-surface-3);
+        border: none;
+      }
+    }
+  }
+
+  table {
+    margin: 8px 0 0 !important;
+
+    th {
+      color: var(--br-text-muted);
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    td {
+      padding: 2px !important;
+
+      a, span {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 28px;
+        height: 28px;
+        border-radius: var(--br-radius-sm);
+        border: none !important;
+        background: transparent;
+        color: var(--br-text);
+        font-size: 12px;
+        text-align: center;
+        text-decoration: none;
+
+        &:hover {
+          background: var(--br-surface-2) !important;
+          color: var(--br-accent) !important;
+        }
+
+        &.ui-state-active {
+          background: var(--br-accent) !important;
+          color: var(--br-accent-contrast) !important;
+          font-weight: 600;
+        }
+      }
+    }
+  }
+}
+
 // Botões (o core usa .btn, .btn-blue, .btn-red, .btn-green)
 .btn {
   display: inline-flex;
