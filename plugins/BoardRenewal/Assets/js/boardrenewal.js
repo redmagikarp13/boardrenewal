@@ -152,6 +152,9 @@
                 }
             }
         });
+
+        // Configurações do Tema (BoardRenewal Theme Settings)
+        initSettingsPage();
     });
 
     // Remove nós de linhas de ícones que não contêm nenhum elemento filho nem texto
@@ -197,6 +200,250 @@
                 container.setAttribute('data-formatted', 'true');
             }
         });
+    }
+
+    // ----------------------------------------------------
+    // Configurações do Tema (BoardRenewal Theme Settings)
+    // ----------------------------------------------------
+    function initSettingsPage() {
+        var settingsForm = document.querySelector('.br-settings-form');
+        if (!settingsForm) return;
+
+        // 1. Paleta de Cores
+        var paletteCards = document.querySelectorAll('.br-palette-card');
+        var paletteRadios = document.querySelectorAll('.br-palette-card__radio');
+        var customContainer = document.getElementById('br-custom-color-container');
+        var customSwatch = document.querySelector('.br-custom-primary-swatch');
+        var customPicker = document.getElementById('br-custom-accent-picker');
+        var customText = document.getElementById('boardrenewal_custom_accent');
+
+        function updatePaletteSelection(selectedVal) {
+            paletteCards.forEach(function (c) {
+                var r = c.querySelector('.br-palette-card__radio');
+                if (r && r.value === selectedVal) {
+                    r.checked = true;
+                    c.classList.add('br-palette-card--selected');
+                } else {
+                    c.classList.remove('br-palette-card--selected');
+                }
+            });
+
+            if (customContainer) {
+                customContainer.style.display = (selectedVal === 'custom') ? 'block' : 'none';
+            }
+        }
+
+        function selectCustomPalette() {
+            updatePaletteSelection('custom');
+        }
+
+        function updateCustomAccent(val) {
+            if (!val) return;
+            var cleanHex = val.trim();
+            if (cleanHex.charAt(0) !== '#') cleanHex = '#' + cleanHex;
+
+            if (/^#[0-9a-fA-F]{6}$/.test(cleanHex)) {
+                if (customPicker) customPicker.value = cleanHex;
+                if (customSwatch) customSwatch.style.backgroundColor = cleanHex;
+            }
+            if (customText) {
+                customText.value = cleanHex;
+            }
+        }
+
+        paletteCards.forEach(function (card) {
+            card.addEventListener('click', function () {
+                var radio = this.querySelector('.br-palette-card__radio');
+                if (radio) {
+                    updatePaletteSelection(radio.value);
+                }
+            });
+        });
+
+        paletteRadios.forEach(function (radio) {
+            radio.addEventListener('change', function () {
+                if (this.checked) {
+                    updatePaletteSelection(this.value);
+                }
+            });
+        });
+
+        if (customPicker && customText) {
+            var handleCustomInput = function () {
+                customText.value = customPicker.value;
+                if (customSwatch) customSwatch.style.backgroundColor = customPicker.value;
+                selectCustomPalette();
+            };
+            customPicker.addEventListener('input', handleCustomInput);
+            customPicker.addEventListener('change', handleCustomInput);
+
+            customText.addEventListener('input', function () {
+                var v = this.value.trim();
+                if (v.charAt(0) !== '#') v = '#' + v;
+                if (/^#[0-9a-fA-F]{6}$/.test(v)) {
+                    customPicker.value = v;
+                    if (customSwatch) customSwatch.style.backgroundColor = v;
+                }
+                selectCustomPalette();
+            });
+        }
+
+        // Chips de cores sugeridas
+        var accentChips = document.querySelectorAll('.br-accent-chip-btn');
+        accentChips.forEach(function (chip) {
+            chip.addEventListener('click', function (e) {
+                e.preventDefault();
+                e.stopPropagation();
+                var color = this.getAttribute('data-color');
+                if (color) {
+                    updateCustomAccent(color);
+                    selectCustomPalette();
+                }
+            });
+        });
+
+        // 2. Fundo dos Cards (Claro e Escuro)
+        var cardLightPicker = document.getElementById('br-card-bg-light-picker');
+        var cardLightText = document.getElementById('boardrenewal_card_bg_light');
+        var cardDarkPicker = document.getElementById('br-card-bg-dark-picker');
+        var cardDarkText = document.getElementById('boardrenewal_card_bg_dark');
+        var previewCardLight = document.getElementById('br-card-preview-light');
+        var previewCardDark = document.getElementById('br-card-preview-dark');
+        var resetLightBtn = document.getElementById('br-reset-card-light');
+        var resetDarkBtn = document.getElementById('br-reset-card-dark');
+
+        function updateCardPreviews() {
+            var lightVal = cardLightText ? cardLightText.value.trim() : '';
+            var darkVal = cardDarkText ? cardDarkText.value.trim() : '';
+
+            if (previewCardLight) {
+                previewCardLight.style.backgroundColor = lightVal || '#ffffff';
+            }
+            if (previewCardDark) {
+                previewCardDark.style.backgroundColor = darkVal || '#1e2030';
+            }
+        }
+
+        if (cardLightPicker && cardLightText) {
+            var handleLightInput = function () {
+                cardLightText.value = cardLightPicker.value;
+                updateCardPreviews();
+            };
+            cardLightPicker.addEventListener('input', handleLightInput);
+            cardLightPicker.addEventListener('change', handleLightInput);
+
+            cardLightText.addEventListener('input', function () {
+                var v = this.value.trim();
+                if (v.charAt(0) !== '#') v = '#' + v;
+                if (/^#[0-9a-fA-F]{6}$/.test(v)) {
+                    cardLightPicker.value = v;
+                }
+                updateCardPreviews();
+            });
+        }
+
+        if (cardDarkPicker && cardDarkText) {
+            var handleDarkInput = function () {
+                cardDarkText.value = cardDarkPicker.value;
+                updateCardPreviews();
+            };
+            cardDarkPicker.addEventListener('input', handleDarkInput);
+            cardDarkPicker.addEventListener('change', handleDarkInput);
+
+            cardDarkText.addEventListener('input', function () {
+                var v = this.value.trim();
+                if (v.charAt(0) !== '#') v = '#' + v;
+                if (/^#[0-9a-fA-F]{6}$/.test(v)) {
+                    cardDarkPicker.value = v;
+                }
+                updateCardPreviews();
+            });
+        }
+
+        if (resetLightBtn && cardLightText && cardLightPicker) {
+            resetLightBtn.addEventListener('click', function (e) {
+                e.preventDefault();
+                e.stopPropagation();
+                cardLightText.value = '';
+                cardLightPicker.value = '#ffffff';
+                updateCardPreviews();
+            });
+        }
+
+        if (resetDarkBtn && cardDarkText && cardDarkPicker) {
+            resetDarkBtn.addEventListener('click', function (e) {
+                e.preventDefault();
+                e.stopPropagation();
+                cardDarkText.value = '';
+                cardDarkPicker.value = '#1e2030';
+                updateCardPreviews();
+            });
+        }
+
+        // Presets rápidos de fundo de card
+        var presetButtons = document.querySelectorAll('.br-card-preset-btn');
+        presetButtons.forEach(function (btn) {
+            btn.addEventListener('click', function (e) {
+                e.preventDefault();
+                e.stopPropagation();
+                var light = this.getAttribute('data-light');
+                var dark = this.getAttribute('data-dark');
+                if (light && cardLightText && cardLightPicker) {
+                    cardLightText.value = light;
+                    cardLightPicker.value = light;
+                }
+                if (dark && cardDarkText && cardDarkPicker) {
+                    cardDarkText.value = dark;
+                    cardDarkPicker.value = dark;
+                }
+                updateCardPreviews();
+            });
+        });
+
+        // 3. Texturas / Imagem
+        var textureSelect = document.getElementById('boardrenewal_bg_texture');
+        var bgGroup = document.getElementById('br-bg-image-group');
+        var opacityRange = document.getElementById('boardrenewal_bg_opacity_range');
+        var opacityText = document.getElementById('boardrenewal_bg_opacity');
+
+        if (textureSelect && bgGroup) {
+            textureSelect.addEventListener('change', function () {
+                bgGroup.style.display = (this.value === 'custom_image') ? 'block' : 'none';
+            });
+        }
+
+        if (opacityRange && opacityText) {
+            opacityRange.addEventListener('input', function () { opacityText.value = this.value; });
+            opacityText.addEventListener('input', function () { opacityRange.value = this.value; });
+        }
+
+        // 4. Prévia de Logo e Nome
+        var logoInput = document.getElementById('boardrenewal_logo_url');
+        var brandInput = document.getElementById('boardrenewal_brand_name');
+        var previewImg = document.getElementById('br-preview-logo-img');
+        var previewDefaultIcon = document.getElementById('br-preview-default-icon');
+        var previewText = document.getElementById('br-preview-brand-text');
+
+        function updateBrandPreview() {
+            var url = logoInput ? logoInput.value.trim() : '';
+            var name = brandInput ? brandInput.value.trim() : '';
+
+            if (url && previewImg && previewDefaultIcon) {
+                previewImg.src = url;
+                previewImg.style.display = 'inline-block';
+                previewDefaultIcon.style.display = 'none';
+            } else if (previewImg && previewDefaultIcon) {
+                previewImg.style.display = 'none';
+                previewDefaultIcon.style.display = 'inline-block';
+            }
+
+            if (previewText) {
+                previewText.textContent = name || 'Kanboard';
+            }
+        }
+
+        if (logoInput) logoInput.addEventListener('input', updateBrandPreview);
+        if (brandInput) brandInput.addEventListener('input', updateBrandPreview);
     }
 
     // Reestrutura o feed de atividades: cada card ganha um ícone de ação

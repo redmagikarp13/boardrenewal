@@ -285,7 +285,10 @@ class BoardRenewalHelper extends Base
 
         $css = '<style id="br-dynamic-theme">' . "\n";
 
-        // Variáveis de paleta
+        // Variáveis de paleta e superfícies
+        $effectiveCardBgLight = !empty($cardBgLight) ? $cardBgLight : 'var(--br-surface)';
+        $effectiveCardBgDark = !empty($cardBgDark) ? $cardBgDark : 'var(--br-surface)';
+
         $css .= ":root, [data-theme='light'] {\n";
         $css .= "  --br-accent: {$primary};\n";
         $css .= "  --br-accent-hover: {$hover};\n";
@@ -294,9 +297,7 @@ class BoardRenewalHelper extends Base
         $css .= "  --link-color-primary: {$primary};\n";
         $css .= "  --button-primary-background-color: {$primary};\n";
         $css .= "  --button-primary-border-color: {$primary};\n";
-        if (!empty($cardBgLight)) {
-            $css .= "  --br-card-bg: {$cardBgLight};\n";
-        }
+        $css .= "  --br-card-bg: {$effectiveCardBgLight};\n";
         $css .= "}\n";
 
         $css .= "[data-theme='dark'] {\n";
@@ -307,9 +308,17 @@ class BoardRenewalHelper extends Base
         $css .= "  --link-color-primary: {$primary};\n";
         $css .= "  --button-primary-background-color: {$primary};\n";
         $css .= "  --button-primary-border-color: {$primary};\n";
-        if (!empty($cardBgDark)) {
-            $css .= "  --br-card-bg: {$cardBgDark};\n";
-        }
+        $css .= "  --br-card-bg: {$effectiveCardBgDark};\n";
+        $css .= "}\n";
+
+        $css .= "[data-theme='auto'] {\n";
+        $css .= "  --br-card-bg: {$effectiveCardBgLight};\n";
+        $css .= "}\n";
+        $css .= "@media (prefers-color-scheme: dark) {\n";
+        $css .= "  [data-theme='auto'] {\n";
+        $css .= "    --br-accent-soft: {$softDark};\n";
+        $css .= "    --br-card-bg: {$effectiveCardBgDark};\n";
+        $css .= "  }\n";
         $css .= "}\n";
 
         // Texturas e planos de fundo
